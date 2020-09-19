@@ -4,12 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="./styles/question_form.css" />
-    <link rel="stylesheet" href="./styles/quiz.css" />
-    <link rel="stylesheet" href="./styles/body.css" />
-    <link rel="stylesheet" href="./styles/nav.css" />
-
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=PT+Sans&family=PT+Serif:ital@0;1&display=swap"
       rel="stylesheet"
@@ -29,6 +23,12 @@
       crossorigin="anonymous"
     />
 
+    <!-- CSS -->
+    <link rel="stylesheet" href="./styles/question_form.css" />
+    <link rel="stylesheet" href="./styles/quiz.css" />
+    <link rel="stylesheet" href="./styles/body.css" />
+    <link rel="stylesheet" href="./styles/nav.css" />
+
     <!-- EXTERNAL Library -->
 
     <script
@@ -36,36 +36,26 @@
       integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
       crossorigin="anonymous"
     ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
 
     <title>Quiz App</title>
   </head>
   <body>
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="#"
-              >Home <span class="sr-only">(current)</span></a
-            >
-            <a class="nav-item nav-link" href="#">Features</a>
-            <a class="nav-item nav-link" href="#">Pricing</a>
-          </div>
+    <nav class="navbar navbar-dark justify-content-between">
+      <div class="nv-block">
+        <a class="navbar-brand">Q.a.</a>
+        <div class="nv-links">
+          <a class="nav-link" href="#">Home</a>
+          <a class="nav-link" href="#">Create</a>
+          <a class="nav-link" href="#">Quizzes</a>
         </div>
-      </nav>
-    </header>
+      </div>
+      <div class="nv-links-right">
+        <a class="nav-link" href="#" id="nv_username">username</a>
+        <a class="nav-link" href="#">Login / Register</a>
+        <a class="nav-link" href="#">Logout</a>
+      </div>
+    </nav>
     <div class="quiz_body">
       <div class="card question_body">
         <div>
