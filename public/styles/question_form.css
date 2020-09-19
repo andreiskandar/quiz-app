@@ -10,9 +10,22 @@
 }
 
 .form-footer {
+  border: solid thin black;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  /* margin: 0 20px; */
 }
-.question_counter {
-  position: inherit;
+
+.btn {
+  position: relative;
+}
+
+h2 {
+  position: relative;
+  border: solid black thin;
+}
+a {
+  border: solid black thin;
 }
