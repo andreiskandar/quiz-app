@@ -23,10 +23,10 @@ router.get('/', (req, res) => {
 //GET /quiz/:id
 //these will not be cats once we have quiz data to generate
 router.get('/:id', (req, res) => {
-  // getCatById(req.params.id)
-  // .then((cat) => {
-    res.render('index');
+  getCatById(req.params.id)
+  .then((cat) => {
+    res.render('quiz', { cat });
   });
-// });
+});
 
 module.exports = router;

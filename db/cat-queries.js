@@ -17,12 +17,10 @@ const getCats = (cb) => {
 //query our cats by ID
 //99% of promises you will not create you just handle
 const getCatById = (id) => {
-  //return value from getGetById Function returning the entire promise
-  return pool.query('SELECT * FROM cats where id = $1;', [id])
-  //returning the response from our request
-  .then((response) => {
-    return response.rows[0];
-  });
+  return pool.query('SELECT * FROM cats WHERE id = $1;', [id])
+    .then((response) => {
+      return response.rows[0];
+    });
 };
 
 module.exports = {
