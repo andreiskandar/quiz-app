@@ -13,5 +13,12 @@
 
   <body>
     <h1>Hello World!</h1>
+
+    <% for(const cat of cats) { %>
+      <div>
+        <h2>Name: <%= cat.name %></h2>
+        <h3>Breed: <% cat.breed %></h3>
+      </div>
+      <% } %>
   </body>
 </html>
