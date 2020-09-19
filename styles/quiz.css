@@ -4,7 +4,79 @@
 
 .question_body {
   width: 50%;
+  font-family: "PT serif";
+  color: #00338d;
+}
+.question_number {
+  font-size: 90px;
+  margin: 0;
+}
+.question_string {
+  margin-top: 120px;
+  font-size: 40px;
+  padding: 0 5vw;
+}
+.question_counter {
+  font-size: 4vh;
+  margin: 0 40%;
+  opacity: 0.5;
 }
 .answer_form {
-  background-image: url(./images/answer_bg.jpeg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url(/images/coding2.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.6;
+  width: 50%;
+  height: 90vh;
+}
+.answer_container {
+  display: flex;
+  border: solid thin white;
+  color: #fff;
+  margin: 1em 0;
+  height: auto;
+  font-size: 23.8px;
+  width: 80%;
+}
+
+.radioCustomButton {
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  position: absolute;
+  cursor: pointer;
+  background: transparent;
+}
+.option {
+  color: #00338d;
+  font-weight: 700;
+  display: flex;
+  background-color: #fff;
+  font-size: 1em;
+  float: left;
+  margin: 5px;
+  width: 8vw;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.answerLabel {
+  display: flex;
+  justify-content: center;
+  line-height: 1.5;
+  text-align: left;
+  width: 100%;
+  margin: 0 0 0 -20%;
+  padding: 10px 10px 10px 24%;
+  float: left;
 }
