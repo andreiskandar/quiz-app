@@ -8,6 +8,7 @@ const pool = require('./db');
 const getCats = (cb) => {
   pool.query('Select * FROM cats ORDER BY id;')
   .then((response) => {
+    console.log(response.rows)
     //when our promise resolves in the resolution we are then calling our callback with response.rows (our array of cats)
     cb(response.rows);
   })

@@ -12,24 +12,21 @@ router.use((req, res, next) => {
   console.log('product middleware called');
   next();
 });
-// GET /products/
+// GET /quiz/
+//these will not be cats once we have quiz data to generate
 router.get('/', (req, res) => {
-  getCatById(req.params.id)
-  .then((cat) => {
-    res.render('index', {cat});
+  getCats((cats) => {
+    res.render('index', { cats })
   });
 });
-//   getProducts()
-//     .then((products) => {
-//       res.json({ products }); // AJAX client-side rendering
-//       // res.render('products', {products}); // server-side rendering multi-page
-//     });
+
+//GET /quiz/:id
+//these will not be cats once we have quiz data to generate
+router.get('/:id', (req, res) => {
+  // getCatById(req.params.id)
+  // .then((cat) => {
+    res.render('index');
+  });
 // });
-// GET /products/:id/
-// router.get('/:id', (req, res) => {
-//   getProductById(req.params.id)
-//     .then((product) => {
-//       res.json({ product });
-//     })
-// });
+
 module.exports = router;
