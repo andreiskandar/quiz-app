@@ -1,0 +1,10 @@
+.quiz_body {
+  display: flex;
+}
+
+.question_body {
+  width: 50%;
+}
+.answer_form {
+  background-image: url(./images/answer_bg.jpeg);
+}
