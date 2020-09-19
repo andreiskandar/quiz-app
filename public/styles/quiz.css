@@ -3,7 +3,7 @@
 }
 
 .card {
-  border-radius: 10em;
+  /* border-radius: 10em; */
 }
 .question_body {
   display: flex;
@@ -11,7 +11,6 @@
   justify-content: center;
   width: 50%;
   font-family: "PT serif";
-  /* border-radius: 1em; */
 }
 
 .question_number {
@@ -28,7 +27,6 @@
 }
 .question_counter {
   font-size: 4vh;
-  /* margin: 10px 40%; */
   opacity: 0.5;
 }
 .answer_form {
@@ -56,20 +54,12 @@
   justify-content: center;
   line-height: 1.5;
   text-align: left;
-  font-size: 1.5em;
-  /* width: 100%; */
-  /* margin: 0 0 0 -20%; */
-  /* padding: 10px 10px 10px 24%; */
-  /* float: left; */
+  font-size: 1em;
 }
 
 .fa-angle-double-left {
   color: black;
   transform: scale(3);
-  /* position: relative;
-  left: 50px;
-  bottom: -42px; 
-  padding: 0; */
 }
 
 .quiz_body_footer {
