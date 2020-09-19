@@ -6,5 +6,5 @@ CREATE TABLE responses (
   answer_id       INTEGER REFERENCES answers(id),
   user_id         INTEGER REFERENCES users(id),
   timestamp       DATE NOT NULL default NOW(),
-  active          BOOLEAN DEFAULT false
+  active          BOOLEAN DEFAULT true
 );
