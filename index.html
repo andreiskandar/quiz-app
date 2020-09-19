@@ -3,7 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- CSS -->
     <link rel="stylesheet" href="./styles/quiz.css" />
+    <link rel="stylesheet" href="./styles/body.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=PT+Sans&family=PT+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      cr
+      <!--
+      EXTERNAL
+      Library
+      --
+    />
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
       integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
@@ -20,12 +39,58 @@
           What library is used for parsing, validating, manipulating, and
           formatting dates?
         </h1>
+        <h2 class="question_counter">1/10</h2>
+        <a href="#" class="btn back"><i class="fas fa-arrow-left"></i> </a>
       </div>
       <form class="answer_form">
-        <div class="answer_box"><span>A</span> Answer 1</div>
-        <div class="answer_box"><span>B</span> Answer 2</div>
-        <div class="answer_box"><span>C</span> Answer 3</div>
-        <div class="answer_box"><span>D</span> Answer 4</div>
+        <div class="answer_container">
+          <input
+            type="radio"
+            class="radioCustomButton"
+            id="a"
+            name="radioGroup"
+          />
+          <div>
+            <p class="option">A</p>
+          </div>
+          <label for="a" class="answerLabel">Answer 1</label>
+        </div>
+        <div class="answer_container">
+          <input
+            type="radio"
+            class="radioCustomButton"
+            id="a"
+            name="radioGroup"
+          />
+          <div>
+            <p class="option">B</p>
+          </div>
+          <label for="" class="answerLabel">Answer 2</label>
+        </div>
+        <div class="answer_container">
+          <input
+            type="radio"
+            class="radioCustomButton"
+            id="a"
+            name="radioGroup"
+          />
+          <div>
+            <p class="option">C</p>
+          </div>
+          <label for="a" class="answerLabel">Answer 3</label>
+        </div>
+        <div class="answer_container">
+          <input
+            type="radio"
+            class="radioCustomButton"
+            id="a"
+            name="radioGroup"
+          />
+          <div>
+            <p class="option">D</p>
+          </div>
+          <label for="a" class="answerLabel">Answer 4</label>
+        </div>
       </form>
     </div>
     <script src="server.js"></script>
