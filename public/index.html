@@ -42,60 +42,58 @@
   <body>
     <div class="quiz_body">
       <div class="card question_body">
-        <h1 class="question_title">
-          Test Question <span class="question_title_counter">1</span>
-        </h1>
-        <form>
-          <textarea
-            name="text"
-            class="tweet-text"
-            id="tweet-text"
-            placeholder="Please type question"
-          >
-          </textarea>
+        <form class="question_form_body">
+          <div class="form-group">
+            <textarea
+              class="form-control"
+              id="question_text"
+              placeholder="Please Type Test Question"
+              rows="3"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <textarea
+              class="form-control"
+              id="answer1"
+              placeholder="Answer 1"
+              rows="1"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <textarea
+              class="form-control"
+              id="answer2"
+              placeholder="Answer 2"
+              rows="1"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <textarea
+              class="form-control"
+              id="answer3"
+              placeholder="Answer 3"
+              rows="1"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <textarea
+              class="form-control"
+              id="answer4"
+              placeholder="Answer 4"
+              rows="1"
+            ></textarea>
+          </div>
+          <div class="form-footer">
+            <a href="#" class="back question_form_back"
+              ><i class="fas fa-angle-double-left"></i>
+            </a>
+            <button type="submit" class="btn btn-dark">Submit</button>
+            <h2 class="question_counter">1</h2>
+          </div>
         </form>
         <!-- <h1 class="question_string"></h1> -->
-        <!-- <h2 class="question_counter">1/10</h2> -->
-        <a href="#" class="back"><i class="fas fa-angle-double-left"></i> </a>
       </div>
-      <form class="answer_form right_bg">
-        <div class="btn btn-outline-light option1-btn answer-div">
-          <input
-            type="radio"
-            class="radioCustomButton"
-            id="option1"
-            name="radioGroup"
-          />
-          <label class="answerLabel">Answer 1</label>
-        </div>
-        <div class="btn btn-outline-light option2-btn answer-div">
-          <input
-            type="radio"
-            class="radioCustomButton"
-            id="option2"
-            name="radioGroup"
-          />
-          <label class="answerLabel">Answer 2</label>
-        </div>
-        <div class="btn btn-outline-light option3-btn answer-div">
-          <input
-            type="radio"
-            class="radioCustomButton"
-            id="option3"
-            name="radioGroup"
-          />
-          <label class="answerLabel">Answer 3</label>
-        </div>
-        <div class="btn btn-outline-light option4-btn answer-div">
-          <input
-            type="radio"
-            class="radioCustomButton"
-            id="option4"
-            name="radioGroup"
-          />
-          <label class="answerLabel">Answer 4</label>
-        </div>
-      </form>
+      <form class="answer_form right_bg"></form>
     </div>
     <!-- App JS -->
     <script src="app.js"></script>

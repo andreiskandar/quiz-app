@@ -3,14 +3,6 @@ body {
   background-color: #f2ebdc;
 }
 
-.question_body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 50%;
-  font-family: "PT serif";
-  /* border-radius: 1em; */
-}
 .right_bg {
   background-image: url(/images/coding2.png);
   background-size: cover;

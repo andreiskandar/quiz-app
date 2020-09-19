@@ -1,10 +1,18 @@
-.question_title {
-  position: relative;
-  left: 50px;
-}
 .question_form_body {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* width: 80%; */
 }
-textarea {
+
+.form-group {
   width: 80%;
+}
+
+.form-footer {
+  display: flex;
+  justify-content: space-around;
+}
+.question_counter {
+  position: inherit;
 }
