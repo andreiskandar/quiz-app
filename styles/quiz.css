@@ -2,12 +2,17 @@
   display: flex;
 }
 
+.card {
+  border-radius: 10em;
+}
+
 .question_body {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 50%;
   font-family: "PT serif";
+  /* border-radius: 1em; */
 }
 .question_number {
   font-size: 90px;
@@ -21,7 +26,7 @@
 }
 .question_counter {
   font-size: 4vh;
-  margin: 0 40%;
+  margin: 10px 40%;
   opacity: 0.5;
 }
 .answer_form {
@@ -36,28 +41,20 @@
   width: 50%;
   height: 90vh;
 }
-.answer_container {
+.answer-div {
   display: flex;
-  border: solid thin white;
-  color: #fff;
+  flex-direction: row;
   margin: 1em 0;
   height: auto;
   font-size: 23.8px;
   width: 80%;
+  cursor: pointer;
 }
 
 .radioCustomButton {
-  display: flex;
-  align-items: center;
-  opacity: 0;
-  margin: 0;
-  padding: 0;
-  width: auto;
-  position: absolute;
-  cursor: pointer;
-  background: transparent;
+  /* display: none; */
 }
-.option {
+/* .option {
   color: black;
   font-weight: 700;
   display: flex;
@@ -71,19 +68,24 @@
   margin: 0;
   align-items: center;
   justify-content: center;
-}
+} */
 
 .answerLabel {
   display: flex;
   justify-content: center;
   line-height: 1.5;
   text-align: left;
-  width: 100%;
-  margin: 0 0 0 -20%;
-  padding: 10px 10px 10px 24%;
-  float: left;
+  font-size: 1.5em;
+  /* width: 100%; */
+  /* margin: 0 0 0 -20%; */
+  /* padding: 10px 10px 10px 24%; */
+  /* float: left; */
 }
 
-i {
-  height: 50px;
+.fa-angle-double-left {
+  color: black;
+  transform: scale(3);
+  position: relative;
+  left: 85px;
+  bottom: -42px;
 }
