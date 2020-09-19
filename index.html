@@ -17,12 +17,18 @@
       rel="stylesheet"
       href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
       integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-      cr
-      <!--
-      EXTERNAL
-      Library
-      --
+      crossorigin="anonymous"
     />
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <!-- EXTERNAL Library -->
+
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
       integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
@@ -34,7 +40,8 @@
   </head>
   <body>
     <div class="quiz_body">
-      <div class="question_body">
+      <div class="card question_body">
+        <h1 class="question_number">1</h1>
         <h1 class="question_string">
           What library is used for parsing, validating, manipulating, and
           formatting dates?
@@ -43,56 +50,46 @@
         <a href="#" class="back"><i class="fas fa-angle-double-left"></i> </a>
       </div>
       <form class="answer_form">
-        <div class="answer_container">
+        <div class="btn btn-outline-light option1-btn answer-div">
           <input
             type="radio"
             class="radioCustomButton"
-            id="a"
+            id="option1"
             name="radioGroup"
           />
-          <div>
-            <p class="option">A</p>
-          </div>
-          <label for="a" class="answerLabel">Answer 1</label>
+          <label class="answerLabel">Answer 1</label>
         </div>
-        <div class="answer_container">
+        <div class="btn btn-outline-light option2-btn answer-div">
           <input
             type="radio"
             class="radioCustomButton"
-            id="b"
+            id="option2"
             name="radioGroup"
           />
-          <div>
-            <p class="option">B</p>
-          </div>
-          <label for="" class="answerLabel">Answer 2</label>
+          <label class="answerLabel">Answer 2</label>
         </div>
-        <div class="answer_container">
+        <div class="btn btn-outline-light option3-btn answer-div">
           <input
             type="radio"
             class="radioCustomButton"
-            id="c"
+            id="option3"
             name="radioGroup"
           />
-          <div>
-            <p class="option">C</p>
-          </div>
-          <label for="a" class="answerLabel">Answer 3</label>
+          <label class="answerLabel">Answer 3</label>
         </div>
-        <div class="answer_container">
+        <div class="btn btn-outline-light option4-btn answer-div">
           <input
             type="radio"
             class="radioCustomButton"
-            id="d"
+            id="option4"
             name="radioGroup"
           />
-          <div>
-            <p class="option">D</p>
-          </div>
-          <label for="a" class="answerLabel">Answer 4</label>
+          <label class="answerLabel">Answer 4</label>
         </div>
       </form>
     </div>
-    <script src="server.js"></script>
+    <!-- App JS -->
+    <script src="app.js"></script>
+    <script src="serverUI.js"></script>
   </body>
 </html>
