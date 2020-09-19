@@ -1,0 +1,10 @@
+.question_title {
+  position: relative;
+  left: 50px;
+}
+.question_form_body {
+  display: flex;
+}
+textarea {
+  width: 80%;
+}
