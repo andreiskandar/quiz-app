@@ -4,13 +4,15 @@
   align-items: center;
   /* width: 80%; */
 }
-
+.question_title {
+  margin: 1em;
+}
 .form-group {
   width: 80%;
 }
 
 .form-footer {
-  border: solid thin black;
+  /* border: solid thin black; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -18,14 +20,6 @@
   /* margin: 0 20px; */
 }
 
-.btn {
-  position: relative;
-}
-
-h2 {
-  position: relative;
-  border: solid black thin;
-}
 a {
-  border: solid black thin;
+  margin-left: 12px;
 }
