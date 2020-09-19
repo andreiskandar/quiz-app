@@ -6,7 +6,6 @@ CREATE TABLE questions (
   question_categories_id  INTEGER REFERENCES question_categories(id),
   question                TEXT NOT NULL,
   time_limit              INTEGER,
-  end_time                INTEGER,
   user_id                 INTEGER,
   active                  BOOLEAN DEFAULT false
 );
