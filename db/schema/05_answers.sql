@@ -9,3 +9,4 @@ CREATE TABLE answers (
   user_id         INTEGER,
   active          BOOLEAN DEFAULT false
 );
+
