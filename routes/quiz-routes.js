@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+//we will replace this later
+const { getCats, getCatById } = require('../db/cat-queries');
 
 // const { getProductById, getProducts } = require('../db/product-queries');
 // add middleware
@@ -10,21 +12,21 @@ router.use((req, res, next) => {
   console.log('product middleware called');
   next();
 });
-// GET /products/
+// GET /quiz/
+//these will not be cats once we have quiz data to generate
 router.get('/', (req, res) => {
-  res.send("Hello World");
+  getCats((cats) => {
+    res.render('index', { cats })
+  });
 });
-//   getProducts()
-//     .then((products) => {
-//       res.json({ products }); // AJAX client-side rendering
-//       // res.render('products', {products}); // server-side rendering multi-page
-//     });
-// });
-// GET /products/:id/
-// router.get('/:id', (req, res) => {
-//   getProductById(req.params.id)
-//     .then((product) => {
-//       res.json({ product });
-//     })
-// });
+
+//GET /quiz/:id
+//these will not be cats once we have quiz data to generate
+router.get('/:id', (req, res) => {
+  getCatById(req.params.id)
+  .then((cat) => {
+    res.render('quiz', { cat });
+  });
+});
+
 module.exports = router;

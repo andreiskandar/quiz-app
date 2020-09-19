@@ -1,18 +1,17 @@
-const pg = require('pg');
-const Client = pg.Client;
+const { Pool } = require('pg');
 
-const config = {
+const pool = new Pool({
   user: process.env.DB_USER,
-  host: process.env.DB_HOST,
-  database: process.env.DB_NAME,
   password: process.env.DB_PASS,
-  port: 5432
-};
+  database: process.env.DB_NAME,
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+});
 
-const client = new Client(config);
+// const client = new Client(config);
 
-client.connect(() => {
+pool.connect(() => {
   console.log('connected to database');
 });
 
-module.exports = client;
+module.exports = pool;

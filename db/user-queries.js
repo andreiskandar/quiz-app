@@ -1,3 +1,4 @@
+//keep these files in for now as examples for when we implement our queries
 const db = require('./db');
 
 const getUsers = () => {
