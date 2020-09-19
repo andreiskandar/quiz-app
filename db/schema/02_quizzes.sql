@@ -7,10 +7,10 @@ CREATE TABLE quizzes (
   name              VARCHAR(255) NOT NULL,
   url_link          TEXT,
   pin               INTEGER,
-  listed            BOOLEAN DEFAULT true,
+  public            BOOLEAN DEFAULT true,
   time_limit        INTEGER,
   start_time        INTEGER,
   end_time          INTEGER,
   user_id           VARCHAR(255),
-  active            BOOLEAN
+  active            BOOLEAN DEFAULT false
 );
