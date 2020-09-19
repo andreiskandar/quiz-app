@@ -1,0 +1,38 @@
+nav {
+  background-color: #262626;
+  display: flex;
+  align-items: center;
+  height: 8vh;
+  color: #fff;
+}
+.navbar-brand {
+  margin-left: 1em;
+  font-size: 1.5em;
+  color: #fff;
+}
+
+.nv-block {
+  display: flex;
+  align-items: center;
+}
+
+.nv-links {
+  display: flex;
+}
+.nv-links-right {
+  display: flex;
+}
+
+.nav-link {
+  color: #fff;
+}
+
+/* .navbar-leftside {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar-rightside {
+  display: flex;
+ margin-right: auto;
+} */
