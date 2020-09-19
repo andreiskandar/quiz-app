@@ -39,9 +39,6 @@
   /* background-image: url(/images/coding2.png);
   background-size: cover;
   background-repeat: no-repeat; */
-  /* opacity: 0.6; */
-  width: 50%;
-  height: 100vh;
 }
 .answer-div {
   display: flex;
@@ -85,10 +82,10 @@
 }
 
 .fa-angle-double-left {
-  color: black;
+  /* color: black; */
   transform: scale(3);
-  position: relative;
+  /* position: relative;
   left: 85px;
-  bottom: -42px;
+  bottom: -42px; */
   padding: 0;
 }
