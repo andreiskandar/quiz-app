@@ -7,7 +7,7 @@ CREATE TABLE users (
   password        VARCHAR(255) NOT NULL,
   email           VARCHAR(255),
   nickname        VARCHAR(255),
-  phone           SMALLINT,
+  phone           INTEGER,
   profile_avatar  TEXT,
   is_teacher      BOOLEAN DEFAULT false,
   created_on      DATE DEFAULT NOW(),
