@@ -5,8 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node serverUI.js",
-    "local": "nodemon -L serverUI.js localhost 3000",
+    "start": "node server.js",
+    "local": "nodemon -L server.js localhost 3000",
     "db:reset": "node bin/resetdb.js"
   },
   "author": "Lighthouse Labs",
