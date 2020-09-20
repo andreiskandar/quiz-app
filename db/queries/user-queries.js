@@ -1,5 +1,5 @@
 //this file will ultimately serve as our users queries
-const pool = require('./db');
+const pool = require('../db.js');
 
 const getUsers = () => {
   return pool.query('SELECT * FROM users;')

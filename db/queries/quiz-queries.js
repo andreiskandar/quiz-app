@@ -1,4 +1,4 @@
-const pool = require('./db');
+const pool = require('../db.js');
 
 const getProducts = () => {
   return pool.query("SELECT * FROM products;").then((response) => {
