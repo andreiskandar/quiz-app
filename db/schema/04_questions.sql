@@ -7,6 +7,7 @@ CREATE TABLE questions (
   question                TEXT NOT NULL,
   sort_order              INTEGER,
   time_limit              INTEGER,
+  img_link_url            TEXT,
   bg_image_url            TEXT,
   color                   VARCHAR(40),
   user_id                 INTEGER,

@@ -2,4 +2,8 @@ node_modules/
 .env
 *.log
 *.sqlite3
+<<<<<<< HEAD
 .DS_Store
+=======
+db/queries/tinker.sql
+>>>>>>> db_setup
