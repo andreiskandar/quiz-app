@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 insert into question_categories (id, name, user_id, active, img_link, color) values (1, 'justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus', 1, false, 'http://dummyimage.com/104x211.jpg/dddddd/000000', 'Mauv');
 insert into question_categories (id, name, user_id, active, img_link, color) values (2, 'congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis', 2, false, 'http://dummyimage.com/101x170.bmp/5fa2dd/ffffff', 'Mauv');
 insert into question_categories (id, name, user_id, active, img_link, color) values (3, 'dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius nulla', 3, true, 'http://dummyimage.com/197x202.jpg/ff4444/ffffff', 'Mauv');
@@ -998,3 +999,9 @@ insert into question_categories (id, name, user_id, active, img_link, color) val
 insert into question_categories (id, name, user_id, active, img_link, color) values (998, 'eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque', 998, true, 'http://dummyimage.com/122x168.jpg/dddddd/000000', 'Pink');
 insert into question_categories (id, name, user_id, active, img_link, color) values (999, 'morbi non lectus aliquam sit amet diam in magna bibendum', 999, false, 'http://dummyimage.com/198x168.bmp/5fa2dd/ffffff', 'Fuscia');
 insert into question_categories (id, name, user_id, active, img_link, color) values (1000, 'auctor gravida sem praesent id massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio', 1000, false, 'http://dummyimage.com/186x123.png/ff4444/ffffff', 'Blue');
+=======
+INSERT INTO quiz_categories (name, user_id, bg_image_url, color, active) VALUES ('Display', 47, 'https://www.transparenttextures.com/patterns/45-degree-fabric-light.png', 'blue', true);
+INSERT INTO quiz_categories (name, user_id, bg_image_url, color, active) VALUES ('Placement', 47, 'https://www.transparenttextures.com/patterns/arabesque.png', 'green',  true);
+INSERT INTO quiz_categories (name, user_id, bg_image_url, color, active) VALUES ('DOM', 47, 'https://www.transparenttextures.com/patterns/basketball.png', 'orange', true);
+INSERT INTO quiz_categories (name, user_id, bg_image_url, color, active) VALUES ('Animation', 47, 'https://www.transparenttextures.com/patterns/basketball.png', 'gold', true);
+>>>>>>> 4119bc8e37d69a4ac206d047cc41751f233d9ba2

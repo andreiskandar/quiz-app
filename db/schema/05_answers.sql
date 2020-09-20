@@ -6,7 +6,12 @@ CREATE TABLE answers (
   question_id     INTEGER REFERENCES questions(id),
   answer          TEXT NOT NULL,
   correct_answer  BOOLEAN,
+<<<<<<< HEAD
   bg_image        TEXT,
+=======
+  sort_order      INTEGER,
+  bg_image_url    TEXT,
+>>>>>>> 4119bc8e37d69a4ac206d047cc41751f233d9ba2
   color           VARCHAR(40),
   user_id         INTEGER,
   active          BOOLEAN DEFAULT false
