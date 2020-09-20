@@ -26,9 +26,10 @@ app.use("/", homeRoutes);
 app.use("/dashboard", dashboardRoutes);
 
 // hands this routing off to cat-query-test and that file handles routes
-app.use("/quiz", quizRoutes);
+// app.use("/quiz", quizRoutes);
 
 app.use("/questions", questionRoutes);
+
 app.listen(port, () => {
   console.log(`app listening on port ${port}`);
 });
