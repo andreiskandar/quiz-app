@@ -4,7 +4,7 @@ const router = express.Router();
 const { getUsers, getUserById } = require('../db/user-queries');
 
 
-// GET /quiz/ This route is confusing me
+// GET /quiz/
 //please replace with quiz-queries
 router.get('/', (req, res) => {
   getUsers()
@@ -15,11 +15,13 @@ router.get('/', (req, res) => {
 
 //GET /quiz/:id
 //please replace with quiz-queries
-router.get('/:id', (req, res) => {
-  getUserById(req.params.id)
-  .then((user) => {
-    res.render('quiz', { user });
-  });
-});
+// router.get('/:id', (req, res) => {
+//   getUserById(req.params.id)
+//   .then((user) => {
+//     res.render('quiz', { user });
+//   });
+// });
+
+
 
 module.exports = router;

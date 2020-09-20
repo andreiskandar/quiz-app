@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./styles/question_form.css" />
+    <link rel="stylesheet" href="./styles/quiz.css" />
+    <link rel="stylesheet" href="./styles/body.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=PT+Sans&family=PT+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <!-- EXTERNAL Library -->
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <title>Quiz App</title>
+  </head>
+  <body>
+    <div class="quiz_body">
+      <div class="card question_body">
+        <form class="question_form_body">
+          <h2 class="question_title">Please Type Test Question</h2>
+          <div class="form-group">
+            <textarea
+              class="form-control"
+              id="question_text"
+              placeholder="Please Type Test Question"
+              rows="3"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <textarea
+              class="form-control"
+              id="answer1"
+              placeholder="Answer 1"
+              rows="1"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <textarea
+              class="form-control"
+              id="answer2"
+              placeholder="Answer 2"
+              rows="1"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <textarea
+              class="form-control"
+              id="answer3"
+              placeholder="Answer 3"
+              rows="1"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <textarea
+              class="form-control"
+              id="answer4"
+              placeholder="Answer 4"
+              rows="1"
+            ></textarea>
+          </div>
+          <div class="form-footer">
+            <div>
+              <a href="#" class="back question_form_back"
+                ><i
+                  class="fas fa-angle-double-left"
+                  style="position: inherit"
+                ></i>
+              </a>
+            </div>
+            <div>
+              <h2 class="question_counter">1</h2>
+            </div>
+            <div>
+              <button type="submit" class="btn btn-dark">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="right_bg"></div>
+    </div>
+
+    <!-- App JS -->
+    <!-- Not referenced yet -->
+    <script src="app.js"></script>
+    <script src="serverUI.js"></script>
+  </body>
+</html>
