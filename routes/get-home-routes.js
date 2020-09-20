@@ -1,9 +1,11 @@
 const express = require("express");
 const router = express.Router();
 //we will replace this later
-const { getUsers, getUserById, getUserByEmail } = require('../db/queries/user-queries');
-
-
+const {
+  getUsers,
+  getUserById,
+  getUserByEmail,
+} = require("../db/queries/user-queries");
 
 // const { getProductById, getProducts } = require('../db/product-queries');
 // add middleware
@@ -27,20 +29,15 @@ router.get("/login", (req, res) => {
   res.render("home");
 });
 
-<<<<<<< HEAD
-router.get("/register", (req, res) => {
-=======
 //checks if just our users email exists in the db
-router.post('/login', (req, res) => {
-  const {email} = req.body;
+router.post("/login", (req, res) => {
+  const { email } = req.body;
   //query the database
-  getUserByEmail(email)
-  .then((user) => {
+  getUserByEmail(email).then((user) => {
     req.session.id = user.id;
-    res.redirect('/dashboard')
+    res.redirect("/dashboard");
   });
 });
-
 
 //logout
 //clear cookies and userURLS on logout
@@ -49,16 +46,12 @@ router.post("/logout", (req, res) => {
   res.redirect("/login");
 });
 
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                                            // Registration Routes //
+// Registration Routes //
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-router.get('/register', (req, res) => {
->>>>>>> index
+router.get("/register", (req, res) => {
   //may need to pop in a function here to authenticate our "fake" users
   res.render("home");
 });
-
-
 
 module.exports = router;
