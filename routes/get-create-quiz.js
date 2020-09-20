@@ -1,32 +1,23 @@
 const express = require('express');
 const router = express.Router();
 //we will replace this later
-const { getUsers, getUserById } = require('../db/user-queries');
+const { getUsers, getUserById } = require('../db/queries/user-queries');
 
-// const { getProductById, getProducts } = require('../db/product-queries');
-// add middleware
-router.use((req, res, next) => {
-  // if (!req.session.user_id) {
-  //   return res.redirect('/login');
-  // }
-  console.log('product middleware called');
-  next();
-});
+//Don't think we need the middleware in this
+
 // GET /quiz/
 //these will not be cats once we have quiz data to generate
 router.get('/', (req, res) => {
-  getUsers((users) => {
-    res.render('index', { users })
+    res.render('create-new-quiz')
   });
-});
 
 //GET /quiz/:id
 //these will not be cats once we have quiz data to generate
-router.get('/:id', (req, res) => {
-  getUserById(req.params.id)
-  .then((user) => {
-    res.render('quiz', { user });
-  });
-});
+// router.get('/:id', (req, res) => {
+//   getUserById(req.params.id)
+//   .then((user) => {
+//     res.render('quiz', { user });
+//   });
+// });
 
 module.exports = router;
