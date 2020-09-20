@@ -1,6 +1,6 @@
 //We will migrate away from cats when we have actual quiz data to use!
 //calls the entire file with a require
-const pool = require('./db');
+const pool = require('../db.js');
 
 // client.query()
 

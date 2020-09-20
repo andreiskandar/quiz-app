@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 //we will replace this later
-const { getUsers, getUserById } = require('../db/user-queries');
+const { getUsers, getUserById } = require('../db/queries/user-queries');
 
 
 // GET /quiz/ This route is confusing me
