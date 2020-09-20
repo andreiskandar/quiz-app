@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(cookieSession({
   name: 'session',
-  keys: ['984798359846598455', 'fjoisufods7fon7riwo87sa6rr3'],
+  keys: [`${process.env.SECRET_KEY_1}`, `${process.env.SECRET_KEY_2}`],
  // Cookie Options
  maxAge: 24 * 60 * 60 * 1000 // 24 hours
 }))
