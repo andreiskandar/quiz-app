@@ -7,14 +7,14 @@ $(() => {
         Q.a.
       </a>
       <div class="nv-links">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="#" class="home_btn">
           Home
         </a>
-        <a class="nav-link" href="#">
-          Create
+        <a class="nav-link" href="#" class="browse_btn">
+          Browse
         </a>
-        <a class="nav-link" href="#">
-          Quizzes
+        <a class="nav-link" href="#" class="create_btn">
+          Create
         </a>
       </div>
     </div>

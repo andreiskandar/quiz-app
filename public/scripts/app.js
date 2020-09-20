@@ -1,5 +1,5 @@
 $(() => {
-  $("#facilitatorbtn").click(function (e) {
+  $("#facilitator_btn").click(function (e) {
     $(location).attr("href", "http://localhost:3000/dashboard");
 
     // $.post("http://localhost:3000/dashboard");
