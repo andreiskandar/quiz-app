@@ -3,6 +3,7 @@ const router = express.Router();
 //we will replace this later
 const { getUsers, getUserById } = require('../db/queries/user-queries');
 const myQuizRoutes = require ('./get-my-quizzes');
+const createQuizRoutes = require('./get-create-quiz');
 // const app = express();
 
 // const { getProductById, getProducts } = require('../db/product-queries');
@@ -24,6 +25,8 @@ router.get('/', (req, res) => {
 // });
 
 router.use('/my-quizzes', myQuizRoutes);
+
+router.use('/new', createQuizRoutes)
 
 //GET /quiz/:id
 //taken-quizzes
