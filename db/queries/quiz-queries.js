@@ -10,13 +10,22 @@ const getQuizzes = () => {
 //non functioning
 const getQuizById = (id) => {
   return pool
-    .query("SELECT * FROM products WHERE id = $1", [id])
+    .query("SELECT * FROM quizzes WHERE id = $1", [id])
     .then((response) => {
       return response.rows[0];
     });
 };
 
+const getQuizzesByUserId = (id) => {
+  return pool
+  .query("SELECT * FROM quizzes WHERE user_id = $1;", [id])
+  .then((response) => {
+    return response.rows;
+  })
+}
+
 module.exports = {
   getQuizzes,
   getQuizById,
+  getQuizzesByUserId
 };
