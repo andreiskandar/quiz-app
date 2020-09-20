@@ -1,43 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!------ PLEASE DELETE ME WHEN NEW FILE CREATED ---------->
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <link rel="stylesheet" href="./styles/homestyle.css">
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-  <!------ Include the above in your HEAD tag ---------->
-</head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=PT+Sans&family=PT+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
 
-<body>
-  <div class="sidenav">
-    <div class="login-main-text">
-      <h2>QuizAPP<br> Login Page</h2>
-      <p>Login or register from here to access.</p>
-    </div>
-  </div>
-  <div class="main">
-    <div class="col-md-6 col-sm-12">
-      <div class="login-form">
-        <form>
-          <div class="form-group">
-            <label>User Name</label>
-            <input type="text" class="form-control" placeholder="User Name">
-          </div>
-          <div class="form-group">
-            <label>Password</label>
-            <input type="password" class="form-control" placeholder="Password">
-          </div>
-          <button type="submit" class="btn btn-black">Login</button>
-          <button type="submit" class="btn btn-secondary">Register</button>
-        </form>
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./styles/question_form.css" />
+    <link rel="stylesheet" href="./styles/quiz.css" />
+    <link rel="stylesheet" href="./styles/body.css" />
+    <link rel="stylesheet" href="./styles/nav.css" />
+    <link rel="stylesheet" href="./styles/login.css" />
+
+    <!-- EXTERNAL Library -->
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+      crossorigin="anonymous"
+    ></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
+
+    <title>Quiz App</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-dark justify-content-between">
+      <div class="nv-block">
+        <a class="navbar-brand" href="#">Q.a.</a>
+        <div class="nv-links">
+          <a class="nav-link" href="#">Home</a>
+          <a class="nav-link" href="#">Create</a>
+          <a class="nav-link" href="#">Quizzes</a>
+        </div>
       </div>
-    </div>
-  </div>
-</body>
-
+      <div class="nv-links-right">
+        <a class="nav-link" href="#" id="nv_username">username</a>
+        <a class="nav-link" href="#">Login / Register</a>
+        <a class="nav-link" href="#">Logout</a>
+      </div>
+    </nav>
+    <div class="login">
+      <div class="card text-center">
+        <div class="card-header">Select User Type</div>
+        <div class="card-body">
+          <a href="#" class="btn btn-dark">Student</a>
+          <a href="#" class="btn btn-dark">Facilitator</a>
+        </div>
+      </div>
 </html>
