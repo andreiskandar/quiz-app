@@ -1,8 +1,15 @@
 const express = require("express");
 const router = express.Router();
 //we will replace this later
+<<<<<<< HEAD
 const { getUsers, getUserById } = require("../db/user-queries");
 const myQuizRoutes = require("./get-my-quizzes");
+=======
+const { getUsers, getUserById } = require('../db/queries/user-queries');
+const myQuizRoutes = require('./get-my-quizzes');
+const createQuizRoutes = require('./get-create-quiz');
+const { Template } = require('ejs');
+>>>>>>> index
 // const app = express();
 
 // const { getProductById, getProducts } = require('../db/product-queries');
@@ -17,13 +24,36 @@ router.use((req, res, next) => {
 // GET /quiz/
 //these will not be cats once we have quiz data to generate
 //we need to check if the user is logged in
+<<<<<<< HEAD
 router.get("/", (req, res) => {
   // getUsers((users) => {
   res.render("dashboard");
 });
 // });
+=======
+router.get('/', (req, res) => {
+  getUserById(req.session.id)
+    .then((user) => {
+      let templateVars;
+      //these if checks are used to bypass logging in for testing
+      if (user) {
+        templateVars = {
+          name: user.nickname
+        }
+        //this is to make sure our dashboard.ejs doesn't error
+      } else {
+        templateVars = {
+          name: null
+        }
+      }
+      res.render('dashboard', templateVars)
+    });
+});
+>>>>>>> index
 
 router.use("/my-quizzes", myQuizRoutes);
+
+router.use('/new', createQuizRoutes)
 
 //GET /quiz/:id
 //taken-quizzes
@@ -35,5 +65,6 @@ router.use("/my-quizzes", myQuizRoutes);
 // });
 
 //my-quizzes
+
 
 module.exports = router;

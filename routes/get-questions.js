@@ -1,7 +1,11 @@
 const express = require("express");
 const router = express.Router();
 //we will replace this later
+<<<<<<< HEAD
 const { getCats, getCatById } = require("../db/cat-queries");
+=======
+const { getCats, getCatById } = require('../db/queries/cat-queries');
+>>>>>>> index
 
 // const { getProductById, getProducts } = require('../db/product-queries');
 // add middleware
