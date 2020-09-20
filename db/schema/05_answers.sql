@@ -7,7 +7,7 @@ CREATE TABLE answers (
   answer          TEXT NOT NULL,
   correct_answer  BOOLEAN,
   bg_image        TEXT,
-  color           VARCHAR(40)
+  color           VARCHAR(40),
   user_id         INTEGER,
   active          BOOLEAN DEFAULT false
 );
