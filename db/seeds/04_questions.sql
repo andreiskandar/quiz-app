@@ -1,4 +1,4 @@
-INSERT INTO questions (question_category_id, question, sort_order, time_limit , user_id, active) VALUES (null, 'Which would take priority, an id (#my-id) in a CSS file or inline styling (style="...")?', 1, 0, 47, true);
-INSERT INTO questions (question_category_id, question, sort_order, time_limit , user_id, active) VALUES (null, 'What colour would render given the hex code #FF0000', 2, 0, 47, true);
-INSERT INTO questions (question_category_id, question, sort_order, time_limit , user_id, active) VALUES (null, 'Which of the following CSS selector has the highest specificity?', 3, 0, 47, true);
-INSERT INTO questions (question_category_id, question, sort_order, time_limit , user_id, active) VALUES (null, 'In what order do the following surround an html element according to the Box Model?', 4, 0, 47, true);
+INSERT INTO questions (question_category_id, question, sort_order, time_limit, bg_image_url, color, user_id, active) VALUES (null, 'Which would take priority, an id (#my-id) in a CSS file or inline styling (style="...")?', 1, null, null, null, 47, true);
+INSERT INTO questions (question_category_id, question, sort_order, time_limit, bg_image_url, color, user_id, active) VALUES (null, 'What colour would render given the hex code #FF0000', 2, null, null, null, 47, true);
+INSERT INTO questions (question_category_id, question, sort_order, time_limit, bg_image_url, color, user_id, active) VALUES (null, 'Which of the following CSS selector has the highest specificity?', 3, null, null, null, 47, true);
+INSERT INTO questions (question_category_id, question, sort_order, time_limit, bg_image_url, color, user_id, active) VALUES (null, 'In what order do the following surround an html element according to the Box Model?', 4, null, null, null, 47, true);
