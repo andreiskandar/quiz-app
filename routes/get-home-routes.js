@@ -24,20 +24,20 @@ router.get("/", (req, res) => {
   res.render("home");
 });
 
-router.get("/login", (req, res) => {
-  //may need to pop in a function here to authenticate our "fake" users
-  res.render("home");
-});
+// router.get("/login", (req, res) => {
+//   //may need to pop in a function here to authenticate our "fake" users
+//   res.render("home");
+// });
 
-//checks if just our users email exists in the db
-router.post("/login", (req, res) => {
-  const { email } = req.body;
-  //query the database
-  getUserByEmail(email).then((user) => {
-    req.session.id = user.id;
-    res.redirect("/dashboard");
-  });
-});
+// //checks if just our users email exists in the db
+// router.post("/login", (req, res) => {
+//   const { email } = req.body;
+//   //query the database
+//   getUserByEmail(email).then((user) => {
+//     req.session.id = user.id;
+//     res.redirect("/dashboard");
+//   });
+// });
 
 //logout
 //clear cookies and userURLS on logout

@@ -42,37 +42,72 @@
     <title>Quiz App</title>
   </head>
   <body>
-    <div class="sidenav">
-      <div class="login-main-text">
-        <h2>
-          QuizAPP<br />
-          Login Page
-        </h2>
-        <p>Login or register from here to access.</p>
+    <div class="login_page">
+      <div class="sidenav">
+        <div class="login-main-text">
+          <h2>
+            QuizAPP<br />
+            Login Page
+          </h2>
+          <p>Login or register from here to access.</p>
+        </div>
+      </div>
+      <div class="main">
+        <div class="col-md-6 col-sm-12">
+          <div class="login-form">
+            <form>
+              <form action="/login" method="POST">
+              <div class="form-group">
+                <label>User Name</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder="Enter Email"
+                  name="email"
+                />
+              </div>
+              <div class="form-group">
+                <label>Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  placeholder="Password"
+                  name="password"
+                />
+              </div>
+              <button type="submit" class="btn btn-black">Login</button>
+              <button type="submit" class="btn btn-secondary">Register</button>
+              <button type="submit" class="btn btn-black facilitator_btn">
+                Facilitator
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="main">
-    <div class="col-md-6 col-sm-12">
-      <div class="login-form">
-        <form action="/login" method="POST">
-        <div class="form-group">
-          <label>User Name</label>
-          <input type="email" class="form-control" id="email" placeholder="Enter Email" name='email'>
-        </div>
-        <div class="form-group">
-          <label>Password</label>
-          <input type='password' class='form-control' id='password' placeholder='Password' name='password'>
-        </div>
-        <button type="submit" class="btn btn-black">Login</button>
-        <button type="submit" class="btn btn-secondary">Register</button>
-        <button type="submit" class="btn btn-black facilitator_btn">Facilitator</button>
-        
-      </form>
-    </div>
-  </div>
-    <script src="./scripts/components/header.js"></script>
+
+    <header id="page-header" class="page-header">
+      <nav>
+        <div class="nv-block">
+          <a class="navbar-brand" href="#">Q.a. </a>
+          <div class="nv-links">
+            <a class="nav-link" href="#" class="browse_btn">Browse</a>
+            <a class="nav-link" href="#" class="create_btn">Create</a>
+          </div>
+          <div class="nv-links-right">
+            <a class="nav-link" href="#" id="nv_username">username</a>
+            <a class="nav-link" href="#">Login / Register</a>
+            <a class="nav-link" href="#">Logout</a>
+          </div>
+        </div>>
+      </nav>
+    </header>
+    <main id="main-content"></main>
+    <script src="./scripts/network.js"></script>
+
     <script src="./scripts/app.js"></script>
-    
+    <script src="./scripts/components/header.js"></script>
   </body>
 </html>
