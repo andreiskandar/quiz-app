@@ -2,9 +2,6 @@
   display: flex;
 }
 
-.card {
-  /* border-radius: 10em; */
-}
 .question_body {
   display: flex;
   flex-direction: column;
@@ -45,10 +42,6 @@
   cursor: pointer;
 }
 
-.radioCustomButton {
-  /* display: none; */
-}
-
 .answerLabel {
   display: flex;
   justify-content: center;
@@ -72,6 +65,4 @@
 .quiz_body_footer h2 {
   width: fit-content;
   margin-bottom: 0;
-}
-.quiz_body_footer a {
 }
