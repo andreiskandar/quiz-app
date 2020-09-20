@@ -1,12 +1,14 @@
 const pool = require('../db.js');
 
-const getProducts = () => {
-  return pool.query("SELECT * FROM products;").then((response) => {
+//non functioning
+const getQuizzes = () => {
+  return pool.query("SELECT * FROM quizzes;").then((response) => {
     return response.rows;
   });
 };
 
-const getProductById = (id) => {
+//non functioning
+const getQuizById = (id) => {
   return pool
     .query("SELECT * FROM products WHERE id = $1", [id])
     .then((response) => {
@@ -15,6 +17,6 @@ const getProductById = (id) => {
 };
 
 module.exports = {
-  getProducts,
-  getProductById,
+  getQuizzes,
+  getQuizById,
 };
