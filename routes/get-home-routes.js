@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
 //we will replace this later
-// const { getCats, getCatById } = require('../db/cat-queries');
+const { getUsers, getUserById, getUserByEmail } = require('../db/queries/user-queries');
+
+
 
 // const { getProductById, getProducts } = require('../db/product-queries');
 // add middleware
@@ -25,9 +27,27 @@ router.get('/login', (req, res) => {
   res.render('home')
 });
 
+router.post('/login', (req, res) => {
+  const {email} = req.body;
+  console.log(email)
+  //query the database
+  getUserByEmail(email)
+  .then((user) => {
+    console.log(user.id);
+    req.session.id = user.id;
+    // req.session.id = user.id;
+    console.log(req.session)
+    console.log(req.session.id);
+    res.redirect('/dashboard')
+  });
+});
+
+
 router.get('/register', (req, res) => {
   //may need to pop in a function here to authenticate our "fake" users
   res.render('home')
 });
+
+
 
 module.exports = router;
