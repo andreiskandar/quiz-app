@@ -27,6 +27,11 @@ app.use('/dashboard', dashboardRoutes);
 // hands this routing off to cat-query-test and that file handles routes
 app.use('/quiz', quizRoutes);
 
+app.get('/*', (req, res) => {
+res.statusCode = 404;
+res.render('not-found');
+});
+
 
 app.listen(port, () => {
   console.log(`app listening on port ${port}`);
