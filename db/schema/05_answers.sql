@@ -7,6 +7,7 @@ CREATE TABLE answers (
   answer          TEXT NOT NULL,
   correct_answer  BOOLEAN,
   sort_order      INTEGER,
+  img_link        TEXT,
   bg_image_url    TEXT,
   color           VARCHAR(40),
   user_id         INTEGER,

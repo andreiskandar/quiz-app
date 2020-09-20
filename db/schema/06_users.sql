@@ -7,7 +7,7 @@ CREATE TABLE users (
   password        VARCHAR(255) NOT NULL,
   nickname        VARCHAR(255),
   phone           VARCHAR(20),
-  profile_avatar  TEXT,
+  profile_avatar  TEXT, -- how do they pick it?
   is_teacher      BOOLEAN DEFAULT false,
   created_on      DATE DEFAULT NOW(),
   active          BOOLEAN DEFAULT true
