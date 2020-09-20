@@ -1,4 +1,4 @@
-//keep these files in for now as examples for when we implement our queries
+//this file will ultimately serve as our users queries
 const pool = require('./db');
 
 const getUsers = () => {
