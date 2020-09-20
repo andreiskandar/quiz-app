@@ -6,6 +6,11 @@ CREATE TABLE question_categories (
   name      VARCHAR(255) NOT NULL,
   user_id   INTEGER,
   active    BOOLEAN DEFAULT false,
+<<<<<<< HEAD
   img_link  TEXT,
+=======
+  img_link_url  TEXT,
+  bg_image_url TEXT,
+>>>>>>> db_setup
   color     VARCHAR(40)
 );
