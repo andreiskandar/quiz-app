@@ -3,8 +3,3 @@ node_modules/
 *.log
 *.sqlite3
 .DS_Store
-<<<<<<< HEAD
-=======
-db/queries/tinker.sql
-.env.example
->>>>>>> 609528daf4e845253bda62bd95e5bf4521c4e5ee
