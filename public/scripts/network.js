@@ -2,6 +2,6 @@
 const getUserType = () => {
   //connect to db
   //getting the users/me route
-  return $.get("/users/me");
+  // return $.get("/users/me");
   //related to cookies later
 };
