@@ -2,7 +2,7 @@ nav {
   background-color: #262626;
   display: flex;
   align-items: center;
-  height: 6vh;
+  height: 8vh;
   color: #fff;
 }
 li {
@@ -26,7 +26,7 @@ li {
 .nv-links-side {
   display: flex;
   position: relative;
-  left: 52em;
+  left: 25vw;
 }
 
 .nav-link {
