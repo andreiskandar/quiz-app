@@ -1,6 +1,5 @@
 $(() => {
   window.header = {};
-
   let currentUser = null;
 
   userlinks = `

@@ -1,3 +1,20 @@
-INSERT INTO answers (question_id, answer, correct_answer, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (2, 'Depends on what style that it is applying', false, 1, null, null, null, 47, true);
-INSERT INTO answers (question_id, answer, correct_answer, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (2, 'The id, #my-id would take priority', true, 2, null, null, null, 47, true);
-INSERT INTO answers (question_id, answer, correct_answer, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (2, 'The inline style', false, 3, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (1, 'Depends on what style that it is applying', false, 1, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (1, 'The id, #my-id would take priority', true, 2, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (1, 'The inline style', false, 3, null, null, null, 47, true);
+
+INSERT INTO answers (question_id, answer, correct_answer, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (2, 'Red', true, 1, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (2, 'Blue', false, 2, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (2, 'Green', false, 3, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (2, 'Yellow', false, 4, null, null, null, 47, true);
+
+INSERT INTO answers (question_id, answer, correct_answer, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (3, 'li .nav-item { ... }', true, 1, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (3, '#page-header { ... }', false, 2, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (3, 'div p { ... }', false, 3, null, null, null, 47, true);
+
+INSERT INTO answers (question_id, answer, correct_answer, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (4, 'Overrides any other declarations, using it is considered bad practice', true, 1, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (4, 'It stands for not important and gets set to a low priority', false, 2, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (4, 'Trump card! Use it when something is really important', false, 3, null, null, null, 47, true);
+
+INSERT INTO answers (question_id, answer, correct_answer, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (5, 'First Padding, Border, then Margin', true, 1, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (5, 'First Padding, Margin, then Border', false, 2, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (5, 'First Border, Margin, then Padding', false, 3, null, null, null, 47, true);
