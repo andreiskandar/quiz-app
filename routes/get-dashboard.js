@@ -30,4 +30,9 @@ router.use("/my-quizzes", myQuizRoutes);
 
 router.use("/new", createQuizRoutes);
 
+router.post("/logout", (req, res) => {
+  req.session = null;
+  res.redirect("/");
+});
+
 module.exports = router;

@@ -25,6 +25,8 @@ const getQuizzesByUserId = (id) => {
   })
 }
 
+
+
 module.exports = {
   getQuizzes,
   getQuizById,
