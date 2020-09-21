@@ -63,5 +63,10 @@ $(() => {
 
   window.$quizForm = $quizForm;
 
+  $(".option1-btn").click(() => {
+    console.log("hello");
+    $("#option1").attr("checked", true);
+  });
+
   $quizForm.submit(function (e) {});
 });
