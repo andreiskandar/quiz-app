@@ -5,6 +5,7 @@ const {
   getUsers,
   getUserById,
   getUserByEmail,
+  getUserType
 } = require("../db/queries/user-queries");
 
 // const { getProductById, getProducts } = require('../db/product-queries');
@@ -19,16 +20,17 @@ router.use((req, res, next) => {
 // GET /quiz/
 //these will not be cats once we have quiz data to generate
 //we don't specifically need to handle user authentication as a requirement but we may do it later!
-router.get("/", (req, res) => {
-  //may need to pop in a function here to authenticate our "fake" users
-  res.render("home");
-});
+// router.get("/", (req, res) => {
+//   //may need to pop in a function here to authenticate our "fake" users
+//   res.render("home");
+// });
 
 router.get("/login", (req, res) => {
   //may need to pop in a function here to authenticate our "fake" users
   res.render("home");
 });
 
+<<<<<<< HEAD
 //checks if just our users email exists in the db
 router.post("/login", (req, res) => {
   const { email } = req.body;
@@ -38,6 +40,26 @@ router.post("/login", (req, res) => {
     res.redirect("/dashboard");
   });
 });
+=======
+//checks if just our users email exists in the db //posts to /LOGIN
+router.post("/", (req, res) => {
+  const { email } = req.body;
+  getUserType(email).then((user) => {
+    console.log(user);
+  })
+
+  getUserByEmail(email).then((user) => {
+    console.log(user.id)
+    console.log(user)
+    req.session.id = user.id
+    res.redirect("/");
+  });
+});
+
+// router.get('/', (req, res) => {
+//   res.sendFile(__dirname+'/public/index.html');
+// })
+>>>>>>> 857beaa6ae82869a2467dce58e6831d16273b1ad
 
 //logout
 //clear cookies and userURLS on logout
