@@ -1,9 +1,5 @@
 $(() => {
-<<<<<<< HEAD
   const $dashboard = $(`  
-=======
-  const $dashboard = $(`
->>>>>>> 857beaa6ae82869a2467dce58e6831d16273b1ad
   <div class="row">
   <div class="card col-md">
     <div class="card quiz_title_dashboard">quiz title</div>
