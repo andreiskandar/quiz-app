@@ -14,6 +14,7 @@ $(() => {
           <li class="brand brand_btn">Q.a.</li>
           <li class="browse_btn">Browse</li>
           <li class="create_btn">Create</li>
+          <li class="create_btn">My Quizzes</li>
           <li class="pastQuiz_btn">Past Quizzes</li>
         </div>
         <div class="flex-row">
