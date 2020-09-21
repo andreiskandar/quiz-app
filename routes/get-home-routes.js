@@ -5,6 +5,7 @@ const {
   getUsers,
   getUserById,
   getUserByEmail,
+  getUserType
 } = require("../db/queries/user-queries");
 
 // const { getProductById, getProducts } = require('../db/product-queries');
@@ -29,17 +30,24 @@ router.use((req, res, next) => {
 //   res.render("home");
 // });
 
-//checks if just our users email exists in the db
+//checks if just our users email exists in the db //posts to /LOGIN
 router.post("/", (req, res) => {
   const { email } = req.body;
+  getUserType(email).then((user) => {
+    console.log(user);
+  })
 
   getUserByEmail(email).then((user) => {
-
     console.log(user.id)
+    console.log(user)
     req.session.id = user.id
     res.redirect("/");
   });
 });
+
+// router.get('/', (req, res) => {
+//   res.sendFile(__dirname+'/public/index.html');
+// })
 
 //logout
 //clear cookies and userURLS on logout

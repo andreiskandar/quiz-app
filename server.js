@@ -41,6 +41,7 @@ app.get('/*', (req, res) => {
 res.statusCode = 404;
 res.render('not-found');
 });
+
 app.listen(port, () => {
   console.log(`app listening on port ${port}`);
 });
