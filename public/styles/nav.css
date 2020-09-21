@@ -2,11 +2,14 @@ nav {
   background-color: #262626;
   display: flex;
   align-items: center;
-  height: 8vh;
+  height: 6vh;
   color: #fff;
 }
+li {
+  list-style: none;
+  cursor: pointer;
+}
 .navbar-brand {
-  margin-left: 1em;
   font-size: 1.5em;
   color: #fff;
 }
@@ -14,6 +17,8 @@ nav {
 .nv-block {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
 }
 
 .nv-links {
@@ -26,13 +31,3 @@ nav {
 .nav-link {
   color: #fff;
 }
-
-/* .navbar-leftside {
-  display: flex;
-  justify-content: space-between;
-}
-
-.navbar-rightside {
-  display: flex;
- margin-right: auto;
-} */
