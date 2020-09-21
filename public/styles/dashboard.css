@@ -1,21 +1,18 @@
-/* .container {
-  margin-top: 8vh;
-  height: 50vh;
-  justify-content: space-between;
-  margin: 0 auto;
-  padding: 0;
-  width: 100%;
-} */
-
 .row {
-  /* margin-top: 8vh; */
   display: flex;
   align-items: center;
   justify-content: space-around;
   margin: 10vh 0 2vh 0;
   padding: 0 1vw;
 }
-.card {
+
+.col-md {
   height: 88vh;
   margin: 0 1.5vw;
+  padding: 0.5em;
+}
+.quiz_title_dashboard,
+.question_card_dashboard {
+  margin: 0.5em;
+  height: 25%;
 }
