@@ -46,16 +46,16 @@ $(() => {
         id="option3"
         name="radioGroup"
       />
-      <label class="answerLabel">Answer 3</label>
+      <label class="answerLabel">tn Try this: add white-space: normal; to the style definition of the Bootstrap Button or you can replace the code you displayed with the one below-btn answer-ditn btn-outline-light option3-btn answer-di</label>
     </div>
-    <div class="btn btn-outline-light option4-btn answer-div">
+    <div class="btn btn-outline-light text-wrap option4-btn answer-div">
       <input
         type="radio"
         class="radioCustomButton"
         id="option4"
         name="radioGroup"
       />
-      <label class="answerLabel">Answer 4</label>
+      <label class="answerLabel">his div contains a very long word: thisisaveryveryveryveryveryverylongword. The long word will The long word will break and wra The long word will break and wra The long word will break and wrabreak and wrap to the next line.</label>
     </div>
   </form>
 </div>
@@ -64,16 +64,19 @@ $(() => {
   window.$quizForm = $quizForm;
 
   $("main").on("click", ".option1-btn", () => {
-    $("#option1").attr("checked", true);
+    $("#option1").prop("checked", true);
   });
+
   $("main").on("click", ".option2-btn", () => {
-    $("#option2").attr("checked", true);
+    $("#option2").prop("checked", true);
   });
+
   $("main").on("click", ".option3-btn", () => {
-    $("#option3").attr("checked", true);
+    $("#option3").prop("checked", true);
   });
+
   $("main").on("click", ".option4-btn", () => {
-    $("#option4").attr("checked", true);
+    $("#option4").prop("checked", true);
   });
 
   $quizForm.submit(function (e) {});
