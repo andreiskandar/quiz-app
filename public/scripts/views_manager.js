@@ -10,10 +10,11 @@ $(() => {
     const elm = `<h1>hello</h1>`;
     switch (item) {
       case "questionForm":
-        elm.appendTo($main);
-        // $main.append($questionForm);
+        $main.append($questionForm);
         break;
-
+      case "quizForm":
+        $main.append($quizForm);
+        break;
       case "error":
         break;
     }
