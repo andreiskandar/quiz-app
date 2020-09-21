@@ -6,22 +6,35 @@ $(() => {
 
     userLinks = `
       <nav>
-        <div class="nv-block">
-          <a class="navbar-brand" href="#">Q.a. </a>
+        <ul class="nv-block">
+          <li class="navbar-brand">Q.a. </li>
           <div class="nv-links">
-            <a class="nav-link" href="#" class="browse_btn">Browse</a>
-            <a class="nav-link" href="#" class="create_btn">Create</a>
+            <li class="nav-link" class="browse_btn">Browse</li>
+            <li class="nav-link" class="create_btn">Create</li>
           </div>
-          <div class="nv-links-right">
-            <a class="nav-link" href="#" id="nv_username">username</a>
-            <a class="nav-link" href="#">Login / Register</a>
-            <a class="nav-link" href="#">Logout</a>
+          <div class="nav navbar-right top-nav">
+            <li class="nav-link"  id="nv_username">username</li>
+            <li class="nav-link">Login / Register</li>
+            <li class="nav-link">Logout</li>
           </div>
-        </div>
+        </ul>
       </nav>
       `;
 
     $("#page-header").append(userLinks);
+    e.preventDefault();
+  });
+
+  const elm = `<h1>hello</h1>`;
+
+  $(".browse_btn").click(function (e) {
+    console.log("browse");
+    e.preventDefault();
+  });
+  $(".create_btn").click(function (e) {
+    console.log("hello");
+    $("#main-content").append(elm);
+    // views_manager.show("questionForm");
     e.preventDefault();
   });
 });
