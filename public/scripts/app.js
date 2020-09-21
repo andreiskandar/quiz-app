@@ -5,18 +5,19 @@ $(() => {
     let userLinks;
 
     userLinks = `
-      <nav>
+      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <ul class="nv-block">
           <li class="navbar-brand">Q.a. </li>
           <div class="nv-links">
             <li class="nav-link browse_btn">Browse</li>
             <li class="nav-link create_btn">Create</li>
+            <li class="nav-link pastQuiz_btn">Pass Quizzes</li>
           </div>
-          <div class="nav navbar-right top-nav">
+          <ul class="nav navbar-right top-nav">
             <li class="nav-link"  id="nv_username">username</li>
             <li class="nav-link">Login / Register</li>
             <li class="nav-link">Logout</li>
-          </div>
+          </ul>
         </ul>
       </nav>
       `;
@@ -34,6 +35,7 @@ $(() => {
   $("header").on("click", ".create_btn", () => {
     views_manager.show("questionForm");
   });
+
   // $(".create_btn").click(function (e) {
   //   console.log("hello");
   //   e.preventDefault();

@@ -40,6 +40,7 @@
   font-size: 23.8px;
   width: 80%;
   cursor: pointer;
+  white-space: normal;
 }
 
 .answerLabel {
@@ -47,7 +48,10 @@
   justify-content: center;
   line-height: 1.5;
   text-align: left;
-  font-size: 1em;
+  font-size: 17px;
+  cursor: pointer;
+  overflow: visible;
+  word-wrap: break-word;
 }
 
 .fa-angle-double-left {
@@ -65,4 +69,8 @@
 .quiz_body_footer h2 {
   width: fit-content;
   margin-bottom: 0;
+}
+
+.radioCustomButton {
+  display: none;
 }
