@@ -18,14 +18,15 @@ li {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* margin-top: 20px; */
 }
 
 .nv-links {
   display: flex;
 }
-.nv-links-right {
+.nv-links-side {
   display: flex;
+  position: relative;
+  left: 52em;
 }
 
 .nav-link {
