@@ -63,9 +63,17 @@ $(() => {
 
   window.$quizForm = $quizForm;
 
-  $(".option1-btn").click(() => {
-    console.log("hello");
+  $("main").on("click", ".option1-btn", () => {
     $("#option1").attr("checked", true);
+  });
+  $("main").on("click", ".option2-btn", () => {
+    $("#option2").attr("checked", true);
+  });
+  $("main").on("click", ".option3-btn", () => {
+    $("#option3").attr("checked", true);
+  });
+  $("main").on("click", ".option4-btn", () => {
+    $("#option4").attr("checked", true);
   });
 
   $quizForm.submit(function (e) {});
