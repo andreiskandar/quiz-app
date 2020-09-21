@@ -12,31 +12,4 @@ $(document).ready(() => {
     $(".login_page").show();
     //route to logout to remmove cookie
   });
-
 });
-
-
-  // $("header").children().on("click", function(e) {
-  //   console.log("hello")
-  // });
-    // $("header").hide();
-    // $.post("/dashboard/logout");
-
-    // $.post("/login")
-    // $(".login_page").add();
-    // $("header").on("click", "#logout", () => {
-    //   console.log('clicked');
-    // //   // views_manager.show("dashboard");
-    // // });
-
-
-
-
-
-
-
-
-
-// });
-
-

@@ -9,7 +9,7 @@ const { getQuizzes, getQuizById, getQuizzesByUserId} = require('../db/queries/qu
 router.get('/', (req, res) => {
   getQuizzesByUserId(req.session.id)
   .then((quizzes) => {
-    res.render('my-quizzes', { quizzes });
+    res.send( quizzes );
   });
 });
 
