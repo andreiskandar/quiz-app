@@ -3,6 +3,7 @@
 DROP TABLE IF EXISTS questions CASCADE;
 CREATE TABLE questions (
   id                      SERIAL PRIMARY KEY NOT NULL,
+  quiz_id                 INTEGER NOT NULL,
   question_category_id    INTEGER,
   question                TEXT NOT NULL,
   hint                    VARCHAR(255),
