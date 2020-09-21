@@ -1,3 +1,3 @@
-const signUp = (data) => {
-  return $.post("/");
+const getUserType = () => {
+  return $.get("/users/me");
 };
