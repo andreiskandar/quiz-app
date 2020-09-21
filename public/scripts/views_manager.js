@@ -16,7 +16,7 @@ $(() => {
         $main.append($quizForm);
         break;
       case "dashboard":
-        $main.append($dasboard);
+        $main.append($dashboard);
         break;
 
       case "error":
