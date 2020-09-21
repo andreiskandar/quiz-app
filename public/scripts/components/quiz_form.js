@@ -46,7 +46,7 @@ $(() => {
         id="option3"
         name="radioGroup"
       />
-      <label class="answerLabel">tn Try this: add white-space: normal; to the style definition of the Bootstrap Button or you can replace the code you displayed with the one below-btn answer-ditn btn-outline-light option3-btn answer-di</label>
+      <label class="answerLabel">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, </label>
     </div>
     <div class="btn btn-outline-light text-wrap option4-btn answer-div">
       <input
@@ -55,7 +55,7 @@ $(() => {
         id="option4"
         name="radioGroup"
       />
-      <label class="answerLabel">his div contains a very long word: thisisaveryveryveryveryveryverylongword. The long word will The long word will break and wra The long word will break and wra The long word will break and wrabreak and wrap to the next line.</label>
+      <label class="answerLabel">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, ad obcaecati quaerat ex ratione officia fuga quam inventore ipsam placeat</label>
     </div>
   </form>
 </div>
