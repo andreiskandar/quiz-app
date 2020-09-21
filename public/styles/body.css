@@ -3,10 +3,18 @@ body {
   background-color: #f2ebdc;
 }
 
+.quiz_body {
+  display: flex;
+  margin-top: 10vh;
+  /* border-radius: 5px; */
+}
+
 .right_bg {
   background-image: url(/images/coding2.png);
   background-size: cover;
   background-repeat: no-repeat;
-  height: 92vh;
+  height: 88vh;
   width: 50%;
+  margin-right: 1em;
+  margin-left: 0.5em;
 }
