@@ -5,24 +5,12 @@ const { getUsers, getUserById } = require('../db/queries/user-queries');
 const { getQuizzes, getQuizById, getQuizzesByUserId} = require('../db/queries/quiz-queries');
 
 
-// GET /quiz/
-//please replace with quiz-queries
-// router.get('/', (req, res) => {
-//   getUsers()
-//   .then((users) => {
-//     res.render('my-quizzes', { users });
-//   });
-// });
-
-//GET /quiz/:id
+//GET all quizzes belonging to the speicfic user
 router.get('/', (req, res) => {
   getQuizzesByUserId(req.session.id)
   .then((quizzes) => {
-    console.log(quizzes)
     res.render('my-quizzes', { quizzes });
   });
 });
-
-
 
 module.exports = router;

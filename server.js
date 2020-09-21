@@ -3,7 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser')
-const quizRoutes = require('./routes/quiz-routes');
+const quizRoutes = require('./routes/public-quiz-routes');
 const homeRoutes = require('./routes/get-home-routes');
 const dashboardRoutes = require('./routes/get-dashboard');
 const cookieSession = require('cookie-session');
@@ -33,8 +33,8 @@ app.use('/', homeRoutes);
 //check if user is logged in here?
 app.use('/dashboard', dashboardRoutes);
 
-// hands this routing off to cat-query-test and that file handles routes
-app.use('/quiz', quizRoutes);
+// handles the routing for /quizzes and /quizzes/:id
+app.use('/quizzes', quizRoutes);
 
 app.get('/*', (req, res) => {
 res.statusCode = 404;
