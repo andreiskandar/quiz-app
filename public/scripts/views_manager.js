@@ -8,7 +8,6 @@ $(() => {
     $quizForm.detach();
     $dashboard.detach();
 
-    const elm = `<h1>hello</h1>`;
     switch (item) {
       case "questionForm":
         $main.append($questionForm);
@@ -22,7 +21,6 @@ $(() => {
 
       case "error":
         break;
-        git;
     }
   };
 });
