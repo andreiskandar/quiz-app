@@ -15,6 +15,10 @@ $(() => {
       case "quizForm":
         $main.append($quizForm);
         break;
+      case "dashboard":
+        $main.append($dashboard);
+        break;
+
       case "error":
         break;
     }
