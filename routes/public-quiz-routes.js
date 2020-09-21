@@ -5,22 +5,22 @@ const { getUsers, getUserById } = require('../db/queries/user-queries');
 const { getQuizzes, getQuizById, getQuizzesByUserId} = require('../db/queries/quiz-queries');
 
 
-// GET /quiz/ This route is confusing me
-//please replace with quiz-queries
+// localhost:3000/quizzes
+// this is the BROWSE route for ALL users
+
 router.get('/', (req, res) => {
-  getQuizzesByUserId(req.params.id)
+  getQuizzes()
   .then((quizzes) => {
-    res.render('my-quizzes', { quizzes });
+    res.render('browse-quizzes', { quizzes });
   });
 });
 
-//GET /quiz/:id
-//please replace with quiz-queries
-// router.get('/:id', (req, res) => {
-//   getQuizzesByUserId(id)
-//   .then((quizzes) => {
-//     res.render('quiz', { quiz });
-//   });
-// });
+//get a quiz by the quiz.id = quizzes/:id e.g. quizzes/1
+router.get('/:id', (req, res) => {
+  getQuizById(req.params.id)
+  .then((quiz) => {
+    res.render('quiz', { quiz });
+  });
+});
 
 module.exports = router;
