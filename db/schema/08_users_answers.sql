@@ -3,8 +3,8 @@
 DROP TABLE IF EXISTS users_answers CASCADE;
 CREATE TABLE users_answers (
   id                  SERIAL PRIMARY KEY NOT NULL,
-  answer_id           INTEGER REFERENCES answers(id),
   user_id             INTEGER REFERENCES users(id),
+  answer_id           INTEGER REFERENCES answers(id),
   answer_timestamp    TIMESTAMP,
   active              BOOLEAN DEFAULT true
 );
