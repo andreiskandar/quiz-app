@@ -20,7 +20,7 @@ $(() => {
       </div>
     </div>
   </div>
-  <form class="answer_form right_bg">
+  <form class="rounded answer_form right_bg">
     <div class="btn btn-outline-light option1-btn answer-div">
       <input
         type="radio"

@@ -1,20 +1,21 @@
-.container {
-  height: 92vh;
+/* .container {
+  margin-top: 8vh;
+  height: 50vh;
   justify-content: space-between;
   margin: 0 auto;
   padding: 0;
   width: 100%;
-  border: solid black thin;
-}
+} */
+
 .row {
+  /* margin-top: 8vh; */
   display: flex;
   align-items: center;
   justify-content: space-around;
-  margin: 2vh 0;
+  margin: 10vh 0 2vh 0;
   padding: 0 1vw;
 }
 .card {
   height: 88vh;
-
   margin: 0 1.5vw;
 }

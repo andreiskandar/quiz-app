@@ -6,6 +6,7 @@ $(() => {
   window.views_manager.show = (item) => {
     $questionForm.detach();
     $quizForm.detach();
+    $dashboard.detach();
 
     const elm = `<h1>hello</h1>`;
     switch (item) {
@@ -21,6 +22,7 @@ $(() => {
 
       case "error":
         break;
+        git;
     }
   };
 });
