@@ -1,15 +1,18 @@
 $(document).ready(() => {
-  const $loginReg = $('#login-register');
-  const $email = $('#email');
+  const $loginReg = $('.login_page');
+  $('.login_page').append($login)
 
-  $loginReg.on('submit', function(e)  {
+
+  console.log(email)
+
+  $loginReg.on('submit', '#login-register', function(e)  {
     e.preventDefault()
+    const email = $loginReg.find('#email').val()
+    //may consider moving these methods to empty()
     $("header").show();
-    const email = $email.val()
+    $("#main-content").show();
     $.post( "/login", {email: email});
-
-    // $.post("/login")
-    $(".login_page").remove();
+    $(".login_page").hide();
 
 
     let userLinks;
@@ -25,12 +28,12 @@ $(document).ready(() => {
         </div>
         <div class="flex-row">
           <li class="userType_btn">Select User Type</li>
-          <li class="logout_btn">Logout</li>
+          <li id="logout" class="logout_btn">Logout</li>
         </div>
       </ul>
     </header>
           `;
-
+    // $("#page-header").empty();
     $("#page-header").append(userLinks);
     views_manager.show("dashboard");
     e.preventDefault();
@@ -41,6 +44,11 @@ $(document).ready(() => {
   $("header").on("click", ".brand_btn", () => {
     views_manager.show("dashboard");
   });
+
+  // $("header").on("click", "#logout", () => {
+  //   console.log('clicked');
+  //   // views_manager.show("dashboard");
+  // });
 
   $("header").on("click", ".browse_btn", () => {
     views_manager.show("quizForm");
