@@ -53,6 +53,9 @@ $(() => {
   $("header").on("click", ".create_btn", () => {
     views_manager.show("questionForm");
   });
+  $("header").on("click", "#logout", () => {
+    views_manager.show("login");
+  });
   // $(".create_btn").click(function (e) {
   //   console.log("hello");
   //   e.preventDefault();

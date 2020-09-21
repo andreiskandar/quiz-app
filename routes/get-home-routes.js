@@ -36,7 +36,6 @@ router.post("/", (req, res) => {
   getUserType(email).then((user) => {
     console.log(user);
   })
-
   getUserByEmail(email).then((user) => {
     console.log(user.id)
     console.log(user)
