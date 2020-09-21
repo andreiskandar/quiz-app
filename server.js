@@ -17,6 +17,8 @@ app.use(
     keys: [`${process.env.SECRET_KEY_1}`, `${process.env.SECRET_KEY_2}`],
     // Cookie Options
     maxAge: 24 * 60 * 60 * 1000, // 24 hours
+    sameSite: true,
+    httpOnly: true
   })
 );
 
@@ -32,6 +34,8 @@ app.use('/dashboard', dashboardRoutes);
 
 // handles the routing for /quizzes and /quizzes/:id
 app.use('/quizzes', quizRoutes);
+
+app.use('/login', homeRoutes)
 
 app.get('/*', (req, res) => {
 res.statusCode = 404;
