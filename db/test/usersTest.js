@@ -8,7 +8,26 @@ describe('get all quiz results for users', function() {
   });
 });
 
-describe('checkIfUserExists', function() {
+
+// login register
+//
+
+// dahsboard
+// teacher
+// get teacher's quizzes
+// get quizzes by user - existing
+// get quiz by userID
+// get quiz by quiz id
+
+// inserts for all tables
+
+// attempted quiz history
+
+// filter by public, not public
+
+// get right answer for quiz
+
+describe('getUserByEmail', function() {
   it.skip('should return true if a user exists', function() {
   });
 
