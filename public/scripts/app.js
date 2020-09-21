@@ -4,7 +4,7 @@ $(() => {
 
     let userLinks;
 
-    userlinks = `
+    userLinks = `
       <nav>
         <div class="nv-block">
           <a class="navbar-brand" href="#">Q.a. </a>
@@ -17,10 +17,10 @@ $(() => {
             <a class="nav-link" href="#">Login / Register</a>
             <a class="nav-link" href="#">Logout</a>
           </div>
-        </div>>
-      </nav>`;
+        </div>
+      </nav>
+      `;
 
-    const el = "<h1>home</h1>";
     $("#page-header").append(userLinks);
     e.preventDefault();
   });
