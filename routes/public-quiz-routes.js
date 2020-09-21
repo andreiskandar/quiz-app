@@ -5,11 +5,21 @@ const { getUsers, getUserById } = require('../db/queries/user-queries');
 const { getQuizzes, getQuizById, getQuizzesByUserId} = require('../db/queries/quiz-queries');
 
 
-//GET all quizzes belonging to the speicfic user
+// localhost:3000/quizzes
+// this is the BROWSE route for ALL users
+
 router.get('/', (req, res) => {
-  getQuizzesByUserId(req.session.id)
+  getQuizzes()
   .then((quizzes) => {
-    res.render('my-quizzes', { quizzes });
+    res.render('browse-quizzes', { quizzes });
+  });
+});
+
+//get a quiz by the quiz.id = quizzes/:id e.g. quizzes/1
+router.get('/:id', (req, res) => {
+  getQuizById(req.params.id)
+  .then((quiz) => {
+    res.render('quiz', { quiz });
   });
 });
 

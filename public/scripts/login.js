@@ -1,9 +1,19 @@
-$(() => {
-  $("header").hide();
-  $(".facilitator_btn").click(function (e) {
+$(document).ready(() => {
+  const $loginReg = $('#login-register');
+  const $email = $('#email');
+
+  $loginReg.on('submit', function(e)  {
+    e.preventDefault()
     $("header").show();
+    const email = $email.val()
+    $.post( "/login", {email: email});
+
+    // $.post("/login")
     $(".login_page").remove();
+
+
     let userLinks;
+
     userLinks = `
       <header>
       <ul class="flex-row">
@@ -20,41 +30,25 @@ $(() => {
       </ul>
     </header>
           `;
+
     $("#page-header").append(userLinks);
     views_manager.show("dashboard");
     e.preventDefault();
   });
 
-  //getting a user type e.g. facilitator or student
-  //changes the header based on user permission
-  //we don't have a getUserType function yet!
-
-  //get the type of user //
-  // getUserType().then((userType) => {
-
-  // });
-
-  //determines if we get a my-quizzes button or not
-  //set access levels for quizzes too - does this quiz belong to a student?
-  //check if user type !== null?
-  //psuedocode to check user type
-  //if usertype === student {
-
-  // } else {
-  //   //show teacher header
-  // }
+  // getUserType().then((json) => {console.log(json)});
 
   $("header").on("click", ".brand_btn", () => {
     views_manager.show("dashboard");
   });
+
   $("header").on("click", ".browse_btn", () => {
     views_manager.show("quizForm");
   });
+
   $("header").on("click", ".create_btn", () => {
     views_manager.show("questionForm");
   });
-  // $(".create_btn").click(function (e) {
-  //   console.log("hello");
-  //   e.preventDefault();
-  // });
+
 });
+

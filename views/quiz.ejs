@@ -1,19 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Home Page</title>
 
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+<head>
+  <title>Home Page</title>
 
-    <script type="text/javascript" src="/vendor/jquery-3.5.1.js"></script>
-  </head>
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
-  <body>
-    <h1>Individual Quiz</h1>
+  <script type="text/javascript" src="/vendor/jquery-3.5.1.js"></script>
+</head>
 
-    <h1>Name: <%= user.email %></h1>
-    <h1>Nickname: <%= user.nickname %></h1>
-  </body>
+<body>
+  <h1>Individual Quiz</h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">quiz_category_id</th>
+        <th scope="col">quiz_name</th>
+        <th scope="col">URL</th>
+        <th scope="col">PIN</th>
+        <th scope="col">Public</th>
+        <th scope="col">Time Limit</th>
+        <th scope="col">User ID</th>
+        <th scope="col">Active</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+
+      <tr>
+        <td><%= quiz.id %></td>
+        <td><%= quiz.quiz_category_id %></td>
+        <td><%= quiz.name %></td>
+        <td><%= quiz.url_link %></td>
+        <td><%= quiz.pin %></td>
+        <td><%= quiz.public %></td>
+        <td><%= quiz.time_limit %></td>
+        <td><%= quiz.user_id %></td>
+        <td><%= quiz.active %></td>
+      </tr>
+      </tbody>
+  </table>
+</body>
+
 </html>
