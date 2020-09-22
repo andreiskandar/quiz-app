@@ -23,11 +23,4 @@ router.get("/", (req, res) => {
     );
 });
 
-router.get("/test", (req, res) => {
-  getQuestions().then((questions) => {
-    console.log(questions);
-    res.send(questions);
-  });
-});
-
 module.exports = router;
