@@ -36,7 +36,7 @@ const getUserType = (email) => {
   queryString += ";";
 
   return pool.query(queryString, [email]).then((response) => {
-    console.log(response.row[0]);
+    console.log("from db :", response.row[0]);
     return response.rows[0].is_teacher;
   });
 };

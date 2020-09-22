@@ -1,9 +1,8 @@
-$(document).ready(() => {
+$(() => {
   const $loginReg = $(".login_page");
   $(".login_page").append($login);
 
   $loginReg.on("submit", "#login-register", function (e) {
-    e.preventDefault();
     const email = $loginReg.find("#email").val();
     //may consider moving these methods to empty()
     $("header").show();
@@ -60,7 +59,6 @@ $(document).ready(() => {
     };
 
     window.header.update = updateHeader;
-
     getUserType().then((user) => {
       console.log(user);
       updateHeader(user.user);
@@ -69,9 +67,9 @@ $(document).ready(() => {
 
   // getUserType().then((json) => {console.log(json)});
 
-  // $("header").on("click", ".brand_btn", () => {
-  //   views_manager.show("dashboard");
-  // });
+  $("header").on("click", ".brand_btn", () => {
+    views_manager.show("dashboard");
+  });
 
   $("header").on("click", ".browse_btn", () => {
     views_manager.show("BrowsePublicQuizzes");
