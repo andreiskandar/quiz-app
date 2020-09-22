@@ -1,7 +1,6 @@
 $(() => {
   const publicQuizContainer = `<div class="row">`;
   const publicQuizContainerClose = `</div>`;
-  $("ghdfkghdfk");
 
   $("header").on("click", ".myQuiz_btn", () => {
     // $.get("/dashboard/my-quizzes", (data) =>{

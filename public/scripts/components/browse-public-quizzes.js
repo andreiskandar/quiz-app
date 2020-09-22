@@ -3,8 +3,7 @@ $(() => {
   const publicQuizContainerClose = `</div>`;
 
   $("header").on("click", ".browse_btn", () => {
-    // $.get("/dashboard/my-quizzes", (data) =>{
-    //change route to query public quizzes
+
     $.get("/quizzes").then((data) => {
       console.log(data)
       // clearQuiz();
@@ -36,5 +35,4 @@ $(() => {
       window.views_manager.show("browsePublicQuizzes", publicQuizDomElem);
     });
   });
-  //add a clear to this object once we navigate away from
 });

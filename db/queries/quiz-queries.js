@@ -7,6 +7,13 @@ const getQuizzes = () => {
   });
 };
 
+const getThreeRandomQuizzes = () => {
+  return pool.query("SELECT * FROM quizzes WHERE public = true AND active = true ORDER BY RANDOM() LIMIT 3;").then((response) => {
+    console.log(response.rows)
+    return response.rows;
+  });
+};
+
 //gets a singular quiz by id
 const getQuizById = (id) => {
   return pool
@@ -37,5 +44,6 @@ const getAllActiveQuizzesData = (id) => {
 module.exports = {
   getQuizzes,
   getQuizById,
-  getQuizzesByUserId
+  getQuizzesByUserId,
+  getThreeRandomQuizzes
 };
