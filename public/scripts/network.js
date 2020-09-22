@@ -4,5 +4,5 @@ const getUserType = () => {
 };
 
 const logOut = () => {
-  return $.post("/login/logout");
+  return $.post("/dashboard/logout");
 };

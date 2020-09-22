@@ -34,9 +34,8 @@ $(document).ready(function () {
           />
         </div>
         <button type="submit" class="btn btn-black">Login</button>
-        <button type="submit" class="btn btn-secondary">Register</button>
-          
-            </form>
+        <button type="submit" class="btn btn-secondary">Register</button>  
+        </form>
     </div>
   </div>
 </div>
