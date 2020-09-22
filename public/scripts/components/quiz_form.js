@@ -1,12 +1,14 @@
 $(() => {
   let question_id = 1;
-  const quiz_id = 2;
+  let quiz_id = 2;
 
   const getQuestionFromDB = () => {
     $.get(`/quizzes/${quiz_id}/questions/${question_id}`).then((questions) => {
-      $(".question_number").text(questions[0].id);
+      $(".question_number, .question-counter-span").text(questions[0].id);
+      console.log("questions[0].id:", questions[0].id);
       $(".question_string").text(questions[0].question);
-      $(".question_counter").text();
+      console.log("questions[0].question:", questions[0].question);
+      // $(".question-total-span").text();
     });
   };
 
@@ -14,11 +16,13 @@ $(() => {
 
   // /quiz/:id/questions/:id/answers
   const getAnswersForQuestionFromDB = () => {
-    $.get(`/answers/${2}`).then((answers) => {
-      const renderAnswer = answers.map((item, idx) =>
-        $(`.answer${idx + 1}`).text(item.answer)
-      );
-    });
+    $.get(`/quizzes/${quiz_id}/questions/${question_id}/answers`).then(
+      (answers) => {
+        const renderAnswer = answers.map((item, idx) => {
+          $(`.answer${idx + 1}`).text(item.answer);
+        });
+      }
+    );
   };
 
   const $quizForm = $(`
@@ -35,7 +39,7 @@ $(() => {
         <a class="back-btn"><i class="fas fa-angle-double-left"></i> </a>
       </div>
       <div>
-        <h2 class="question_counter">1/10</h2>
+        <h2 class="question_counter"><span class="question-counter-span">1</span>/<span class="question-total-span"></span></h2>
       </div>
     </div>
   </div>
@@ -54,17 +58,17 @@ $(() => {
         >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit,
       </label>
     </div>
-    <div class="btn btn-outline-light text-wrap option4-btn answer-div">
-      <input type="radio" class="radioCustomButton" id="option4" name="radioGroup" />
-      <label class="answerLabel answer4"
-        >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, ad obcaecati
-        quaerat ex ratione officia fuga quam inventore ipsam placeat</label
-      >
     </div>
-  </form>
-</div>
-  `);
+    </form>
+    </div>
+    `);
 
+  // <div class="btn btn-outline-light text-wrap option4-btn answer-div">
+  //   <input type="radio" class="radioCustomButton" id="option4" name="radioGroup" />
+  //   <label class="answerLabel answer4"
+  //     >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, ad obcaecati
+  //     quaerat ex ratione officia fuga quam inventore ipsam placeat</label
+  //   >
   const loadQuestion = () => {
     getQuestionFromDB();
     getAnswersForQuestionFromDB();
@@ -72,22 +76,32 @@ $(() => {
 
   window.$quizForm_onLoad = loadQuestion;
   window.$quizForm = $quizForm;
-  let counter = 0;
+  const counter = 1;
 
   $("main").on("click", ".option1-btn", () => {
     // set bind radio button with div element
     $("#option1").prop("checked", true);
-    counter++;
     // when button is clicks, load next question and answers set
     //get request on the next question with answers set
     //  /quiz/:id/questions/:id
     // /quiz/:id/questions/:id/answers
-    $.get("/quizzes/2/questions/:question_id").then((questions) => {
-      $(".question_number").text(questions[1].id);
-      $(".question_string").text(questions[1].question);
-      //post request to response table query
-      //keep track right / answer
-    });
+    console.log("line 85: answer1 click");
+    $.get(`/quizzes/${quiz_id}/questions/${question_id++}`).then(
+      (questions) => {
+        console.log("line 88 response");
+        $(".question_number").text(questions[0].id);
+        $(".question_string").text(questions[0].question);
+        //post request to response table query
+        //keep track right / answer
+        $.get(`/quizzes/${quiz_id}/questions/${question_id++}/answers`).then(
+          (answers) => {
+            const renderAnswer = answers.map((item, idx) =>
+              $(`.answer${idx + 1}`).text(item.answer)
+            );
+          }
+        );
+      }
+    );
   });
   $("main").on("click", ".option2-btn", () => {
     // set bind radio button with div element
@@ -106,8 +120,22 @@ $(() => {
   $("main").on("click", ".back-btn", () => {
     //back to dashboard
     // or back to previous question
-    counter--;
-  });
 
+    $.get(`/quizzes/${quiz_id}/questions/${question_id--}`).then(
+      (questions) => {
+        $(".question_number").text(questions[0].id);
+        $(".question_string").text(questions[0].question);
+        //post request to response table query
+        //keep track right / answer
+        $.get(`/quizzes/${quiz_id}/questions/${question_id--}/answers`).then(
+          (answers) => {
+            const renderAnswer = answers.map((item, idx) =>
+              $(`.answer${idx + 1}`).text(item.answer)
+            );
+          }
+        );
+      }
+    );
+  });
   $quizForm.submit(function (e) {});
 });
