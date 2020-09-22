@@ -54,20 +54,20 @@ INSERT INTO users_answers (user_id, answer_id, answer_timestamp, active) VALUES 
 INSERT INTO users_answers (user_id, answer_id, answer_timestamp, active) VALUES (47, 35, '2020-09-19 17:49:59 +0000', true);
 INSERT INTO users_answers (user_id, answer_id, answer_timestamp, active) VALUES (47, 37, '2020-09-19 17:51:48 +0000', true);
 ---
-INSERT INTO users_answers (user_id, answer_id, answer_timestamp, active) VALUES (2, 22, '2020-09-20 17:44:59 +0000', true);
-INSERT INTO users_answers (user_id, answer_id, answer_timestamp, active) VALUES (2, 27, '2020-09-20 17:45:59 +0000', true);
-INSERT INTO users_answers (user_id, answer_id, answer_timestamp, active) VALUES (2, 30, '2020-09-20 17:47:59 +0000', true);
-INSERT INTO users_answers (user_id, answer_id, answer_timestamp, active) VALUES (2, 34, '2020-09-20 17:49:59 +0000', true);
-INSERT INTO users_answers (user_id, answer_id, answer_timestamp, active) VALUES (2, 37, '2020-09-20 17:51:48 +0000', true);
+INSERT INTO users_answers (user_id, answer_id, answer_timestamp, active) VALUES (2, 22, '2020-09-20 18:44:59 +0000', true);
+INSERT INTO users_answers (user_id, answer_id, answer_timestamp, active) VALUES (2, 27, '2020-09-20 18:45:59 +0000', true);
+INSERT INTO users_answers (user_id, answer_id, answer_timestamp, active) VALUES (2, 30, '2020-09-20 18:47:59 +0000', true);
+INSERT INTO users_answers (user_id, answer_id, answer_timestamp, active) VALUES (2, 34, '2020-09-20 18:49:59 +0000', true);
+INSERT INTO users_answers (user_id, answer_id, answer_timestamp, active) VALUES (2, 37, '2020-09-20 18:51:48 +0000', true);
 --
-INSERT INTO users_answers (user_id, answer_id, answer_timestamp, active) VALUES (4, 23, '2020-09-20 17:44:59 +0000', true);
-INSERT INTO users_answers (user_id, answer_id, answer_timestamp, active) VALUES (4, 27, '2020-09-20 17:45:59 +0000', true);
-INSERT INTO users_answers (user_id, answer_id, answer_timestamp, active) VALUES (4, 30, '2020-09-20 17:47:59 +0000', true);
-INSERT INTO users_answers (user_id, answer_id, answer_timestamp, active) VALUES (4, 35, '2020-09-20 17:49:59 +0000', true);
-INSERT INTO users_answers (user_id, answer_id, answer_timestamp, active) VALUES (4, 37, '2020-09-20 17:51:48 +0000', true);
+INSERT INTO users_answers (user_id, answer_id, answer_timestamp, active) VALUES (4, 23, '2020-09-20 19:44:59 +0000', true);
+INSERT INTO users_answers (user_id, answer_id, answer_timestamp, active) VALUES (4, 27, '2020-09-20 19:45:59 +0000', true);
+INSERT INTO users_answers (user_id, answer_id, answer_timestamp, active) VALUES (4, 30, '2020-09-20 19:47:59 +0000', true);
+INSERT INTO users_answers (user_id, answer_id, answer_timestamp, active) VALUES (4, 35, '2020-09-20 19:49:59 +0000', true);
+INSERT INTO users_answers (user_id, answer_id, answer_timestamp, active) VALUES (4, 37, '2020-09-20 19:51:48 +0000', true);
 --
-INSERT INTO users_answers (user_id, answer_id, answer_timestamp, active) VALUES (5, 22, '2020-09-20 17:44:59 +0000', true);
-INSERT INTO users_answers (user_id, answer_id, answer_timestamp, active) VALUES (5, 26, '2020-09-20 17:45:59 +0000', true);
-INSERT INTO users_answers (user_id, answer_id, answer_timestamp, active) VALUES (5, 31, '2020-09-20 17:47:59 +0000', true);
-INSERT INTO users_answers (user_id, answer_id, answer_timestamp, active) VALUES (5, 28, '2020-09-20 17:49:59 +0000', true);
-INSERT INTO users_answers (user_id, answer_id, answer_timestamp, active) VALUES (5, 37, '2020-09-20 17:51:48 +0000', true);
+INSERT INTO users_answers (user_id, answer_id, answer_timestamp, active) VALUES (5, 22, '2020-09-20 20:44:59 +0000', true);
+INSERT INTO users_answers (user_id, answer_id, answer_timestamp, active) VALUES (5, 26, '2020-09-20 20:45:59 +0000', true);
+INSERT INTO users_answers (user_id, answer_id, answer_timestamp, active) VALUES (5, 31, '2020-09-20 20:47:59 +0000', true);
+INSERT INTO users_answers (user_id, answer_id, answer_timestamp, active) VALUES (5, 28, '2020-09-20 20:49:59 +0000', true);
+INSERT INTO users_answers (user_id, answer_id, answer_timestamp, active) VALUES (5, 37, '2020-09-20 20:51:48 +0000', true);
