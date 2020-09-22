@@ -35,7 +35,6 @@ const getUserTypeById = (id) => {
   queryString += ";";
 
   return pool.query(queryString, [id]).then((response) => {
-    console.log(response.rows[0]);
     return response.rows[0];
   });
 };
