@@ -83,19 +83,18 @@ $(document).ready(() => {
   });
 
   $("header").on("click", "#logout", () => {
+    views_manager.show("login");
     logOut().then(() => {
       header.update(null);
     });
-
     //hide the header - do we need to completely destroy these elements for a different user logging in?
     $("header").hide();
-    $("#main-content").hide();
+    // $("#main-content").hide();
     //remove user cookie
-    // $.post("/dashboard/logout");
+    $.post("/dashboard/logout");
     //add the login page
-    views_manager.show("login");
+    console.log("logout form login.js");
     // $(".login_page").show();
     //route to logout to remmove cookie
-    console.log("logout");
   });
 });
