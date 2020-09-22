@@ -44,9 +44,9 @@ $(() => {
   // } else {
   //   //show teacher header
   // }
-  $("header").on("click", ".myQuiz_btn", () => {
-    views_manager.show("dashboard");
-  });
+  // $("header").on("click", ".myQuiz_btn", () => {
+  //   views_manager.show("dashboard");
+  // });
 
   $("header").on("click", ".brand_btn", () => {
     views_manager.show("dashboard");

@@ -11,7 +11,7 @@ const { getQuizzes, getQuizById, getQuizzesByUserId} = require('../db/queries/qu
 router.get('/', (req, res) => {
   getQuizzes()
   .then((quizzes) => {
-    res.render('browse-quizzes', { quizzes });
+    res.send( quizzes);
   });
 });
 
