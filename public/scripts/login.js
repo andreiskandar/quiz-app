@@ -99,8 +99,5 @@ $(document).ready(() => {
     $.post("/dashboard/logout", () => {
       views_manager.show("login");
     });
-    //add the login page
-    // $(".login_page").show();
-    //route to logout to remmove cookie
   });
 });
