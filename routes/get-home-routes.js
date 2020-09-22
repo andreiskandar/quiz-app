@@ -1,11 +1,12 @@
 const express = require("express");
 const router = express.Router();
+
 //we will replace this later
 const {
   getUsers,
   getUserById,
   getUserByEmail,
-  getUserType,
+  getUserTypeById,
 } = require("../db/queries/user-queries");
 // const { getProductById, getProducts } = require('../db/product-queries');
 // add middleware
@@ -19,10 +20,29 @@ router.use((req, res, next) => {
 // GET /quiz/
 //these will not be cats once we have quiz data to generate
 //we don't specifically need to handle user authentication as a requirement but we may do it later!
-// router.get("/", (req, res) => {
-//   //may need to pop in a function here to authenticate our "fake" users
-//   res.render("home");
-// });
+router.get("/", (req, res) => {
+  const id = req.session.id;
+  if (!id) {
+    res.send({ message: "not logged in" });
+    return;
+  }
+
+  getUserTypeById(id)
+    .then((user) => {
+      if (!user) {
+        res.send({ error: "no user with that id" });
+        return;
+      }
+      res.send(user);
+    })
+    .catch((e) => {
+      console.log("getUserType from get-home-routes.js");
+      res.send(e);
+    });
+
+  //may need to pop in a function here to authenticate our "fake" users
+  // res.render("home");
+});
 // router.get("/login", (req, res) => {
 //   //may need to pop in a function here to authenticate our "fake" users
 //   res.render("home");
@@ -30,12 +50,7 @@ router.use((req, res, next) => {
 //checks if just our users email exists in the db //posts to /LOGIN
 router.post("/", (req, res) => {
   const { email } = req.body;
-  getUserType(email).then((user) => {
-    console.log(user);
-  });
   getUserByEmail(email).then((user) => {
-    console.log(user.id);
-    console.log(user);
     req.session.id = user.id;
     res.redirect("/");
   });
