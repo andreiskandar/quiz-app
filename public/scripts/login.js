@@ -46,7 +46,7 @@ $(document).ready(() => {
   });
 
   $("header").on("click", ".browse_btn", () => {
-    views_manager.show("quizForm");
+    views_manager.show("BrowsePublicQuizzes");
   });
 
   $("header").on("click", ".create_btn", () => {
