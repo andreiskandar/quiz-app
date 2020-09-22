@@ -17,6 +17,7 @@ $(() => {
         break;
       case "quizForm":
         $main.append(window.$quizForm);
+        window.$quizForm_onLoad();
         break;
       case "browsePublicQuizzes":
         // $main.append(window.$quizDomElem);
