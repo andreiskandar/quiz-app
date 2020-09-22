@@ -98,3 +98,6 @@ insert into users (id, email, password, nickname, phone, profile_avatar, is_teac
 insert into users (id, email, password, nickname, phone, profile_avatar, is_teacher, created_on, active) values (98, 'ndraude2p@sciencedaily.com', 'AVC9dyX7j0', 'nluker2p', '948-332-3345', 'https://robohash.org/etquiaipsum.png?size=50x50&set=set1', null, '6/26/2020', true);
 insert into users (id, email, password, nickname, phone, profile_avatar, is_teacher, created_on, active) values (99, 'mgrinyov2q@shinystat.com', 'AjhHblrYr4t', 'jhorburgh2q', '713-855-8568', 'https://robohash.org/nemoessenon.jpg?size=50x50&set=set1', null, '2/22/2020', false);
 insert into users (id, email, password, nickname, phone, profile_avatar, is_teacher, created_on, active) values (100, 'chegdonne2r@tumblr.com', 'cM2JS0N8P', 'bklimmek2r', '203-938-2741', 'https://robohash.org/blanditiisfugitexcepturi.jpg?size=50x50&set=set1', null, '9/14/2020', false);
+
+--inserting myself as a teacher user for test purposes
+insert into users (id, email, password, nickname, phone, profile_avatar, is_teacher, created_on, active) values (101, 'andrewlloyd01@live.co.uk', 'cM2JS0N8P', 'bklimmek2r', '203-938-2741', 'https://robohash.org/blanditiisfugitexcepturi.jpg?size=50x50&set=set1', true, '9/14/2020', false);

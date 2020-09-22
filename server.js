@@ -1,15 +1,16 @@
 require("dotenv").config();
 
 const express = require("express");
-const morgan = require("morgan");
+// const morgan = require("morgan");
 const bodyParser = require("body-parser");
+const answerRoutes = require("./routes/answer-routes");
 const quizRoutes = require("./routes/public-quiz-routes");
 const homeRoutes = require("./routes/get-home-routes");
 const dashboardRoutes = require("./routes/get-dashboard");
 const cookieSession = require("cookie-session");
 const app = express();
 
-app.use(morgan("dev"));
+// app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   cookieSession({
@@ -34,6 +35,8 @@ app.use("/dashboard", dashboardRoutes);
 
 // handles the routing for /quizzes and /quizzes/:id
 app.use("/quizzes", quizRoutes);
+
+app.use("/answers", answerRoutes);
 
 app.use("/login", homeRoutes);
 

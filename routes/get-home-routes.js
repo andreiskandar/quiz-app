@@ -61,8 +61,9 @@ router.post("/", (req, res) => {
 //logout
 //clear cookies and userURLS on logout
 router.post("/logout", (req, res) => {
-  req.session = null;
-  res.redirect("/login");
+  req.session.id = null;
+  console.log("logout");
+  res.send({});
 });
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Registration Routes //
