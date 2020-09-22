@@ -32,11 +32,7 @@ router.post("/", (req, res) => {
   const { email } = req.body;
   getUserType(email).then((user) => {
     console.log(user);
-<<<<<<< HEAD
-  })
-=======
   });
->>>>>>> interface/navbar
   getUserByEmail(email).then((user) => {
     console.log(user.id);
     console.log(user);

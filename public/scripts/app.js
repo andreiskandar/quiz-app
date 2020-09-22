@@ -67,18 +67,8 @@ $(() => {
   $("header").on("click", ".create_btn", () => {
     views_manager.show("questionForm");
   });
-<<<<<<< HEAD
+
   $("header").on("click", "#logout", () => {
     views_manager.show("login");
   });
-=======
-  $("header").on("click", ".pastQuiz_btn", () => {
-    views_manager.show("questionForm");
-  });
-
->>>>>>> interface/navbar
-  // $(".create_btn").click(function (e) {
-  //   console.log("hello");
-  //   e.preventDefault();
-  // });
 });
