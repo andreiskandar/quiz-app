@@ -21,7 +21,7 @@ $(() => {
         break;
       case "browsePublicQuizzes":
         // $main.append(window.$quizDomElem);
-        $main.append(domElem);
+        // $main.append(domElem);
         break;
       case "dashboard":
         $main.append($dashboard);
