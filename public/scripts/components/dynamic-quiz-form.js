@@ -1,5 +1,5 @@
 $(() => {
-  const $quizForm = $(`
+  const $dynamicQuizForm = $(`
   <div class="quiz_body">
   <div class="card question_body">
     <div>
@@ -61,7 +61,7 @@ $(() => {
 </div>
   `);
 
-  window.$quizForm = $quizForm;
+  window.$dynamicQuizForm = $dynamicQuizForm;
 //this covers the whole div
   $("main").on("click", ".option1-btn", () => {
     $("#option1").prop("checked", true);

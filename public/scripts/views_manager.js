@@ -3,7 +3,7 @@ $(() => {
   window.views_manager = {};
   window.views_manager.show = (item, domElem) => {
 
-    console.log("in views manager: ", domElem)
+    // console.log("in views manager: ", domElem)
     //give a dom element to append and track the view
     $main.empty();
     $main.append(domElem);
