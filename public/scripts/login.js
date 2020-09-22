@@ -50,6 +50,7 @@ $(document).ready(() => {
     }
 
     $("#page-header").append(userLinks);
+    // not passing in the quiz element now!
     // views_manager.show("dashboard");
   };
 
@@ -70,35 +71,19 @@ $(document).ready(() => {
     });
   });
 
-  // $("header").on("click", ".brand_btn", () => {
-  //   views_manager.show("dashboard");
-  // });
-
-  // $("header").on("click", ".browse_btn", () => {
-  //   views_manager.show("browsePublicQuizzes");
-  // });
-
   $("header").on("click", ".create_btn", () => {
     views_manager.show("questionForm");
     views_manager.show(null, window.$questionForm);
   });
-  // $("header").on("click", ".myQuiz_btn", () => {
-  //   views_manager.show("quizForm");
-  // });
 
   $("header").on("click", "#logout", () => {
-    // logOut().then(() => {
-    //   header.update(null);
-    // });
-    //hide the header - do we need to completely destroy these elements for a different user logging in?
+
     $("header").hide();
     $("#main-content").hide();
     //remove user cookie
     $.post("/dashboard/logout", () => {
       views_manager.show("login");
     });
-    //add the login page
-    // $(".login_page").show();
-    //route to logout to remmove cookie
+
   });
 });
