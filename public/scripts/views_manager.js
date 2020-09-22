@@ -26,8 +26,9 @@ $(() => {
         break;
       case "login":
         //empties the #main-content
+
         $(".login_page").empty();
-        $(".login_page").append($login);
+        $(".login_page").append($login).show();
         $("#page-header").empty();
         break;
       case "error":
