@@ -1,4 +1,6 @@
 $(document).ready(() => {
+  $("header").hide();
+
   const $loginReg = $(".login_page");
   $(".login_page").append($login);
 
@@ -28,7 +30,7 @@ $(document).ready(() => {
           </div>
           <div class="flex-row">
             <li class="userType_btn">Teacher</li>
-            <li class="logout_btn">Logout</li>
+            <li class="logout_btn" id="logout">Logout</li>
           </div>
         </ul>
       </header>
@@ -45,7 +47,7 @@ $(document).ready(() => {
           </div>
           <div class="flex-row">
             <li class="userType_btn">Student</li>
-            <li class="logout_btn">Logout</li>
+            <li class="logout_btn" id="logout">Logout</li>
           </div>
         </ul>
       </header>
@@ -58,7 +60,7 @@ $(document).ready(() => {
     };
 
     getUserType().then((user) => {
-      updateHeader(user.isTeacher);
+      updateHeader(user.is_teacher);
     });
   });
 
@@ -73,7 +75,7 @@ $(document).ready(() => {
   $("header").on("click", ".create_btn", () => {
     views_manager.show("questionForm");
   });
-  $("header").on("click", "myQuiz_btn", () => {
+  $("header").on("click", ".myQuiz_btn", () => {
     views_manager.show("quizForm");
   });
 });
