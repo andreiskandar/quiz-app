@@ -1,8 +1,32 @@
 const pool = require('../db.js');
 
 //gets all available quizzes
-const getQuizzes = () => {
-  return pool.query("SELECT * FROM quizzes WHERE public = true AND active = true;").then((response) => {
+const getQuizzes = (public, active) => {
+
+  let show = 'all';
+  let published = 'all';
+
+  // public, private, all
+  if (public === 'public') {
+    show = 'WHERE public = true';
+  } else if (public === 'private') {
+    show = 'WHERE public = false';
+  } else {
+    show = '';
+  }
+
+  // active, inactive, all
+  if (active === 'active') {
+    published = ' AND active = true';
+  } else if (active === 'inactive') {
+    published = ' AND active = false';
+  } else {
+    published = '';
+  }
+
+  const sql = "SELECT * FROM quizzes " + show + published + ";";
+
+  return pool.query(sql).then((response) => {
     return response.rows;
   });
 };
