@@ -22,7 +22,6 @@ const getUserByEmail = (email) => {
   queryString = "SELECT id FROM users WHERE email = ";
   queryString += "$1";
   queryString += ";";
-  console.log(queryString);
 
   return pool.query(queryString, [email]).then((response) => {
     return response.rows[0];
