@@ -2,7 +2,7 @@ const pool = require('../db.js');
 
 //gets all available quizzes
 const getQuizzes = () => {
-  return pool.query("SELECT * FROM quizzes;").then((response) => {
+  return pool.query("SELECT * FROM quizzes WHERE public = true AND active = true;").then((response) => {
     return response.rows;
   });
 };
@@ -18,6 +18,15 @@ const getQuizById = (id) => {
 
 //gets all quizzes belonging to that user
 const getQuizzesByUserId = (id) => {
+  return pool
+  .query("SELECT * FROM quizzes WHERE user_id = $1;", [id])
+  .then((response) => {
+    return response.rows;
+  })
+}
+
+//gets all quizzes belonging to that user
+const getAllActiveQuizzesData = (id) => {
   return pool
   .query("SELECT * FROM quizzes WHERE user_id = $1;", [id])
   .then((response) => {
