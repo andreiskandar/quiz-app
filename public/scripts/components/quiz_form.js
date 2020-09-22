@@ -1,5 +1,19 @@
 $(() => {
-  //get questions from quiz
+  const getQuestionFromDB = () => {
+    $.get("/questions/test").then((questions) => {
+      questions.map((item) => console.log(item.question));
+    });
+  };
+  const getAnswersForQuestionFromDB = () => {
+    $.get(`/answers/${2}`).then((answers) => {
+      answers.map((item) => {
+        console.log(item.answer);
+      });
+    });
+  };
+
+  getQuestionFromDB();
+  getAnswersForQuestionFromDB();
 
   const $quizForm = $(`
   <div class="quiz_body">

@@ -3,7 +3,8 @@ require("dotenv").config();
 const express = require("express");
 // const morgan = require("morgan");
 const bodyParser = require("body-parser");
-const questionsRoutes = require("./routes/get-my-quizzes");
+const questionsRoutes = require("./routes/questions-routes");
+const answerRoutes = require("./routes/answer-routes");
 const quizRoutes = require("./routes/public-quiz-routes");
 const homeRoutes = require("./routes/get-home-routes");
 const dashboardRoutes = require("./routes/get-dashboard");
@@ -37,6 +38,8 @@ app.use("/dashboard", dashboardRoutes);
 app.use("/quizzes", quizRoutes);
 
 app.use("/questions", questionsRoutes);
+
+app.use("/answers", answerRoutes);
 
 app.use("/login", homeRoutes);
 
