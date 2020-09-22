@@ -1,13 +1,11 @@
-.quiz_body {
-  display: flex;
-}
-
 .question_body {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 50%;
   font-family: "PT serif";
+  margin-left: 1em;
+  margin-right: 0.5em;
 }
 
 .question_number {
@@ -19,8 +17,9 @@
 .question_string {
   display: flex;
   align-items: center;
-  font-size: 40px;
+  font-size: 2em;
   padding: 0 5vw;
+  margin-bottom: 1em;
 }
 .question_counter {
   font-size: 4vh;
@@ -35,10 +34,11 @@
 .answer-div {
   display: flex;
   flex-direction: row;
-  margin: 1em 0;
-  height: auto;
+  margin: 0.2em 0;
+  height: 17vh;
   font-size: 23.8px;
   width: 80%;
+  padding: 10px;
   cursor: pointer;
   white-space: normal;
 }
@@ -46,9 +46,10 @@
 .answerLabel {
   display: flex;
   justify-content: center;
-  line-height: 1.5;
+  line-height: 1.2;
   text-align: left;
-  font-size: 17px;
+  font-size: 0.75em;
+  margin: 0;
   cursor: pointer;
   overflow: visible;
   word-wrap: break-word;
