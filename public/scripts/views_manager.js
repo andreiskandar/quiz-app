@@ -8,15 +8,19 @@ $(() => {
     $login.detach();
     switch (item) {
       case "questionForm":
+        $main.empty()
         $main.append($questionForm);
         break;
       case "quizForm":
+        $main.empty()
         $main.append($quizForm);
         break;
       case "BrowsePublicQuizzes":
+        $main.empty()
         $main.append($quizDomElem);
         break;
       case "dashboard":
+        $main.empty()
         $main.append($dashboard);
         break;
       case "login":
