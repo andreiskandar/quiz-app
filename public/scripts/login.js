@@ -73,13 +73,8 @@ $(document).ready(() => {
   //   views_manager.show("dashboard");
   // });
 
-  // $("header").on("click", "#logout", () => {
-  //   console.log('clicked');
-  //   // views_manager.show("dashboard");
-  // });
-
   $("header").on("click", ".browse_btn", () => {
-    views_manager.show("quizForm");
+    views_manager.show("BrowsePublicQuizzes");
   });
 
   $("header").on("click", ".create_btn", () => {

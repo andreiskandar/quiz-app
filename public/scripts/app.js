@@ -36,4 +36,21 @@ $(() => {
   //   console.log("target brand button");
   //   views_manager.show("dashboard");
   // });
+
+  $("header").on("click", ".browse_btn", () => {
+    views_manager.show("BrowsePublicQuizzes");
+  });
+  // $("header").on("click", ".browse_btn", () => {
+  //   views_manager.show("quizForm");
+  // });
+  $("header").on("click", ".create_btn", () => {
+    views_manager.show("questionForm");
+  });
+  $("header").on("click", "#logout", () => {
+    views_manager.show("login");
+  });
+  // $(".create_btn").click(function (e) {
+  //   console.log("hello");
+  //   e.preventDefault();
+  // });
 });

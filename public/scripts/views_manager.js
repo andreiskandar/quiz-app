@@ -13,6 +13,9 @@ $(() => {
       case "quizForm":
         $main.append($quizForm);
         break;
+      case "BrowsePublicQuizzes":
+        $main.append($quizDomElem);
+        break;
       case "dashboard":
         $main.append($dashboard);
         break;
