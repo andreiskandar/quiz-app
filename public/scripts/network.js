@@ -2,3 +2,7 @@
 const getUserType = () => {
   return $.get("/login");
 };
+
+const logOut = () => {
+  return $.post("/dashboard/logout");
+};
