@@ -6,7 +6,7 @@ const {
   getUsers,
   getUserById,
   getUserByEmail,
-  getUserType,
+  getUserTypeById,
 } = require("../db/queries/user-queries");
 // const { getProductById, getProducts } = require('../db/product-queries');
 // add middleware
@@ -21,22 +21,20 @@ router.use((req, res, next) => {
 //these will not be cats once we have quiz data to generate
 //we don't specifically need to handle user authentication as a requirement but we may do it later!
 router.get("/", (req, res) => {
-  console.log("here homeroutes login");
-  const { email } = req.session.id;
-  console.log(" req.session.id:", req.session.id);
-  if (!email) {
+  const id = req.session.id;
+  console.log("id:", id);
+  if (!id) {
     res.send({ message: "not logged in" });
     return;
   }
 
-  getUserType(email)
-    .then((isTeacher) => {
-      if (!isTeacher) {
+  getUserTypeById(id)
+    .then((user) => {
+      if (!user) {
         res.send({ error: "no user with that id" });
         return;
       }
-      console.log("from get route:", isTeacher);
-      res.send({ isTeacher });
+      res.send(user);
     })
     .catch((e) => {
       console.log("getUserType from get-home-routes.js");

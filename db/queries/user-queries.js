@@ -29,13 +29,14 @@ const getUserByEmail = (email) => {
 };
 
 //get a user type (by email) - used to switch header
-const getUserType = (email) => {
-  queryString = "SELECT * FROM users WHERE email = ";
+const getUserTypeById = (id) => {
+  queryString = "SELECT * FROM users WHERE id = ";
   queryString += "$1";
   queryString += ";";
 
-  return pool.query(queryString, [email]).then((response) => {
-    return response.rows[0].is_teacher;
+  return pool.query(queryString, [id]).then((response) => {
+    console.log(response.rows[0]);
+    return response.rows[0];
   });
 };
 
@@ -43,5 +44,5 @@ module.exports = {
   getUsers,
   getUserById,
   getUserByEmail,
-  getUserType,
+  getUserTypeById,
 };
