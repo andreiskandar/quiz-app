@@ -3,8 +3,8 @@ const pool = require('../db.js');
 //gets all available quizzes
 const getQuizzes = (public, active) => {
 
-  let show = 'all';
   let published = 'all';
+  let show = 'all';
 
   // public, private, all
   if (public === 'public') {
