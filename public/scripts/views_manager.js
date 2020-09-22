@@ -2,29 +2,26 @@ $(() => {
   const $main = $("#main-content");
   window.views_manager = {};
   window.views_manager.show = (item) => {
+    $login.detach();
     $questionForm.detach();
     $quizForm.detach();
     $dashboard.detach();
-    $login.detach();
+    // $quizDomElem.detach();
+
     switch (item) {
       case "questionForm":
-        $main.empty()
+        $main.empty();
         $main.append($questionForm);
         break;
       case "quizForm":
-        $main.empty()
+        $main.empty();
         $main.append($quizForm);
         break;
-<<<<<<< HEAD
-      case "BrowsePublicQuizzes":
-        $main.empty()
-=======
       case "browsePublicQuizzes":
->>>>>>> index
         $main.append($quizDomElem);
         break;
       case "dashboard":
-        $main.empty()
+        $main.empty();
         $main.append($dashboard);
         break;
       case "login":
