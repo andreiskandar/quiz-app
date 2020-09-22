@@ -1,120 +1,90 @@
 $(() => {
+  $("header").hide();
+
   window.header = {};
+
+  const $pageHeader = $("#page-header");
+
   let currentUser = null;
 
-  userlinks = `
-  <nav>
-    <div class="nv-block">
-      <a class="navbar-brand" href="#">Q.a. </a>
-      <div class="nv-links">
-        <a class="nav-link" href="#" class="browse_btn">Browse</a>
-        <a class="nav-link" href="#" class="create_btn">Create</a>
-      </div>
-      <div class="nv-links-right">
-        <a class="nav-link" href="#" id="nv_username">username</a>
-        <a class="nav-link" href="#">Login / Register</a>
-        <a class="nav-link" href="#">Logout</a>
-      </div>
-    </div>
-  </nav>`;
-  $("#page-header").append(userLinks);
-  const updateHeader = () => {
-    // currentUser = user;
-    $(".login_page").remove();
+  $(".facilitator_btn").click(function (e) {
+    $("header").show();
+    $(".login_page").hide();
 
-    let userLinks;
-  };
+    const updateHeader = (isTeacher) => {
+      currentUser = isTeacher;
 
-  window.header.update = updateHeader;
+      let userLinks;
+      if (isTeacher) {
+        userLinks = `
+        <header>
+        <ul class="flex-row">
+          <div class="flex-row">
+            <li class="brand brand_btn">Q.a.</li>
+            <li class="browse_btn">Browse</li>
+            <li class="create_btn">Create</li>
+            <li class="myQuiz_btn">My Quizzes</li>
+            <li class="pastQuiz_btn">Past Quizzes</li>
+          </div>
+          <div class="flex-row">
+            <li class="userType_btn">Teacher</li>
+            <li class="logout_btn">Logout</li>
+          </div>
+        </ul>
+      </header>
+      `;
+      } else {
+        userLinks = `
+        <header>
+        <ul class="flex-row">
+          <div class="flex-row">
+            <li class="brand brand_btn">Q.a.</li>
+            <li class="browse_btn">Browse</li>
+            <li class="myQuiz_btn">My Quizzes</li>
+            <li class="pastQuiz_btn">Past Quizzes</li>
+          </div>
+          <div class="flex-row">
+            <li class="userType_btn">Student</li>
+            <li class="logout_btn">Logout</li>
+          </div>
+        </ul>
+      </header>
+      `;
+      }
 
-  // const $pageHeader = $('#page-header');
-  // let currentUser = null;
-  // function updateHeader(user) {
-  //   currentUser = user;
-  //   $pageHeader.find("#page-header__user-links").remove();
-  //   let userLinks;
+      $("#page-header").append(userLinks);
+      views_manager.show("dashboard");
+      e.preventDefault();
+    };
 
-  //   if (!user) {
-  //     userLinks = `
-  //     <nav id="page-header__user-links" class="page-header__user-links">
-  //       <ul>
-  //         <li class="home">🏠</li>
-  //         <li class="search_button">Search</li>
-  //         <li class="login_button">Log In</li>
-  //         <li class="sign-up_button">Sign Up</li>
-  //       </ul>
-  //     </nav>
-  //     `
-  //   } else {
-  //     userLinks = `
-  //     <nav id="page-header__user-links" class="page-header__user-links">
-  //       <ul>
-  //         <li class="home">🏠</li>
-  //         <li class="search_button">Search</li>
-  //         <li>${user.name}</li>
-  //         <li class="create_listing_button">Create Listing</li>
-  //         <li class="my_listing_button">My Listings</li>
-  //         <li class="my_reservations_button">My Reservations</li>
-  //         <li class="logout_button">Log Out</li>
-  //       </ul>
-  //     </nav>
-  //     `
-  //   }
+    window.header.update = updateHeader;
+    getUserType().then((user) => {
+      console.log("non-user");
 
-  //   $pageHeader.append(userLinks);
-  // }
+      updateHeader(user.user);
+    });
+  });
 
-  // window.header.update = updateHeader;
+  $("header").on("click", ".myQuiz_btn", () => {
+    views_manager.show("dashboard");
+  });
 
-  // getMyDetails()
-  //   .then(function( json ) {
-  //   updateHeader(json.user);
-  // });
+  $("header").on("click", ".brand_btn", () => {
+    views_manager.show("dashboard");
+  });
 
-  // $("header").on("click", '.my_reservations_button', function() {
-  //   propertyListings.clearListings();
-  //   getAllReservations()
-  //     .then(function(json) {
-  //       propertyListings.addProperties(json.reservations, true);
-  //       views_manager.show('listings');
-  //     })
-  //     .catch(error => console.error(error));
-  // });
-  // $("header").on("click", '.my_listing_button', function() {
-  //   propertyListings.clearListings();
-  //   getAllListings(`owner_id=${currentUser.id}`)
-  //     .then(function(json) {
-  //       propertyListings.addProperties(json.properties);
-  //       views_manager.show('listings');
-  //   });
-  // });
+  $("header").on("click", ".browse_btn", () => {
+    views_manager.show("quizForm");
+  });
+  $("header").on("click", ".create_btn", () => {
+    views_manager.show("questionForm");
+  });
 
-  // $("header").on("click", '.home', function() {
-  //   propertyListings.clearListings();
-  //   getAllListings()
-  //     .then(function(json) {
-  //       propertyListings.addProperties(json.properties);
-  //       views_manager.show('listings');
-  //   });
-  // });
+  $("header").on("click", "#logout", () => {
+    views_manager.show("login");
+  });
 
-  // $('header').on('click', '.search_button', function() {
-  //   views_manager.show('searchProperty');
-  // });
-
-  // $("header").on('click', '.login_button', () => {
-  //   views_manager.show('logIn');
-  // });
-  // $("header").on('click', '.sign-up_button', () => {
-  //   views_manager.show('signUp');
-  // });
-  // $("header").on('click', '.logout_button', () => {
-  //   logOut().then(() => {
-  //     header.update(null);
-  //   });
-  // });
-
-  // $('header').on('click', '.create_listing_button', function() {
-  //   views_manager.show('newProperty');
-  // });
+  $("header").on("click", ".pastQuiz_btn", () => {
+    views_manager.show("questionForm");
+  });
 });

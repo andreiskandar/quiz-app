@@ -1,4 +1,4 @@
-$(document).ready(function (){
+$(() => {
   const $login = $(`
   <div class="sidenav">
   <div class="login-main-text">
@@ -42,11 +42,7 @@ $(document).ready(function (){
     </div>
   </div>
 </div>
-  `)
+  `);
 
   window.$login = $login;
-
-  // $questionForm.submit(function (e) {});
-
 });
-
