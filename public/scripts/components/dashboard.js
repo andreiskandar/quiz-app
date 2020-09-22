@@ -7,9 +7,6 @@ const getQuizzes = () => {
     let randomQuizDomElem = randomQuizContainer;
     for (const quizzes of data) {
 
-
-
-
       randomQuizDomElem +=
       `
       <a href="/quizzes/${quizzes.id}">
