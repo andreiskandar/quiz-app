@@ -82,6 +82,9 @@ $(document).ready(() => {
     views_manager.show(null, window.$questionForm);
   });
   $("header").on("click", ".myQuiz_btn", () => {
+    $.get("/questions/test").then((data) => {
+      console.log(data);
+    });
     views_manager.show("quizForm");
   });
 

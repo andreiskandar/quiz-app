@@ -1,7 +1,6 @@
 $(() => {
   const publicQuizContainer = `<div class="row">`;
   const publicQuizContainerClose = `</div>`;
-  $("ghdfkghdfk");
 
   $("header").on("click", ".browse_btn", () => {
     // $.get("/dashboard/my-quizzes", (data) =>{
@@ -32,7 +31,6 @@ $(() => {
         counter++;
       }
       quizDomElem += publicQuizContainerClose;
-      console.log(typeof quizDomElem);
       window.views_manager.show("browsePublicQuizzes", quizDomElem);
     });
   });
