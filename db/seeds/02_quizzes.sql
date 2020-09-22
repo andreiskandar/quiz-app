@@ -9,3 +9,12 @@ INSERT INTO quizzes (quiz_category_id, name, description, url_link, pin, public,
 INSERT INTO quizzes (quiz_category_id, name, description, url_link, pin, public, time_limit , user_id, active) VALUES (1, 'Public Inactive Quiz', 'How do we make our quiz inactive?', 'https://web.compass.lighthouselabs.ca/quizzes/14/quiz_submissions/new?activity_id=63', 345679, true, 600, 47, false);
 INSERT INTO quizzes (quiz_category_id, name, description, url_link, pin, public, time_limit , user_id, active) VALUES (1, 'Private Inactive Quiz', 'How can we make our private quiz inactive?', 'https://web.compass.lighthouselabs.ca/quizzes/14/quiz_submissions/new?activity_id=63', 456789, false, 600, 47, false);
 
+
+--For my purposes only do not merge into master
+INSERT INTO quizzes (quiz_category_id, name, description, url_link, pin, public, time_limit , user_id, active) VALUES (1, 'What is love', 'This welcome quiz will teach how to use this app!', 'https://web.compass.lighthouselabs.ca/quizzes/34/quiz_submissions/new?activity_id=316', 123456, false, 600, 101, true);
+INSERT INTO quizzes (quiz_category_id, name, description, url_link, pin, public, time_limit , user_id, active) VALUES (1, 'Baby Dont Hurt Me', 'Baby Dont Hurt Me', 'https://web.compass.lighthouselabs.ca/quizzes/34/quiz_submissions/new?activity_id=316', 123456, false, 600, 101, true);
+INSERT INTO quizzes (quiz_category_id, name, description, url_link, pin, public, time_limit , user_id, active) VALUES (1, 'Dont Hurt Me', 'Dont Hurt Me', 'https://web.compass.lighthouselabs.ca/quizzes/35/quiz_submissions/new?activity_id=317', 234567, false, 600, 101, false);
+INSERT INTO quizzes (quiz_category_id, name, description, url_link, pin, public, time_limit , user_id, active) VALUES (1, 'No More', 'No More', 'https://web.compass.lighthouselabs.ca/quizzes/36/quiz_submissions/new?activity_id=320', 345678, false, 600, 101, true);
+INSERT INTO quizzes (quiz_category_id, name, description, url_link, pin, public, time_limit , user_id, active) VALUES (1, 'Vogue', 'Im blue', 'https://web.compass.lighthouselabs.ca/quizzes/14/quiz_submissions/new?activity_id=63', 345679, false, 600, 101, true);
+INSERT INTO quizzes (quiz_category_id, name, description, url_link, pin, public, time_limit , user_id, active) VALUES (1, 'Burger King Trivia', 'Burger King Trivia', 'https://web.compass.lighthouselabs.ca/quizzes/14/quiz_submissions/new?activity_id=63', 456789, true, 600, 101, true);
+

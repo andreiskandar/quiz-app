@@ -1,4 +1,4 @@
-const pool = require('../db.js');
+const pool = require("../db.js");
 
 //gets all available quizzes
 const getQuizzes = (public, active) => {
@@ -43,23 +43,25 @@ const getQuizById = (id) => {
 //gets all quizzes belonging to that user
 const getQuizzesByUserId = (id) => {
   return pool
-  .query("SELECT * FROM quizzes WHERE user_id = $1;", [id])
-  .then((response) => {
-    return response.rows;
-  })
-}
+    .query("SELECT * FROM quizzes WHERE user_id = $1;", [id])
+    .then((response) => {
+      return response.rows;
+    });
+};
 
 //gets all quizzes belonging to that user
 const getAllActiveQuizzesData = (id) => {
   return pool
-  .query("SELECT * FROM quizzes WHERE user_id = $1;", [id])
-  .then((response) => {
-    return response.rows;
-  })
-}
+    .query("SELECT * FROM quizzes WHERE user_id = $1;", [id])
+    .then((response) => {
+      return response.rows;
+    });
+};
 
 module.exports = {
   getQuizzes,
   getQuizById,
-  getQuizzesByUserId
+  getQuizzesByUserId,
+  getAllActiveQuizzesData,
+  getThreeRandomQuizzes
 };
