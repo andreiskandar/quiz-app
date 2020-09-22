@@ -1,4 +1,4 @@
-$(document).ready(function (){
+$(document).ready(function () {
   const $login = $(`
   <div class="sidenav">
   <div class="login-main-text">
@@ -35,18 +35,14 @@ $(document).ready(function (){
         </div>
         <button type="submit" class="btn btn-black">Login</button>
         <button type="submit" class="btn btn-secondary">Register</button>
-        <button type="submit" class="btn btn-black facilitator_btn">
-          Facilitator
-        </button>
-      </form>
+          
+            </form>
     </div>
   </div>
 </div>
-  `)
+  `);
 
   window.$login = $login;
 
   // $questionForm.submit(function (e) {});
-
 });
-
