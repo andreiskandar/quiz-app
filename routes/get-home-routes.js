@@ -22,7 +22,6 @@ router.use((req, res, next) => {
 //we don't specifically need to handle user authentication as a requirement but we may do it later!
 router.get("/", (req, res) => {
   const id = req.session.id;
-  console.log("id:", id);
   if (!id) {
     res.send({ message: "not logged in" });
     return;
