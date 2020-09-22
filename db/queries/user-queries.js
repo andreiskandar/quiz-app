@@ -22,13 +22,13 @@ const getUserByEmail = (email) => {
   queryString = "SELECT id FROM users WHERE email = "
   queryString += "$1"
   queryString += ";"
-console.log(queryString)
+  console.log(queryString)
 
 
   return pool.query(queryString, [email])
-  .then((response) => {
-    return response.rows[0];
-  });
+    .then((response) => {
+      return response.rows[0];
+    });
 };
 
 //get a user type (by email) - used to switch header
@@ -38,9 +38,9 @@ const getUserType = (email) => {
   queryString += ";"
 
   return pool.query(queryString, [email])
-  .then((response) => {
-    return response.rows[0].is_teacher;
-  });
+    .then((response) => {
+      return response.rows[0].is_teacher;
+    });
 };
 
 
