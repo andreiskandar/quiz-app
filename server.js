@@ -1,12 +1,12 @@
-require('dotenv').config();
+require("dotenv").config();
 
-const express = require('express');
-const morgan = require('morgan');
-const bodyParser = require('body-parser')
-const quizRoutes = require('./routes/public-quiz-routes');
-const homeRoutes = require('./routes/get-home-routes');
-const dashboardRoutes = require('./routes/get-dashboard');
-const cookieSession = require('cookie-session');
+const express = require("express");
+const morgan = require("morgan");
+const bodyParser = require("body-parser");
+const quizRoutes = require("./routes/public-quiz-routes");
+const homeRoutes = require("./routes/get-home-routes");
+const dashboardRoutes = require("./routes/get-dashboard");
+const cookieSession = require("cookie-session");
 const app = express();
 
 app.use(morgan("dev"));
@@ -18,7 +18,7 @@ app.use(
     // Cookie Options
     maxAge: 24 * 60 * 60 * 1000, // 24 hours
     sameSite: true,
-    httpOnly: true
+    httpOnly: true,
   })
 );
 
@@ -30,16 +30,16 @@ app.set("view engine", "ejs");
 app.use("/", homeRoutes);
 //handles routing for dashboard or can re-direct to /LOGIN /REGISTER if not logged in
 //check if user is logged in here?
-app.use('/dashboard', dashboardRoutes);
+app.use("/dashboard", dashboardRoutes);
 
 // handles the routing for /quizzes and /quizzes/:id
-app.use('/quizzes', quizRoutes);
+app.use("/quizzes", quizRoutes);
 
-app.use('/login', homeRoutes)
+app.use("/login", homeRoutes);
 
-app.get('/*', (req, res) => {
+app.get("/*", (req, res) => {
   res.statusCode = 404;
-  res.render('not-found');
+  res.render("not-found");
 });
 
 app.listen(port, () => {
