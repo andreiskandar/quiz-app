@@ -2,15 +2,13 @@ $(() => {
   const $main = $("#main-content");
   window.views_manager = {};
   window.views_manager.show = (item, domElem) => {
-    // $login.detach();
-    // $questionForm.detach();
-    // $quizForm.detach();
-    // $dashboard.detach();
-    // $quizDomElem.detach();
 
+    console.log("in views manager: ", domElem)
+    //give a dom element to append and track the view
     $main.empty();
     $main.append(domElem);
 
+    //we need to remove this
     switch (item) {
       case "questionForm":
         // $main.append($questionForm);
@@ -23,9 +21,9 @@ $(() => {
         // $main.append(window.$quizDomElem);
         // $main.append(domElem);
         break;
-      case "dashboard":
-        $main.append($dashboard);
-        break;
+      // case "dashboard":
+      //   $main.append($dashboard);
+        // break;
       case "login":
         //empties the #main-content
 
