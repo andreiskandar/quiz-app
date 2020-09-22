@@ -60,7 +60,6 @@ $(document).ready(() => {
     $("#main-content").show();
     $.post("/login", { email }, () => {
       getUserType().then((user) => {
-        console.log(user);
         updateHeader(user.is_teacher);
       });
 
@@ -74,12 +73,13 @@ $(document).ready(() => {
     views_manager.show("dashboard");
   });
 
-  $("header").on("click", ".browse_btn", () => {
-    views_manager.show("browsePublicQuizzes");
-  });
+  // $("header").on("click", ".browse_btn", () => {
+  //   views_manager.show("browsePublicQuizzes");
+  // });
 
   $("header").on("click", ".create_btn", () => {
     views_manager.show("questionForm");
+    views_manager.show(null, window.$questionForm);
   });
   $("header").on("click", ".myQuiz_btn", () => {
     views_manager.show("quizForm");
