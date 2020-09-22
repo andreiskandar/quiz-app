@@ -1,4 +1,6 @@
 $(() => {
+  //get questions from quiz
+
   const $quizForm = $(`
   <div class="quiz_body">
   <div class="card question_body">
@@ -13,7 +15,7 @@ $(() => {
     </div>
     <div class="quiz_body_footer">
       <div>
-        <a href="#" class="back"><i class="fas fa-angle-double-left"></i> </a>
+        <a class="back-btn"><i class="fas fa-angle-double-left"></i> </a>
       </div>
       <div>
         <h2 class="question_counter">1/10</h2>
@@ -64,19 +66,27 @@ $(() => {
   window.$quizForm = $quizForm;
 
   $("main").on("click", ".option1-btn", () => {
+    // set bind radio button with div element
     $("#option1").prop("checked", true);
   });
 
   $("main").on("click", ".option2-btn", () => {
+    // set bind radio button with div element
     $("#option2").prop("checked", true);
   });
 
   $("main").on("click", ".option3-btn", () => {
+    // set bind radio button with div element
     $("#option3").prop("checked", true);
   });
 
   $("main").on("click", ".option4-btn", () => {
+    // set bind radio button with div element
     $("#option4").prop("checked", true);
+  });
+  $("main").on("click", ".back-btn", () => {
+    //back to dashboard
+    // or back to previous question
   });
 
   $quizForm.submit(function (e) {});

@@ -16,7 +16,6 @@ $(() => {
         // $main.append($questionForm);
         break;
       case "quizForm":
-        console.log($quizForm);
         $main.append(window.$quizForm);
         break;
       case "browsePublicQuizzes":
