@@ -19,18 +19,6 @@ const getUserById = (id) => {
 
 //get a user by email - this is used to specifically assign a session cookie
 const getUserByEmail = (email) => {
-<<<<<<< HEAD
-  queryString = "SELECT id FROM users WHERE email = "
-  queryString += "$1"
-  queryString += ";"
-  console.log(queryString)
-
-
-  return pool.query(queryString, [email])
-    .then((response) => {
-      return response.rows[0];
-    });
-=======
   queryString = "SELECT id FROM users WHERE email = ";
   queryString += "$1";
   queryString += ";";
@@ -38,7 +26,6 @@ const getUserByEmail = (email) => {
   return pool.query(queryString, [email]).then((response) => {
     return response.rows[0];
   });
->>>>>>> index
 };
 
 //get a user type (by email) - used to switch header
@@ -47,16 +34,9 @@ const getUserTypeById = (id) => {
   queryString += "$1";
   queryString += ";";
 
-<<<<<<< HEAD
-  return pool.query(queryString, [email])
-    .then((response) => {
-      return response.rows[0].is_teacher;
-    });
-=======
   return pool.query(queryString, [id]).then((response) => {
     return response.rows[0];
   });
->>>>>>> index
 };
 
 module.exports = {
