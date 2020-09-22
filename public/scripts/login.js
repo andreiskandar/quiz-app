@@ -2,8 +2,6 @@ $(document).ready(() => {
   const $loginReg = $(".login_page");
   $(".login_page").append($login);
 
-  console.log(email);
-
   $loginReg.on("submit", "#login-register", function (e) {
     e.preventDefault();
     const email = $loginReg.find("#email").val();
@@ -13,32 +11,79 @@ $(document).ready(() => {
     $.post("/login", { email: email });
     $(".login_page").hide();
 
-    getUserType().then((isTeacher) => {
-      console.log("from login: ", isTeacher);
-    });
-    let userLinks;
+    const updateHeader = (isTeacher) => {
+      currentUser = isTeacher;
 
-    userLinks = `
-      <header>
-      <ul class="flex-row">
-        <div class="flex-row">
-          <li class="brand brand_btn">Q.a.</li>
-          <li class="browse_btn">Browse</li>
-          <li class="create_btn">Create</li>
-          <li class="myQuiz_btn">My Quizzes</li>
-          <li class="pastQuiz_btn">Past Quizzes</li>
-        </div>
-        <div class="flex-row">
-          <li class="userType_btn">Select User Type</li>
-          <li id="logout" class="logout_btn">Logout</li>
-        </div>
-      </ul>
-    </header>
-          `;
-    // $("#page-header").empty();
-    $("#page-header").append(userLinks);
-    views_manager.show("dashboard");
-    e.preventDefault();
+      let userLinks;
+      if (isTeacher) {
+        userLinks = `
+        <header>
+        <ul class="flex-row">
+          <div class="flex-row">
+            <li class="brand brand_btn">Q.a.</li>
+            <li class="browse_btn">Browse</li>
+            <li class="create_btn">Create</li>
+            <li class="myQuiz_btn">My Quizzes</li>
+            <li class="pastQuiz_btn">Past Quizzes</li>
+          </div>
+          <div class="flex-row">
+            <li class="userType_btn">Teacher</li>
+            <li class="logout_btn">Logout</li>
+          </div>
+        </ul>
+      </header>
+      `;
+      } else {
+        userLinks = `
+        <header>
+        <ul class="flex-row">
+          <div class="flex-row">
+            <li class="brand brand_btn">Q.a.</li>
+            <li class="browse_btn">Browse</li>
+            <li class="myQuiz_btn">My Quizzes</li>
+            <li class="pastQuiz_btn">Past Quizzes</li>
+          </div>
+          <div class="flex-row">
+            <li class="userType_btn">Student</li>
+            <li class="logout_btn">Logout</li>
+          </div>
+        </ul>
+      </header>
+      `;
+      }
+
+      $("#page-header").append(userLinks);
+      views_manager.show("dashboard");
+      e.preventDefault();
+    };
+
+    getUserType().then((user) => {
+      updateHeader(user.isTeacher);
+    });
+
+    // let userLinks;
+
+    // userLinks = `
+    //   <header>
+    //   <ul class="flex-row">
+    //     <div class="flex-row">
+    //       <li class="brand brand_btn">Q.a.</li>
+    //       <li class="browse_btn">Browse</li>
+    //       <li class="create_btn">Create</li>
+    //       <li class="myQuiz_btn">My Quizzes</li>
+    //       <li class="pastQuiz_btn">Past Quizzes</li>
+    //     </div>
+    //     <div class="flex-row">
+    //       <li class="userType_btn">Select User Type</li>
+    //       <li id="logout" class="logout_btn">Logout</li>
+    //     </div>
+    //   </ul>
+    // </header>
+    //       `;
+    // // $("#page-header").empty();
+    // $("#page-header").append(userLinks);
+    // views_manager.show("dashboard");
+    // e.preventDefault();
   });
 
   // getUserType().then((json) => {console.log(json)});
