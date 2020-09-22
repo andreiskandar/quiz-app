@@ -3,16 +3,14 @@ const pool = require('../db.js');
 //gets all available quizzes
 const getQuizzes = (public, active) => {
 
-  let published = 'all';
-  let show = 'all';
+  let published = '';
+  let show = '';
 
   // public, private, all
   if (public === 'public') {
     show = 'WHERE public = true';
   } else if (public === 'private') {
     show = 'WHERE public = false';
-  } else {
-    show = '';
   }
 
   // active, inactive, all
@@ -20,8 +18,6 @@ const getQuizzes = (public, active) => {
     published = ' AND active = true';
   } else if (active === 'inactive') {
     published = ' AND active = false';
-  } else {
-    published = '';
   }
 
   const sql = "SELECT * FROM quizzes " + show + published + ";";
