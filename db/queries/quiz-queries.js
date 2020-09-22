@@ -3,6 +3,7 @@ const pool = require('../db.js');
 //gets all available quizzes
 const getQuizzes = () => {
   return pool.query("SELECT * FROM quizzes;").then((response) => {
+    console.log('quiz-queries.js response.rows:', response.rows);
     return response.rows;
   });
 };
