@@ -5,11 +5,7 @@ $(() => {
     $questionForm.detach();
     $quizForm.detach();
     $dashboard.detach();
-<<<<<<< HEAD
     $login.detach();
-=======
-
->>>>>>> interface/navbar
     switch (item) {
       case "questionForm":
         $main.append($questionForm);

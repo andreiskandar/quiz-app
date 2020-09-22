@@ -1,5 +1,4 @@
 $(document).ready(() => {
-<<<<<<< HEAD
   const $loginReg = $('.login_page');
   $('.login_page').append($login)
 
@@ -14,19 +13,6 @@ $(document).ready(() => {
     $("#main-content").show();
     $.post( "/login", {email: email});
     $(".login_page").hide();
-=======
-  const $loginReg = $("#login-register");
-  const $email = $("#email");
-
-  $loginReg.on("submit", function (e) {
-    e.preventDefault();
-    $("header").show();
-    const email = $email.val();
-    $.post("/login", { email: email });
-
-    // $.post("/login")
-    $(".login_page").remove();
->>>>>>> interface/navbar
 
     let userLinks;
 
