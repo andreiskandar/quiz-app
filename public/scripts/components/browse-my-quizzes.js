@@ -2,7 +2,7 @@ $(() => {
   const publicQuizContainer = `<div class="row">`;
   const publicQuizContainerClose = `</div>`;
 
-  $("header").on("click", ".myQuiz_btn", () => {
+  $("header").on("click", ".browse-btn", () => {
     // $.get("/dashboard/my-quizzes", (data) =>{
 
     $.get("/dashboard/my-quizzes").then((data) => {

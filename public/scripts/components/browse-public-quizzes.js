@@ -3,9 +3,7 @@ $(() => {
   const publicQuizContainerClose = `</div>`;
 
   $("header").on("click", ".browse_btn", () => {
-
     $.get("/quizzes").then((data) => {
-      console.log(data)
       // clearQuiz();
       let counter = 0;
       let publicQuizDomElem = publicQuizContainer;
@@ -35,7 +33,6 @@ $(() => {
         counter++;
       }
       publicQuizDomElem += publicQuizContainerClose;
-      console.log(typeof publicQuizDomElem);
       window.views_manager.show("browsePublicQuizzes", publicQuizDomElem);
     });
   });
