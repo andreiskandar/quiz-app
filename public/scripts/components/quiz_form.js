@@ -1,20 +1,18 @@
 $(() => {
-  const getQuizByQuestionIdFromDB = () => {};
-
-  const getQuestionAnswers = () => {
-    return Promise.all([$.get("/questions/test"), $.get(`/answers/${2}`)]);
-  };
-
+  let question_id = 1;
   const getQuestionFromDB = () => {
-    $.get("/questions/test").then((questions) => {
-      // console.log(questions.map((item) => item.question));
+    //quiz_id = 2
+    $.get("/quizzes/2/questions/").then((questions) => {
+      console.log(questions);
+      $(".question_number").text(questions[0].id);
       $(".question_string").text(questions[0].question);
+      $(".question_counter").text();
     });
   };
 
   //  /quiz/:id/questions/:id
-  // /quiz/:id/questions/:id/answers
 
+  // /quiz/:id/questions/:id/answers
   const getAnswersForQuestionFromDB = () => {
     $.get(`/answers/${2}`).then((answers) => {
       const renderAnswer = answers.map((item, idx) =>
@@ -90,19 +88,23 @@ $(() => {
 
   window.$quizForm_onLoad = loadQuestion;
   window.$quizForm = $quizForm;
+  let counter = 0;
 
   $("main").on("click", ".option1-btn", () => {
     // set bind radio button with div element
     $("#option1").prop("checked", true);
-
+    counter++;
+    // when button is clicks, load next question and answers set
     //get request on the next question with answers set
     //  /quiz/:id/questions/:id
     // /quiz/:id/questions/:id/answers
-
-    //keep track right / answer
-    //post request to response table query
+    $.get("/quizzes/2/questions/:question_id").then((questions) => {
+      $(".question_number").text(questions[1].id);
+      $(".question_string").text(questions[1].question);
+      //post request to response table query
+      //keep track right / answer
+    });
   });
-
   $("main").on("click", ".option2-btn", () => {
     // set bind radio button with div element
     $("#option2").prop("checked", true);
@@ -120,6 +122,7 @@ $(() => {
   $("main").on("click", ".back-btn", () => {
     //back to dashboard
     // or back to previous question
+    counter--;
   });
 
   $quizForm.submit(function (e) {});
