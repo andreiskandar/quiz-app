@@ -58,9 +58,9 @@ $(() => {
   //   views_manager.show("dashboard");
   // });
 
-  $("header").on("click", ".browse_btn", () => {
-    views_manager.show("BrowsePublicQuizzes");
-  });
+  // $("header").on("click", ".browse_btn", () => {
+  //   views_manager.show("BrowsePublicQuizzes");
+  // });
   // $("header").on("click", ".browse_btn", () => {
   //   views_manager.show("quizForm");
   // });
