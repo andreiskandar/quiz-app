@@ -1,5 +1,7 @@
 const express = require("express");
 const router = express.Router();
+const questionsRoutes = require("./questions-routes");
+
 //we will replace this later
 const { getUsers, getUserById } = require("../db/queries/user-queries");
 const {
@@ -17,7 +19,22 @@ router.get("/", (req, res) => {
   });
 });
 
+app.use("/dashboard", dashboardRoutes);
+
+//localhost:3000/quizzes/:quiz_id/questions/
+router.use(
+  "/:quiz_id/questions",
+  (req, res, next) => {
+    req.quiz_id = req.params.quiz_id;
+    next();
+  },
+  questionsRoutes
+);
+
+// router.get("/questions", (req, res) => {
+
 //get a quiz by the quiz.id = quizzes/:id e.g. quizzes/1
+//localhost:3000/quizzes/:id/questions/:question_id/answers/:answer_id
 router.get("/:id", (req, res) => {
   getQuizById(req.params.id).then((quiz) => {
     res.render("quiz", { quiz });

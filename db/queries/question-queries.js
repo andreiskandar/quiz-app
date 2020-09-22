@@ -1,13 +1,14 @@
 const pool = require("../db.js");
 
 //gets all available quizzes
-const getQuestions = () => {
-  const queryString = "SELECT * FROM questions";
-  return pool.query(queryString).then((response) => {
+const getQuestionsFromQuiz = (quiz_id, question_id) => {
+  const queryString = "select * from questions where quiz_id = $1 and id = $2";
+  return pool.query(queryString, [quiz_id, question_id]).then((response) => {
+    console.log("response.rows:", response.rows);
     return response.rows;
   });
 };
 
 module.exports = {
-  getQuestions,
+  getQuestionsFromQuiz,
 };
