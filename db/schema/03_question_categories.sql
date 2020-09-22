@@ -7,6 +7,6 @@ CREATE TABLE question_categories (
   user_id       INTEGER,
   image_url     TEXT,
   bg_image_url  TEXT,
-  color         VARCHAR(40)
-  active        BOOLEAN DEFAULT false,
+  color         VARCHAR(40),
+  active        BOOLEAN DEFAULT false
 );
