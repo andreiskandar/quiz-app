@@ -13,7 +13,7 @@ $(() => {
       case "quizForm":
         $main.append($quizForm);
         break;
-      case "BrowsePublicQuizzes":
+      case "browsePublicQuizzes":
         $main.append($quizDomElem);
         break;
       case "dashboard":
@@ -21,9 +21,9 @@ $(() => {
         break;
       case "login":
         //empties the #main-content
-        $(".login_page").empty()
+        $(".login_page").empty();
         $(".login_page").append($login);
-        $("#page-header").empty()
+        $("#page-header").empty();
         break;
       case "error":
         break;
