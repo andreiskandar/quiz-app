@@ -38,8 +38,8 @@ app.use('/quizzes', quizRoutes);
 app.use('/login', homeRoutes)
 
 app.get('/*', (req, res) => {
-res.statusCode = 404;
-res.render('not-found');
+  res.statusCode = 404;
+  res.render('not-found');
 });
 
 app.listen(port, () => {
