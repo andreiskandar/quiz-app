@@ -3,6 +3,7 @@ $(document).ready(() => {
   let currentUser = null;
 
   $("header").hide();
+  $("#main-content").hide();
 
   const $loginReg = $(".login_page");
   $(".login_page").append($login);
@@ -49,7 +50,8 @@ $(document).ready(() => {
     }
 
     $("#page-header").append(userLinks);
-    views_manager.show("dashboard");
+    // not passing in the quiz element now!
+    // views_manager.show("dashboard");
   };
 
   $loginReg.on("submit", "#login-register", function (e) {
@@ -57,10 +59,10 @@ $(document).ready(() => {
     const email = $loginReg.find("#email").val();
     //may consider moving these methods to empty()
     $("header").show();
-    $("#main-content").show();
     $.post("/login", { email }, () => {
       getUserType().then((user) => {
         updateHeader(user.is_teacher);
+        $("#main-content").show();
       });
 
       $(".login_page").hide();
@@ -69,27 +71,13 @@ $(document).ready(() => {
     });
   });
 
-  $("header").on("click", ".brand_btn", () => {
-    views_manager.show("dashboard");
-  });
-
-  // $("header").on("click", ".browse_btn", () => {
-  //   views_manager.show("browsePublicQuizzes");
-  // });
-
   $("header").on("click", ".create_btn", () => {
     views_manager.show("questionForm");
     views_manager.show(null, window.$questionForm);
   });
-  $("header").on("click", ".myQuiz_btn", () => {
-    views_manager.show("quizForm");
-  });
 
   $("header").on("click", "#logout", () => {
-    // logOut().then(() => {
-    //   header.update(null);
-    // });
-    //hide the header - do we need to completely destroy these elements for a different user logging in?
+
     $("header").hide();
     $("#main-content").hide();
     //remove user cookie
