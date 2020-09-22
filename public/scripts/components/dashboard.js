@@ -1,5 +1,5 @@
 $(() => {
-  const $dashboard = $(`
+  const $dashboard = $(`  
   <div class="row">
   <div class="card col-md">
     <div class="card quiz_title_dashboard">quiz title</div>
