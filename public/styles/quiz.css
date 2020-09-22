@@ -75,3 +75,7 @@
 .radioCustomButton {
   display: none;
 }
+
+.back-btn {
+  cursor: pointer;
+}
