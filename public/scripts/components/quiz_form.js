@@ -6,11 +6,8 @@ $(() => {
     $.get(`/quizzes/${quiz_id}/questions/${question_id}`).then((questions) => {
       $(".question_number, .question-counter-span").text(questions[0].id);
       $(".question_string").text(questions[0].question);
-      // $(".question-total-span").text();
     });
   };
-
-  //  /quiz/:id/questions/:id
 
   // /quiz/:id/questions/:id/answers
   const getAnswersForQuestionFromDB = () => {
@@ -66,7 +63,6 @@ $(() => {
   const counter = 1;
 
   $("main").on("click", ".option1-btn", () => {
-    console.log("option1 click");
     $("#option1").prop("checked", true);
     // when button is clicks, load next question and answers set
     //get request on the next question with answers set
@@ -76,7 +72,6 @@ $(() => {
       (questions) => {
         $(".question_number, .question-counter-span").text(questions[0].id);
         $(".question_string").text(questions[0].question);
-        console.log("questions[0]:", questions[0]);
         $.get(`/quizzes/${quiz_id}/questions/${question_id}/answers`).then(
           (answers) => {
             const answerHTMLArray = answers.map((item, idx) => {
@@ -95,7 +90,6 @@ $(() => {
             });
             $(".answer_form").children().remove();
             answerHTMLArray.forEach((item) => {
-              console.log("inside array");
               $(".answer_form").append(item);
             });
           }
@@ -105,20 +99,6 @@ $(() => {
 
     //post answer to response table
   });
-
-  // $.get(`/quizzes/${quiz_id}/questions/${++question_id}`).then(
-  //   (questions) => {
-  //     $(".question_number").text(questions[0].id);
-  //     $(".question_string").text(questions[0].question);
-
-  //     $.get(`/quizzes/${quiz_id}/questions/${question_id}/answers`).then(
-  //       (answers) => {
-  //         console.log("answers:", answers);
-  //         const renderAnswer = answers.map(
-  //           (item, idx) => $(`.answer${idx + 1}`).text(item.answer)
-  //post request to response table query
-  //keep track right / answer
-  // );
 
   $("main").on("click", ".option2-btn", () => {
     $("#option2").prop("checked", true);
@@ -134,12 +114,10 @@ $(() => {
   $("main").on("click", ".back-btn", () => {
     //back to dashboard
     // or back to previous question
-    console.log("back btn here");
     $.get(`/quizzes/${quiz_id}/questions/${--question_id}`).then(
       (questions) => {
         $(".question_number, .question-counter-span").text(questions[0].id);
         $(".question_string").text(questions[0].question);
-        console.log("questions[0]:", questions[0]);
         $.get(`/quizzes/${quiz_id}/questions/${question_id}/answers`).then(
           (answers) => {
             const answerHTMLArray = answers.map((item, idx) => {
@@ -158,7 +136,6 @@ $(() => {
             });
             $(".answer_form").children().remove();
             answerHTMLArray.forEach((item) => {
-              console.log("inside array");
               $(".answer_form").append(item);
             });
           }
