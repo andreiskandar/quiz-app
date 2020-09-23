@@ -19,6 +19,8 @@ router.get("/", (req, res) => {
 // GET /quiz/
 //these will not be cats once we have quiz data to generate
 
-router.post("/create", (req, res) => {});
+router.post("/create-answer", (req, res) => {
+  console.log('in /create answer', req.body, req.session.id)
+});
 
 module.exports = router;
