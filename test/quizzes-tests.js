@@ -87,7 +87,7 @@ describe('get answers for questions for specified quiz ID', () => {
     const response = await getAnswersForQuiz(quizID);
     assert.isNotEmpty(response, 'Data not returned');
   })
-  it('should return undefined for questions from a specified quiz ID', async function(){
+  it('should return undefined for questions from an invalid specified quiz ID', async function(){
     const quizID = 0;
     const response = await getAnswersForQuiz(quizID);
     console.log(response);

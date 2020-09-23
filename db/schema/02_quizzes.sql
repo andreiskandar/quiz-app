@@ -6,7 +6,6 @@ CREATE TABLE quizzes (
   quiz_category_id  INTEGER,
   name              VARCHAR(100) NOT NULL,
   description       VARCHAR(254),
-  url_link          TEXT,
   pin               INTEGER,
   public            BOOLEAN DEFAULT true,
   time_limit        INTEGER,
