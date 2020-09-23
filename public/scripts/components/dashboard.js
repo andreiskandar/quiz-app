@@ -29,4 +29,10 @@ getQuizzes();
     $("header").on("click", ".brand_btn", () => {
         getQuizzes();
     });
-});
+
+    //we need a condition to make getQuizzes happen every time
+    $("header").on("click", "#logout", () => {
+      getQuizzes();
+    });
+
+  });
