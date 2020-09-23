@@ -2,31 +2,37 @@ const getQuizzes = () => {
   const randomQuizContainer = `<div class="row random-quizzes">`;
   const randomQuizContainerClose = `</div>`;
 
-  $.get('/quizzes/random').then((data) => {
+  $.get("/quizzes/random").then((data) => {
     // console.log(data);
+    //TODO:refactor to use data-quizID
     let randomQuizDomElem = randomQuizContainer;
     for (const quizzes of data) {
+      randomQuizDomElem += `
 
-      randomQuizDomElem +=
-      `
-      <a href="/quizzes/${quizzes.id}">
-      <div class="card col-md">
+      <div class="card col-md clickable" id="${quizzes.id}">
       <div class="card quiz_title_dashboard">${quizzes.name}</div>
-      <div class="card question_card_dashboard">q1</div>
-      <div class="card question_card_dashboard">q2</div>
-      <div class="card question_card_dashboard">q3</div>
-      </div></a>`;
+      <div class="card question_card_dashboard ${quizzes.id}">q1</div>
+      <div class="card question_card_dashboard ${quizzes.id}">q2</div>
+      <div class="card question_card_dashboard ${quizzes.id}">q3</div>
+      <div class="card question_card_dashboard ${quizzes.id}">q4</div>
+      </div>`;
     }
     randomQuizDomElem += randomQuizContainerClose;
     window.views_manager.show("quizDashboard", randomQuizDomElem);
   });
-}
+};
 
 $(() => {
   //calls getQuizzes so we can have it prepared
-getQuizzes();
+  getQuizzes();
 
     $("header").on("click", ".brand_btn", () => {
         getQuizzes();
     });
-});
+
+    //we need a condition to make getQuizzes happen every time
+    $("header").on("click", "#logout", () => {
+      getQuizzes();
+    });
+
+  });

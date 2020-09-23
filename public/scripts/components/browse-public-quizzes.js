@@ -3,9 +3,7 @@ $(() => {
   const publicQuizContainerClose = `</div>`;
 
   $("header").on("click", ".browse_btn", () => {
-
     $.get("/quizzes").then((data) => {
-      console.log(data)
       // clearQuiz();
       let counter = 0;
       let publicQuizDomElem = publicQuizContainer;
@@ -14,28 +12,29 @@ $(() => {
           publicQuizDomElem += publicQuizContainerClose;
           publicQuizDomElem += publicQuizContainer;
 
-          publicQuizDomElem += `
-          <a href="/quizzes/${quizzes.id}">
-          <div class="card col-md">
+          publicQuizDomElem +=
+          `
+          <div class="card col-md clickable" id="${quizzes.id}">
           <div class="card quiz_title_dashboard">${quizzes.name}</div>
-          <div class="card question_card_dashboard">q1</div>
-          <div class="card question_card_dashboard">q2</div>
-          <div class="card question_card_dashboard">q3</div>
+          <div class="card question_card_dashboard ${quizzes.id}">q1</div>
+          <div class="card question_card_dashboard ${quizzes.id}">q2</div>
+          <div class="card question_card_dashboard ${quizzes.id}">q3</div>
+          <div class="card question_card_dashboard ${quizzes.id}">q4</div>
           </div>`;
         } else {
-          publicQuizDomElem += `
-          <a href="/quizzes/${quizzes.id}">
-          <div class="card col-md">
+          publicQuizDomElem +=
+          `
+          <div class="card col-md clickable" id="${quizzes.id}">
           <div class="card quiz_title_dashboard">${quizzes.name}</div>
-          <div class="card question_card_dashboard">q1</div>
-          <div class="card question_card_dashboard">q2</div>
-          <div class="card question_card_dashboard">q3</div>
+          <div class="card question_card_dashboard ${quizzes.id}">q1</div>
+          <div class="card question_card_dashboard ${quizzes.id}">q2</div>
+          <div class="card question_card_dashboard ${quizzes.id}">q3</div>
+          <div class="card question_card_dashboard ${quizzes.id}">q4</div>
           </div>`;
         }
         counter++;
       }
       publicQuizDomElem += publicQuizContainerClose;
-      console.log(typeof publicQuizDomElem);
       window.views_manager.show("browsePublicQuizzes", publicQuizDomElem);
     });
   });

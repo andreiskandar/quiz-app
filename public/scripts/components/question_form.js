@@ -50,7 +50,7 @@ $(() => {
           </div>
           <div class="form-footer">
             <div>
-              <a href="#" class="back question_form_back"
+              <a href="#" class="back-btn question_form_back"
                 ><i class="fas fa-angle-double-left" style="position: inherit"></i>
               </a>
             </div>
