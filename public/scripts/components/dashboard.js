@@ -3,7 +3,6 @@ const getQuizzes = () => {
   const randomQuizContainerClose = `</div>`;
 
   $.get("/quizzes/random").then((data) => {
-    // console.log(data);
     let randomQuizDomElem = randomQuizContainer;
     for (const quizzes of data) {
       randomQuizDomElem += `

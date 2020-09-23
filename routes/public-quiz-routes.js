@@ -23,7 +23,6 @@ router.get("/", (req, res) => {
 router.get("/random", (req, res) => {
   getThreeRandomQuizzes()
     .then((quizzes) => {
-      // console.log(quizzes);
       res.send(quizzes);
     })
     .catch((err) => {
@@ -45,10 +44,12 @@ router.use(
 // router.get("/questions", (req, res) => {
 
 //get a quiz by the quiz.id = quizzes/:id e.g. quizzes/1
-router.get("/:id", (req, res) => {
-  getQuizById(req.params.id).then((quiz) => {
-    res.render("quiz", { quiz });
-  });
+router.get("/:quiz_id", (req, res) => {
+  getQuizById(req.params.quiz_id)
+    .then((quiz) => {
+      res.send(quiz);
+    })
+    .catch((e) => console.error(e));
 });
 
 module.exports = router;
