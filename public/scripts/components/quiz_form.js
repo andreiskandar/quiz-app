@@ -66,33 +66,44 @@ $(() => {
   const counter = 1;
 
   $("main").on("click", ".option1-btn", () => {
+    console.log("option1 click");
     $("#option1").prop("checked", true);
     // when button is clicks, load next question and answers set
     //get request on the next question with answers set
     //  /quiz/:id/questions/:id
     // /quiz/:id/questions/:id/answers
-    $(".answer_form").empty();
     $.get(`/quizzes/${quiz_id}/questions/${++question_id}`).then(
       (questions) => {
         $(".question_number, .question-counter-span").text(questions[0].id);
         $(".question_string").text(questions[0].question);
-        // $(".question-total-span").text();
+        console.log("questions[0]:", questions[0]);
         $.get(`/quizzes/${quiz_id}/questions/${question_id}/answers`).then(
           (answers) => {
-            const renderAnswer = answers.map((item, idx) => {
-              console.log("inside render answer");
+            const answerHTMLArray = answers.map((item, idx) => {
               const answerDiv = `
-                <div class="btn btn-outline-light option${question_id}-btn answer-div">
-                  <input type="radio" class="radioCustomButton" id="option${question_id}" name="radioGroup" />
-                  <label class="answerLabel answer${question_id}">${item.answer}</label>
-                </div>`;
-              $(".answer_form").append(answerDiv);
+              <div class="btn btn-outline-light option${
+                idx + 1
+              }-btn answer-div">
+              <input type="radio" class="radioCustomButton" id="option${
+                idx + 1
+              }" name="radioGroup" />
+              <label class="answerLabel answer${question_id}">${
+                item.answer
+              }</label>
+              </div>`;
+              return answerDiv;
             });
-            // .answer_form
+            $(".answer_form").children().remove();
+            answerHTMLArray.forEach((item) => {
+              console.log("inside array");
+              $(".answer_form").append(item);
+            });
           }
         );
       }
     );
+
+    //post answer to response table
   });
 
   // $.get(`/quizzes/${quiz_id}/questions/${++question_id}`).then(
@@ -123,26 +134,33 @@ $(() => {
   $("main").on("click", ".back-btn", () => {
     //back to dashboard
     // or back to previous question
-    $(".answer_form").empty();
-
+    console.log("back btn here");
     $.get(`/quizzes/${quiz_id}/questions/${--question_id}`).then(
       (questions) => {
-        console.log("question_id:", question_id);
         $(".question_number, .question-counter-span").text(questions[0].id);
         $(".question_string").text(questions[0].question);
-        // $(".question-total-span").text();
+        console.log("questions[0]:", questions[0]);
         $.get(`/quizzes/${quiz_id}/questions/${question_id}/answers`).then(
           (answers) => {
-            const renderAnswer = answers.map((item, idx) => {
-              console.log("object");
+            const answerHTMLArray = answers.map((item, idx) => {
               const answerDiv = `
-                <div class="btn btn-outline-light option${question_id}-btn answer-div">
-                  <input type="radio" class="radioCustomButton" id="option${question_id}" name="radioGroup" />
-                  <label class="answerLabel answer${question_id}">${item.answer}</label>
-                </div>`;
-              $(".answer_form").append(answerDiv);
+              <div class="btn btn-outline-light option${
+                idx + 1
+              }-btn answer-div">
+              <input type="radio" class="radioCustomButton" id="option${
+                idx + 1
+              }" name="radioGroup" />
+              <label class="answerLabel answer${question_id}">${
+                item.answer
+              }</label>
+              </div>`;
+              return answerDiv;
             });
-            // .answer_form
+            $(".answer_form").children().remove();
+            answerHTMLArray.forEach((item) => {
+              console.log("inside array");
+              $(".answer_form").append(item);
+            });
           }
         );
       }
