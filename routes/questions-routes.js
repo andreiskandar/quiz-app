@@ -22,14 +22,12 @@ router.get("/", (req, res) => {
 //localhost:3000/quizzes/:quiz_id/questions
 router.get("/:question_id", (req, res) => {
   const quiz_id = req.quiz_id;
-  console.log(quiz_id);
   const question_id = req.params.question_id;
   getQuestionsFromQuiz(quiz_id, question_id)
     .then((questions) => {
-      console.log(questions);
       res.send(questions);
     })
-    .catch((e) => console.log("getQuestions from db", e));
+    .catch((e) => console.error("getQuestions from db", e));
 });
 
 //localhost:3000/quizzes/:id/questions/:question_id/answers/
