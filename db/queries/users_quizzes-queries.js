@@ -6,4 +6,4 @@ const postUserAnswerToQuiz = (quiz_id, user_id) => {
     return response.rows[0];
   });
 };
-module.exports = { insertUserQuizzesIntoTable };
+module.exports = { postUserAnswerToQuiz };

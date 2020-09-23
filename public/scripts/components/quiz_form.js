@@ -1,8 +1,6 @@
 $(() => {
   let question_id = localStorage.getItem("question_id");
-  console.log("question_id: at top", question_id);
   let quiz_id = localStorage.getItem("quiz_id");
-  console.log("quiz_id:", quiz_id);
 
   // let first_question_id = localStorage.getItem(question_id);
 
@@ -27,16 +25,15 @@ $(() => {
       );
       $(".question_string").text(questions[0].question);
 
-      console.log(`/quizzes/${quiz_id}/questions/${question_id}/answers`);
       $.get(`/quizzes/${quiz_id}/questions/${question_id}/answers`).then(
         (answers) => {
           console.log("answers:", answers);
 
           const answerHTMLArray = answers.map((item, idx) => {
             const answerDiv = `
-              <div class="btn btn-outline-light option${
-                idx + 1
-              }-btn answer-div">
+              <div data-id="${item.id}" class="btn btn-outline-light option${
+              idx + 1
+            }-btn answer-div">
               <input type="radio" class="radioCustomButton" id="option${
                 idx + 1
               }" name="radioGroup" />
@@ -78,15 +75,31 @@ $(() => {
 
   const loadQuestion = () => {
     const [quiz_id_update, question_id_update] = updateQuiz();
-    console.log(quiz_id_update, question_id_update);
     createQuestionAndAnswersDOMElement(quiz_id_update, question_id_update);
   };
 
   window.$quizForm_onLoad = loadQuestion;
   window.$quizForm = $quizForm;
 
-  $("main").on("click", ".option1-btn", () => {
+  const postAnswersToUser_AnswersIntoDB = (
+    current_quiz_id,
+    question_id_from_current_question,
+    answer_id
+  ) => {
+    // post request to update db table
+    $.post(
+      `/quizzes/${current_quiz_id}/questions/${question_id_from_current_question}/answers/${answer_id}`
+    ).then((response) => {
+      console.log(response);
+    });
+
+    // create insert into query into users_answers and users_quizzes table
+    //
+  };
+
+  $("main").on("click", "div .option1-btn", (e) => {
     $("#option1").prop("checked", true);
+    const answer_id = $(e.target).data("id");
     // when button is clicks, load next question and answers set
     //get request on the next question with answers set
     //  /quiz/:id/questions/:id
@@ -98,6 +111,12 @@ $(() => {
     createQuestionAndAnswersDOMElement(
       current_quiz_id,
       question_id_from_current_question
+    );
+
+    postAnswersToUser_AnswersIntoDB(
+      current_quiz_id,
+      question_id_from_current_question,
+      answer_id
     );
 
     //post answer to response table
