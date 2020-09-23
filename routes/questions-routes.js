@@ -4,15 +4,27 @@ const router = express.Router();
 
 const answerRoutes = require("./answer-routes");
 
-const { getQuestionsFromQuiz } = require("../db/queries/question-queries");
+const { getQuestionsFromQuiz, getTotalQuestionsPerQuiz } = require("../db/queries/question-queries");
+
+router.get('/', (req,res) => {
+  const quiz_id = req.quiz_id
+  //get total questions
+  getTotalQuestionsPerQuiz(quiz_id)
+.then((amount) => {
+  res.send(amount)
+}).catch((e) => console.log ('gettotalquestionspquiz', e))
+});
+
 
 //localhost:3000/quizzes/:quiz_id/questions
 router.get("/:question_id", (req, res) => {
   const quiz_id = req.quiz_id;
+  console.log(quiz_id)
   const question_id = req.params.question_id;
   console.log("question_id:", question_id);
   getQuestionsFromQuiz(quiz_id, question_id)
     .then((questions) => {
+      console.log(questions)
       res.send(questions);
     })
     .catch((e) => console.log("getQuestions from db", e));

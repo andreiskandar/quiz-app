@@ -42,10 +42,19 @@ const getAllActiveQuizzesData = (id) => {
     });
 };
 
+const getFirstQuestionIdByQuizId = (quiz_id) => {
+return pool.query(`select questions.id from questions JOIN quizzes ON quizzes.id = questions.quiz_id WHERE quizzes.id = $1 LIMIT 1`, [quiz_id])
+.then((response) => {
+  return response.rows;
+})
+
+}
+
 module.exports = {
   getQuizzes,
   getQuizById,
   getQuizzesByUserId,
   getAllActiveQuizzesData,
-  getThreeRandomQuizzes
+  getThreeRandomQuizzes,
+  getFirstQuestionIdByQuizId
 };
