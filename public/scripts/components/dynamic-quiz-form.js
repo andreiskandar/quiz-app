@@ -7,8 +7,6 @@ $(() => {
     </div>
     <div>
       <h1 class="question_string">
-        What library is used for parsing, validating, manipulating, and
-        formatting dates?
       </h1>
     </div>
     <div class="quiz_body_footer">

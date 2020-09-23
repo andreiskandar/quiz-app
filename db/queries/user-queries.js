@@ -39,6 +39,20 @@ const getUserTypeById = (id) => {
   });
 };
 
+const postUserAnswerToQuiz = (quiz_id, user_id) => {
+  const queryString = `INSERT INTO users_quizzes (quiz_id, user_id, time_start, time_stop, active) VALUES ($1, $2, null, null, true);`;
+  return pool.query(queryString, [quiz_id, user_id]).then((response) => {
+    return response.rows[0];
+  });
+};
+
+const postUserAnswerToQuestion = (user_id, question_id) => {
+  const queryString = `INSERT INTO users_answers (user_id, answer_id, answer_timestamp, active) VALUES ($1, $2, null, true);`;
+  return pool.query(queryString, [user_id, question_id]).then((response) => {
+    return response.rows[0];
+  });
+};
+
 module.exports = {
   getUsers,
   getUserById,
