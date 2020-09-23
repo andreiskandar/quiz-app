@@ -7,7 +7,7 @@
     "test": "CHOKIDAR_USEPOLLING=1 mocha --watch",
     "start": "node server.js",
     "local": "nodemon -L server.js localhost 3000",
-    "dbreset": "node bin/resetdb.js"
+    "resetdb": "node bin/resetdb.js"
   },
   "author": "Lighthouse Labs",
   "license": "ISC",
