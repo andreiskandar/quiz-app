@@ -42,12 +42,11 @@ router.use(
 );
 
 //get a quiz by the quiz.id = quizzes/:id e.g. quizzes/1
-router.get("/:quiz_id", (req, res) => {
-  getQuizById(req.params.quiz_id)
-    .then((quiz) => {
-      res.send(quiz);
-    })
-    .catch((e) => console.error(e));
+router.get("/:id", (req, res) => {
+  getQuizById(req.params.id).then((quiz) => {
+    console.log("hello from getQuizById in public-quiz-routes");
+    res.render("quiz", { quiz });
+  });
 });
 
 module.exports = router;
