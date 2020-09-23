@@ -1,11 +1,10 @@
 const express = require("express");
 const router = express.Router();
 //we will replace this later
-const { getUsers, getUserById } = require('../db/queries/user-queries');
-const myQuizRoutes = require('./get-my-quizzes');
-const createQuizRoutes = require('./get-create-quiz');
-const { Template } = require('ejs');
-
+const { getUsers, getUserById } = require("../db/queries/user-queries");
+const myQuizRoutes = require("./get-my-quizzes");
+// const createQuizRoutes = require("./get-create-quiz");
+const { Template } = require("ejs");
 
 //we need to check if the user is logged in
 router.get("/", (req, res) => {
@@ -28,7 +27,7 @@ router.get("/", (req, res) => {
 
 router.use("/my-quizzes", myQuizRoutes);
 
-router.use("/new", createQuizRoutes);
+// router.use("/new", createQuizRoutes);
 
 router.post("/logout", (req, res) => {
   req.session = null;

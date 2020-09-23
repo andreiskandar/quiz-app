@@ -15,5 +15,3 @@ CREATE TABLE questions (
   user_id                 INTEGER,
   active                  BOOLEAN DEFAULT false
 );
-
-

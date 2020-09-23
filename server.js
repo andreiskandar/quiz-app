@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 const express = require("express");
-const morgan = require("morgan");
+// const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const quizRoutes = require("./routes/public-quiz-routes");
 const homeRoutes = require("./routes/get-home-routes");
@@ -9,7 +9,7 @@ const dashboardRoutes = require("./routes/get-dashboard");
 const cookieSession = require("cookie-session");
 const app = express();
 
-app.use(morgan("dev"));
+// app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   cookieSession({
