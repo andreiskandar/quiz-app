@@ -51,7 +51,7 @@ router.get("/:id", (req, res) => {
   });
 });
 
-router.post('/create', (req, res) => {
+router.post('/create-quiz', (req, res) => {
   console.log(req.body);
 });
 

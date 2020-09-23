@@ -39,15 +39,10 @@ router.use(
   },
   answerRoutes
 );
-//localhost:3000/quizzes/:quiz_id/questions/:question_id
-// router.get("/:question_id", (req, res) => {
-//   const quiz_id = req.quiz_id;
-//   console.log("quiz_id:", quiz_id);
-//   getQuestionsFromQuiz(quiz_id)
-//     .then((questions) => {
-//       res.send(questions);
-//     })
-//     .catch((e) => console.log("getQuestions from db", e));
-// });
+
+router.post('/create-question', (req, res) => {
+console.log('in /create-question', req.body)
+console.log('in /create-question', req.session.id)
+})
 
 module.exports = router;
