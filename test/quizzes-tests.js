@@ -3,7 +3,7 @@ require('dotenv').config();
 const assert = require('chai').assert;
 const expect = require('chai').expect;
 
-const { getQuizzes, getQuizById, getQuizzesByUserId, getRandomQuizzes, getQuizQuestions, getAnswersForQuiz } = require('../db/queries/quiz-queries.js');
+const { getQuizzes, getQuizById, getQuizzesByUserId, getThreeRandomQuizzes, getQuizQuestions, getAnswersForQuiz } = require('../db/queries/quiz-queries.js');
 
 describe('get quizzes in quizzes table', () => {
   it('should return quiz table data for public quizzes which are active', async function() {
@@ -50,10 +50,10 @@ describe('get quizzes belonging to a specific user_id', () => {
   })
 })
 
-describe('get a specified number of random public active quizzes', () => {
+describe('get 3 of random public active quizzes', () => {
   it('should return 3 random public active quizzes', async function () {
     const numberOfQuizzes = 3;
-    const response = await getRandomQuizzes(numberOfQuizzes);
+    const response = await getThreeRandomQuizzes();
     assert.strictEqual(numberOfQuizzes, response.length);
   })
 })
@@ -90,6 +90,7 @@ describe('get answers for questions for specified quiz ID', () => {
   it('should return empty for questions from a specified quiz ID', async function(){
     const quizID = 0;
     const response = await getAnswersForQuiz(quizID);
-    assert.isEmpty(response, 'Data not returned');
+    console.log(response);
+    assert.isUndefined(response, 'Data not returned');
   })
 })
