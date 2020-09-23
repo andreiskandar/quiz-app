@@ -69,7 +69,7 @@ const getQuizQuestions = (quiz_id, active) => {
 // get answers for questions from quizzes
 const getAnswersForQuiz = (quiz_id) => {
   return pool
-    .query("SELECT * FROM answers INNER JOIN questions ON answers.question_id = questions.id INNER JOIN quizzes ON questions.quiz_id = quizzes.id WHERE questions.quiz_id = $1", [id])
+    .query("SELECT * FROM answers INNER JOIN questions ON answers.question_id = questions.id INNER JOIN quizzes ON questions.quiz_id = quizzes.id WHERE questions.quiz_id = $1", [quiz_id])
     .then((response) => {
       return response.rows[0];
     });
