@@ -7,20 +7,28 @@ const {
   getQuizById,
   getQuizzesByUserId,
   getAllActiveQuizzesData,
+  getFirstQuestionIdByQuizId
 } = require("../db/queries/quiz-queries");
 
 //GET all quizzes belonging to the speicfic user dashboard/my-quizzes
 router.get("/", (req, res) => {
-  getQuizzesByUserId(req.session.id);
-  console
-    .log("req.session.id:", req.session.id)
+  getQuizzesByUserId(req.session.id)
     .then((quizzes) => {
-      console.log(quizzes);
       res.send(quizzes);
     })
     .catch((e) =>
       console.error("error getQuizzesByUserId from get-my-quizzes.js ", e)
     );
 });
+
+router.post('/question1', (req, res) => {
+  const quiz_id = Object.keys(req.body)[0]
+  getFirstQuestionIdByQuizId(quiz_id)
+  .then((question_id) => {
+    res.send(question_id);
+  })
+  .catch((e) => console.error("error", e)
+  );
+})
 
 module.exports = router;

@@ -76,8 +76,11 @@ $(document).ready(() => {
     views_manager.show(null, window.$questionForm);
   });
 
-  $("header").on("click", "#logout", () => {
+  // $("header").on("click", ".myQuiz_btn", () => {
+  //   views_manager.show("quizForm");
+  // });
 
+  $("header").on("click", "#logout", () => {
     $("header").hide();
     $("#main-content").hide();
     //remove user cookie
