@@ -22,4 +22,4 @@ INSERT INTO users_quizzes (quiz_id, user_id, time_start, time_stop, active) VALU
 --
 INSERT INTO users_quizzes (quiz_id, user_id, time_start, time_stop, active) VALUES (11, 5, '2020-09-19 16:23:59 +0000', '2020-09-21 16:29:45 +0000', true);
 INSERT INTO users_quizzes (quiz_id, user_id, time_start, time_stop, active) VALUES (12, 5, '2020-09-19 17:23:59 +0000', '2020-09-21 17:29:45 +0000', true);
-INSERT INTO users_quizzes (quiz_id, user_id, time_start, time_stop, active) VALUES (13, 6, '2020-09-19 18:23:59 +0000', '2020-09-21 18:29:45 +0000', true);
+INSERT INTO users_quizzes (quiz_id, user_id, time_start, time_stop, active) VALUES (13, 5, '2020-09-19 18:23:59 +0000', '2020-09-21 18:29:45 +0000', true);

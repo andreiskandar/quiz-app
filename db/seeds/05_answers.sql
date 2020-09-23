@@ -64,33 +64,33 @@ INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, so
 INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (16, 'By a dagger', false, 'Incorrect', 4, null, null, null, 47, true);
 
 INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (17, 'Hanging', false, 'Incorrect', 1, null, null, null, 47, true);
-INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (17, 'From a crowsbow bolt', true, 'Correct', 2, null, null, null, 47, true);
-INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (17, 'Poison', false, 'Correct', 3, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (17, 'From a crowsbow bolt', true, 'Correct!', 2, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (17, 'Poison', false, 'Incorrect', 3, null, null, null, 47, true);
 INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (17, 'By a dagger', false, 'Incorrect', 4, null, null, null, 47, true);
 
 INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (18, 'Hanging', false, 'Incorrect', 1, null, null, null, 47, true);
-INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (18, 'From a crowsbow bolt', false, 'Correct', 2, null, null, null, 47, true);
-INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (18, 'Death by dogs', true, 'Correct', 3, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (18, 'From a crowsbow bolt', false, 'Incorrect', 2, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (18, 'Death by dogs', true, 'Correct!', 3, null, null, null, 47, true);
 INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (18, 'By a dagger', false, 'Incorrect', 4, null, null, null, 47, true);
 
-INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (18, 'Hanging', false, 'Incorrect', 1, null, null, null, 47, true);
-INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (18, 'From a crowsbow bolt', true, 'Correct', 2, null, null, null, 47, true);
-INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (18, 'Death by dogs', false, 'Incorrect', 3, null, null, null, 47, true);
-INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (18, 'By a dagger', true, 'Correct', 4, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (19, 'Hanging', false, 'Incorrect', 1, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (19, 'From a crowsbow bolt', false, 'Incorrect', 2, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (19, 'Death by dogs', false, 'Incorrect', 3, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (19, 'By a dagger', true, 'Correct', 4, null, null, null, 47, true);
 
 -- answers for quiz 13
 INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (20, 'Suit malfunction', false, 'Incorrect, although he goes through a lot of suits', 1, null, null, null, 47, true);
-INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (20, 'Infinity Snap', true, 'Correct!', 2, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (20, 'Infinity Snap', true, 'Correct! He took one for team!', 2, null, null, null, 47, true);
 INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (20, 'Thanos ripped him in two', false, 'Incorrect, but Thanos could have if he really wanted to', 3, null, null, null, 47, true);
 INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (20, 'Pepper Potts press a wrong button', false, 'Incorrect, no death buttons at their lakeside home', 4, null, null, null, 47, true);
 
-INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (21, 'Suit malfunction', false, 'Incorrect, although he goes through a lot of suits', 1, null, null, null, 47, true);
-INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (21, 'Infinity Snap', true, 'Correct!', 2, null, null, null, 47, true);
-INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (21, 'Thanos ripped him in two', false, 'Incorrect, but Thanos could have if he really wanted to', 3, null, null, null, 47, true);
-INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (21, 'Pepper Potts press a wrong button', false, 'Incorrect, no death buttons at their lakeside home', 4, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (21, 'Infinity snap', false, 'Incorrect, she survived the snappening', 1, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (21, 'Big fall', true, 'Correct! She took one for the universe', 2, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (21, 'Thanos ripped her in two', false, 'Incorrect, but Thanos could if he really wanted to', 3, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (21, 'Hawkeye shot her in the back', false, 'Incorrect, also cowardly', 4, null, null, null, 47, true);
 
-INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (22, 'Ate a magial spider', false, 'Incorrect', 1, null, null, null, 47, true);
-INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (22, 'Peter Parker is the child of spiders', false, 'Incorrect', 2, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (22, 'Ate a magical spider', false, 'Incorrect', 1, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (22, 'Child of spiders', false, 'Incorrect', 2, null, null, null, 47, true);
 INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (22, 'Bitten by a radioactive spider', true, 'Correct!', 3, null, null, null, 47, true);
 INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (22, 'Fell into a vat of velcro', false, 'Incorrect', 4, null, null, null, 47, true);
 
