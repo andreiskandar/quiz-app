@@ -21,8 +21,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/random", (req, res) => {
-  getThreeRandomQuizzes()
-    .then((quizzes) => {
+  getThreeRandomQuizzes().then((quizzes) => {
       // console.log(quizzes);
       res.send(quizzes);
     })

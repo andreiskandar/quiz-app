@@ -31,22 +31,10 @@ const getQuizzes = (public, active) => {
 // specified total shouldn't be larger than the
 // available total of public and active quizzes
 const getThreeRandomQuizzes = () => {
-
-  const validIDs = [2, 11, 12, 13];
-  const numOfIdsToGet = 3;
-  let randomIDs = [];
-
-  // retrieve random ID, add to the return array and
-  // splice the ID from the lookup list to prevent duplication
-  for (let i = 0; i < numOfIdsToGet; i++) {
-    const length = validIDs.length;
-    const randomInt = Math.floor((Math.random() * (length)));
-    const quizID = validIDs[randomInt];
-    randomIDs.push(quizID)
-    validIDs.splice(randomInt, 1);
-  }
-  return randomIDs;
-}
+  return pool.query("SELECT * FROM quizzes WHERE public = true AND active = true ORDER BY RANDOM() LIMIT 3;").then((response) => {
+    return response.rows;
+  });
+};
 
 // gets a singular quiz by quizzes.id
 const getQuizById = (id) => {
