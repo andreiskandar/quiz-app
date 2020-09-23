@@ -11,7 +11,6 @@ const getQuizzes = () => {
 
 const getThreeRandomQuizzes = () => {
   return pool.query("SELECT * FROM quizzes WHERE public = true AND active = true ORDER BY RANDOM() LIMIT 3;").then((response) => {
-    console.log(response.rows)
     return response.rows;
   });
 };
