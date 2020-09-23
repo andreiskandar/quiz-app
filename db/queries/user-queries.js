@@ -46,9 +46,9 @@ const postUserAnswerToQuiz = (quiz_id, user_id) => {
   });
 };
 
-const postUserAnswerToQuestion = (user_id, question_id) => {
+const postUserAnswerToQuestion = (user_id, answer_id) => {
   const queryString = `INSERT INTO users_answers (user_id, answer_id, answer_timestamp, active) VALUES ($1, $2, null, true);`;
-  return pool.query(queryString, [user_id, question_id]).then((response) => {
+  return pool.query(queryString, [user_id, answer_id]).then((response) => {
     return response.rows[0];
   });
 };
