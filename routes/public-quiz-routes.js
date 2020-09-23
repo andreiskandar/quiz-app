@@ -40,6 +40,7 @@ router.use(
 //get a quiz by the quiz.id = quizzes/:id e.g. quizzes/1
 router.get("/:id", (req, res) => {
   getQuizById(req.params.id).then((quiz) => {
+    console.log("hello from getQuizById in public-quiz-routes")
     res.render("quiz", { quiz });
   });
 });
