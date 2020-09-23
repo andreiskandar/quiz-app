@@ -41,8 +41,6 @@ router.use(
   questionsRoutes
 );
 
-// router.get("/questions", (req, res) => {
-
 //get a quiz by the quiz.id = quizzes/:id e.g. quizzes/1
 router.get("/:quiz_id", (req, res) => {
   getQuizById(req.params.quiz_id)

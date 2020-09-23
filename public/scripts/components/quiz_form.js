@@ -1,5 +1,5 @@
 $(() => {
-  let question_id = 1;
+  let question_id = 2;
   let quiz_id = 2;
 
   const createQuestionAndAnswersDOMElement = () => {
@@ -60,7 +60,9 @@ $(() => {
   window.$quizForm = $quizForm;
 
   const postAnswersToDB = () => {
-    $.post();
+    //post to users_answers and users_quizzes tables
+
+    $.post("");
   };
 
   $("main").on("click", ".option1-btn", () => {
@@ -76,16 +78,19 @@ $(() => {
 
   $("main").on("click", ".option2-btn", () => {
     $("#option2").prop("checked", true);
+    ++question_id;
     createQuestionAndAnswersDOMElement();
   });
 
   $("main").on("click", ".option3-btn", () => {
     $("#option3").prop("checked", true);
+    ++question_id;
     createQuestionAndAnswersDOMElement();
   });
 
   $("main").on("click", ".option4-btn", () => {
     $("#option4").prop("checked", true);
+    ++question_id;
     createQuestionAndAnswersDOMElement();
   });
 
@@ -94,35 +99,6 @@ $(() => {
     // or back to previous question
     --question_id;
     createQuestionAndAnswersDOMElement();
-
-    // $.get(`/quizzes/${quiz_id}/questions/${--question_id}`).then(
-    //   (questions) => {
-    //     $(".question_number, .question-counter-span").text(questions[0].id);
-    //     $(".question_string").text(questions[0].question);
-    //     $.get(`/quizzes/${quiz_id}/questions/${question_id}/answers`).then(
-    //       (answers) => {
-    //         const answerHTMLArray = answers.map((item, idx) => {
-    //           const answerDiv = `
-    //           <div class="btn btn-outline-light option${
-    //             idx + 1
-    //           }-btn answer-div">
-    //           <input type="radio" class="radioCustomButton" id="option${
-    //             idx + 1
-    //           }" name="radioGroup" />
-    //           <label class="answerLabel answer${question_id}">${
-    //             item.answer
-    //           }</label>
-    //           </div>`;
-    //           return answerDiv;
-    //         });
-    //         $(".answer_form").children().remove();
-    //         answerHTMLArray.forEach((item) => {
-    //           $(".answer_form").append(item);
-    //         });
-    //       }
-    //     );
-    //   }
-    // );
   });
   $quizForm.submit(function (e) {});
 });
