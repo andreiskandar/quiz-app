@@ -13,7 +13,7 @@ $(() => {
     </div>
     <div class="quiz_body_footer">
       <div>
-        <a href="#" class="back"><i class="fas fa-angle-double-left"></i> </a>
+        <a href="#" class="back-btn"><i class="fas fa-angle-double-left"></i> </a>
       </div>
       <div>
         <h2 class="question_counter">1/10</h2>
@@ -62,7 +62,7 @@ $(() => {
   `);
 
   window.$dynamicQuizForm = $dynamicQuizForm;
-//this covers the whole div
+  //this covers the whole div
   $("main").on("click", ".option1-btn", () => {
     $("#option1").prop("checked", true);
   });
