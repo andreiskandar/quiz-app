@@ -4,6 +4,7 @@ const getQuizzes = () => {
 
   $.get("/quizzes/random").then((data) => {
     // console.log(data);
+    //TODO:refactor to use data-quizID
     let randomQuizDomElem = randomQuizContainer;
     for (const quizzes of data) {
       randomQuizDomElem += `

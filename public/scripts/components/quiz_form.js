@@ -1,8 +1,19 @@
+
 $(() => {
   let question_id = 1;
-  let quiz_id = window.quiz_id;
+  let quiz_id = localStorage.getItem('quiz_id');
+
+  console.log("in quiz form");
+  console.log('quiz id is at top of page:', quiz_id)
+
+  const updateQuiz = () => {
+    quiz_id = localStorage.getItem('quiz_id')
+    console.log("quiz_id in updateQuiz is:", quiz_id)
+    return quiz_id;
+  }
 
   const getQuestionFromDB = () => {
+    console.log(`/quizzes/${quiz_id}/questions/${question_id}`)
     $.get(`/quizzes/${quiz_id}/questions/${question_id}`).then((questions) => {
       $(".question_number, .question-counter-span").text(questions[0].id);
       $(".question_string").text(questions[0].question);
@@ -11,6 +22,7 @@ $(() => {
 
   // /quiz/:id/questions/:id/answers
   const getAnswersForQuestionFromDB = () => {
+    console.log(`/quizzes/${quiz_id}/questions/${question_id}/answers`)
     $.get(`/quizzes/${quiz_id}/questions/${question_id}/answers`).then(
       (answers) => {
         const renderAnswer = answers.map((item, idx) => {
@@ -53,9 +65,10 @@ $(() => {
   //     >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, ad obcaecati
   //     quaerat ex ratione officia fuga quam inventore ipsam placeat</label
   //   >
-  const loadQuestion = () => {
-    getQuestionFromDB();
-    getAnswersForQuestionFromDB();
+  const loadQuestion = (quiz_id) => {
+    quiz_id = updateQuiz()
+    getQuestionFromDB(quiz_id);
+    getAnswersForQuestionFromDB(quiz_id);
   };
 
   window.$quizForm_onLoad = loadQuestion;
