@@ -21,6 +21,8 @@ router.get("/", (req, res) => {
 router.post("/:answer_id", (req, res) => {
   const { user_id } = req.session;
   const { answer_id } = req.params;
+  console.log("user_id: from router", user_id);
+  console.log("answer_id: from router", answer_id);
   postUserAnswerToQuestion(user_id, answer_id)
     .then((answers) => {
       console.log("insertion to users_answers table success");
