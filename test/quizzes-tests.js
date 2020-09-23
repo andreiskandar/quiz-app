@@ -33,7 +33,7 @@ describe('get quizzes in quizzes table by quizzes.id', () => {
     const response = await getQuizById(1);
     assert.isNotEmpty(response,'Data not returned');
   })
-  it('should return empty array if no records found for that quizzes.id', async function() {
+  it('should return undefined if no records found for that quizzes.id', async function() {
     const response = await getQuizById(0);
     assert.isUndefined(response,'Data returned');
   })
@@ -87,7 +87,7 @@ describe('get answers for questions for specified quiz ID', () => {
     const response = await getAnswersForQuiz(quizID);
     assert.isNotEmpty(response, 'Data not returned');
   })
-  it('should return empty for questions from a specified quiz ID', async function(){
+  it('should return undefined for questions from a specified quiz ID', async function(){
     const quizID = 0;
     const response = await getAnswersForQuiz(quizID);
     console.log(response);
