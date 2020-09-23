@@ -4,6 +4,7 @@ const router = express.Router();
 const { getAnswersByQuestionId } = require("../db/queries/answer-queries");
 
 //Don't think we need the middleware in this
+//localhost:3000/quizzes/:id/questions/:question_id/answers/
 router.get("/", (req, res) => {
   const question_id = req.question_id;
   getAnswersByQuestionId(question_id)

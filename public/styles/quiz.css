@@ -10,7 +10,7 @@
 
 .question_number {
   position: relative;
-  left: 50px;
+  left: 1em;
   font-size: 90px;
   padding: 0;
 }

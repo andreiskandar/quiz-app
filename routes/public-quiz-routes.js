@@ -4,8 +4,12 @@ const questionsRoutes = require("./questions-routes");
 const dashboardRoutes = require("./get-dashboard");
 //we will replace this later
 
-const { getQuizzes, getQuizById, getQuizzesByUserId, getThreeRandomQuizzes } = require('../db/queries/quiz-queries');
-
+const {
+  getQuizzes,
+  getQuizById,
+  getQuizzesByUserId,
+  getThreeRandomQuizzes,
+} = require("../db/queries/quiz-queries");
 
 // localhost:3000/quizzes
 // this is the BROWSE route for ALL users
@@ -16,12 +20,15 @@ router.get("/", (req, res) => {
   });
 });
 
-router.get('/random', (req, res) => {
+router.get("/random", (req, res) => {
   getThreeRandomQuizzes()
     .then((quizzes) => {
       // console.log(quizzes);
       res.send(quizzes);
-    }).catch((err) => {console.log("error in /random: ", err)});
+    })
+    .catch((err) => {
+      console.log("error in /random: ", err);
+    });
 });
 
 //localhost:3000/quizzes/:id/questions/:question_id/answers/:answer_id
