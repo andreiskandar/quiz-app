@@ -1,6 +1,6 @@
 $(() => {
   let question_id = 1;
-  let quiz_id = 2;
+  let quiz_id = window.quiz_id;
 
   const getQuestionFromDB = () => {
     $.get(`/quizzes/${quiz_id}/questions/${question_id}`).then((questions) => {
