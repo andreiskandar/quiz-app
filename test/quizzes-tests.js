@@ -3,7 +3,7 @@ require('dotenv').config();
 const assert = require('chai').assert;
 const expect = require('chai').expect;
 
-const { getQuizzes, getQuizById, getQuizzesByUserId, getRandomQuizzes, getQuizQuestions } = require('../db/queries/quiz-queries.js');
+const { getQuizzes, getQuizById, getQuizzesByUserId, getRandomQuizzes, getQuizQuestions, getAnswersForQuiz } = require('../db/queries/quiz-queries.js');
 
 describe('get quizzes in quizzes table', () => {
   it('should return quiz table data for public quizzes which are active', async function() {
@@ -86,5 +86,10 @@ describe('get answers for questions for specified quiz ID', () => {
     const quizID = 11;
     const response = await getAnswersForQuiz(quizID);
     assert.isNotEmpty(response, 'Data not returned');
+  })
+  it('should return empty for questions from a specified quiz ID', async function(){
+    const quizID = 0;
+    const response = await getAnswersForQuiz(quizID);
+    assert.isEmpty(response, 'Data not returned');
   })
 })
