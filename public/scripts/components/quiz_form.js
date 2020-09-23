@@ -17,11 +17,14 @@ $(() => {
     //getting first question
     $.get(`/quizzes/${quiz_id}/questions/${question_id}`).then((questions) => {
       //getting total questions from quiz
-      $.get(`/quizzes/${quiz_id}/questions`).then((questions) => {
-        const totalQuestion = questions[0].count;
+
+      $.get(`/quizzes/${quiz_id}/questions`).then((questionsFromQuiz) => {
+        const totalQuestion = questionsFromQuiz[0].count;
         $(".question-total-span").text(totalQuestion);
       });
-      $(".question_number, .question-counter-span").text(questions[0].id);
+
+
+      $(".question_number, .question-counter-span").text(questions[0].sort_order);
       $(".question_string").text(questions[0].question);
 
       console.log(`/quizzes/${quiz_id}/questions/${question_id}/answers`)
@@ -74,7 +77,7 @@ $(() => {
   </div> `);
 
 
-  const loadQuestion = (quiz_id) => {
+  const loadQuestion = () => {
     const [quiz_id_update, question_id_update] = updateQuiz();
     console.log(quiz_id_update, question_id_update)
     createQuestionAndAnswersDOMElement(quiz_id_update, question_id_update);
@@ -89,9 +92,11 @@ $(() => {
     //get request on the next question with answers set
     //  /quiz/:id/questions/:id
     // /quiz/:id/questions/:id/answers
-    ++question_id;
-    localStorage.setItem('question_id', question_id);
-    createQuestionAndAnswersDOMElement(quiz_id, question_id);
+    const current_quiz_id = localStorage.getItem('quiz_id')
+    let question_id_from_current_question = localStorage.getItem('question_id')
+    ++question_id_from_current_question;
+    localStorage.setItem('question_id', question_id_from_current_question);
+    createQuestionAndAnswersDOMElement(current_quiz_id, question_id_from_current_question);
 
 
 
@@ -100,30 +105,41 @@ $(() => {
 
   $("main").on("click", ".option2-btn", () => {
     $("#option2").prop("checked", true);
-    ++question_id;
-    localStorage.setItem('question_id', question_id);
-    createQuestionAndAnswersDOMElement(quiz_id, question_id);
+    const current_quiz_id = localStorage.getItem('quiz_id')
+    let question_id_from_current_question = localStorage.getItem('question_id')
+    ++question_id_from_current_question;
+    localStorage.setItem('question_id', question_id_from_current_question);
+    createQuestionAndAnswersDOMElement(current_quiz_id, question_id_from_current_question);
+
   });
 
   $("main").on("click", ".option3-btn", () => {
     $("#option3").prop("checked", true);
-    ++question_id;
-    localStorage.setItem('question_id', question_id);
-    createQuestionAndAnswersDOMElement(quiz_id, question_id);
+    const current_quiz_id = localStorage.getItem('quiz_id')
+    let question_id_from_current_question = localStorage.getItem('question_id')
+    ++question_id_from_current_question;
+    localStorage.setItem('question_id', question_id_from_current_question);
+    createQuestionAndAnswersDOMElement(current_quiz_id, question_id_from_current_question);
+
   });
 
   $("main").on("click", ".option4-btn", () => {
     $("#option4").prop("checked", true);
-    ++question_id;
-    localStorage.setItem('question_id', question_id);
-    createQuestionAndAnswersDOMElement(quiz_id, question_id);
+    const current_quiz_id = localStorage.getItem('quiz_id')
+    let question_id_from_current_question = localStorage.getItem('question_id')
+    ++question_id_from_current_question;
+    localStorage.setItem('question_id', question_id_from_current_question);
+    createQuestionAndAnswersDOMElement(current_quiz_id, question_id_from_current_question);
+
   });
   $("main").on("click", ".back-btn", () => {
     //back to dashboard
     // or back to previous question
-    --question_id;
-    localStorage.setItem('question_id', question_id);
-    createQuestionAndAnswersDOMElement(quiz_id, question_id);
+    const current_quiz_id = localStorage.getItem('quiz_id')
+    let question_id_from_current_question = localStorage.getItem('question_id')
+    --question_id_from_current_question;
+    localStorage.setItem('question_id', question_id_from_current_question);
+    createQuestionAndAnswersDOMElement(current_quiz_id, question_id_from_current_question);
 
   });
   $quizForm.submit(function (e) {});
