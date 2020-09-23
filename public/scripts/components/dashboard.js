@@ -25,7 +25,13 @@ $(() => {
   //calls getQuizzes so we can have it prepared
   getQuizzes();
 
-  $("header").on("click", ".brand_btn", () => {
-    getQuizzes();
+    $("header").on("click", ".brand_btn", () => {
+        getQuizzes();
+    });
+
+    //we need a condition to make getQuizzes happen every time
+    $("header").on("click", "#logout", () => {
+      getQuizzes();
+    });
+
   });
-});
