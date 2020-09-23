@@ -19,7 +19,7 @@ $(() => {
               placeholder="Answer 1"
               rows="1"
             ></textarea>
-            <input id="create-answer1-radio-btn" name="create-answer1-radio-btn" type="radio" />
+            <input id="create-answer1-radio-btn" name="create-answer-radio-btn" type="radio" />
           </div>
           <div class="form-group">
             <textarea
@@ -28,7 +28,7 @@ $(() => {
               placeholder="Answer 2"
               rows="1"
             ></textarea>
-            <input id="create-answer2-radio-btn" name="create-answer2-radio-btn" type="radio" />
+            <input id="create-answer2-radio-btn" name="create-answer-radio-btn" type="radio" />
           </div>
           <div class="form-group">
             <textarea
@@ -37,7 +37,7 @@ $(() => {
               placeholder="Answer 3"
               rows="1"
             ></textarea>
-            <input id="create-answer3-radio-btn" name="create-answer3-radio-btn" type="radio" />
+            <input id="create-answer3-radio-btn" name="create-answer-radio-btn" type="radio" />
           </div>
           <div class="form-group">
             <textarea
@@ -46,7 +46,7 @@ $(() => {
               placeholder="Answer 4"
               rows="1"
             ></textarea>
-            <input id="create-answer4-radio-btn" name="create-answer4-radio-btn" type="radio" />
+            <input id="create-answer4-radio-btn" name="create-answer-radio-btn" type="radio" />
           </div>
           <div class="form-footer">
             <div>
