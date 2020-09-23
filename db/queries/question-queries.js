@@ -8,13 +8,15 @@ const getQuestionsFromQuiz = (quiz_id, question_id) => {
   });
 };
 
-const getTotalQuestionFromQuiz = (quiz_id) => {
-  const queryString = "SELECT count(*) FROM questions WHERE quiz_id = $1";
+//get total number of questions per quiz we need a number like 4
+const getTotalQuestionsPerQuiz = (quiz_id) => {
+  const queryString = `SELECT COUNT(*) FROM quizzes JOIN questions on quizzes.id = questions.quiz_id where quizzes.id = $1`;
   return pool.query(queryString, [quiz_id]).then((response) => {
     return response.rows;
   });
 };
+
 module.exports = {
   getQuestionsFromQuiz,
-  getTotalQuestionFromQuiz,
+  getTotalQuestionsPerQuiz,
 };
