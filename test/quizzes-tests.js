@@ -84,7 +84,7 @@ describe('get questions for a quiz id', () => {
 describe('get answers for questions for specified quiz ID', () => {
   it('should return answers for questions from a specified quiz ID', async function(){
     const quizID = 11;
-    const response = await getAnswersForQuiz(quizID, 'active');
+    const response = await getAnswersForQuiz(quizID);
     assert.isNotEmpty(response, 'Data not returned');
   })
 })
