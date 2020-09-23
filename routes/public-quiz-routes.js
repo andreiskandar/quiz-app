@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const questionsRoutes = require("./questions-routes");
 const dashboardRoutes = require("./get-dashboard");
+const {insertQuizIntoQuizzes} = require('../db/queries/create-quiz-queries.js')
 //we will replace this later
 
 const {
@@ -52,7 +53,13 @@ router.get("/:id", (req, res) => {
 });
 
 router.post('/create-quiz', (req, res) => {
-  console.log(req.body);
+  const request = req.body;
+  const user_id = req.session.id;
+  console.log(user_id)
+  insertQuizIntoQuizzes(request, user_id).then((data) => {
+    console.log("in /quizzes/create quiz: ", req.body);
+    res.send(data)
+  }).catch((e) => console.error('error create quiz', e))
 });
 
 module.exports = router;
