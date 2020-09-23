@@ -10,10 +10,17 @@
   height: 88vh;
   margin: 0 1.5vw;
   padding: 0.5em;
+  background: none;
+  box-shadow: 5px 10px #888888;
 }
 .quiz_title_dashboard,
 .question_card_dashboard {
-  margin: 0.5em;
-  height: 25%;
+  /* margin: 0.5em; */
+  height: 100%;
   padding: 0;
+  z-index: -1;
+}
+
+.clickable {
+  cursor: pointer;
 }

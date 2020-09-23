@@ -1,4 +1,4 @@
-const pool = require('../db.js');
+const pool = require("../db.js");
 
 // gets all available quizzes
 const getQuizzes = (public, active) => {
@@ -21,11 +21,28 @@ const getQuizzes = (public, active) => {
   }
 
   const sql = "SELECT * FROM quizzes " + show + published + ";";
+  console.log(sql);
+}
+// gets a specified number of random quizzes.ids
+// specified total shouldn't be larger than the
+// available total of public and active quizzes
+const getThreeRandomQuizzes = () => {
 
-  return pool.query(sql).then((response) => {
-    return response.rows;
-  });
-};
+  const validIDs = [2, 11, 12, 13];
+  const numOfIdsToGet = 3;
+  let randomIDs = [];
+
+  // retrieve random ID, add to the return array and
+  // splice the ID from the lookup list to prevent duplication
+  for (let i = 0; i < numOfIdsToGet; i++) {
+    const length = validIDs.length;
+    const randomInt = Math.floor((Math.random() * (length)));
+    const quizID = validIDs[randomInt];
+    randomIDs.push(quizID);
+    validIDs.splice(randomInt, 1);
+  }
+  return randomIDs;
+}
 
 // gets a singular quiz by quizzes.id
 const getQuizById = (id) => {
@@ -36,6 +53,7 @@ const getQuizById = (id) => {
     });
 };
 
+<<<<<<< HEAD
 // gets all quizzes belonging to that user_ID
 const getQuizzesByUserId = (user_ID) => {
 
@@ -62,6 +80,29 @@ const getQuizQuestions = (quiz_id, active) => {
   // build and execute SQL statement
   const sql = "SELECT * FROM questions INNER JOIN quizzes ON quizzes.id = questions.quiz_id WHERE questions.quiz_id = " + quiz_id + activeQuiz;
   return pool.query(sql).then((response) => {
+=======
+//gets all quizzes belonging to that user
+const getQuizzesByUserId = (id) => {
+  return pool
+    .query("SELECT * FROM quizzes WHERE user_id = $1;", [id])
+    .then((response) => {
+      return response.rows;
+    });
+};
+
+//gets all quizzes belonging to that user
+const getAllActiveQuizzesData = (id) => {
+  return pool
+    .query("SELECT * FROM quizzes WHERE user_id = $1;", [id])
+    .then((response) => {
+      return response.rows;
+    });
+};
+
+const getFirstQuestionIdByQuizId = (quiz_id) => {
+  return pool.query(`select questions.id from questions JOIN quizzes ON quizzes.id = questions.quiz_id WHERE quizzes.id = $1 LIMIT 1`, [quiz_id])
+  .then((response) => {
+>>>>>>> master
     return response.rows;
   });
 }
@@ -100,7 +141,13 @@ module.exports = {
   getQuizzes,
   getQuizById,
   getQuizzesByUserId,
+<<<<<<< HEAD
   getRandomQuizzes,
   getQuizQuestions,
   getAnswersForQuiz
+=======
+  getAllActiveQuizzesData,
+  getThreeRandomQuizzes,
+  getFirstQuestionIdByQuizId
+>>>>>>> master
 };
