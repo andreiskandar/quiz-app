@@ -1,8 +1,39 @@
+const resultArray = [];
+
+const setResultArrayToLS = (resultArray) => {
+  localStorage.setItem("resultArray", resultArray);
+};
+
+const getResultArrayFromLS = () => {
+  return localStorage.getItem("resultArray");
+};
+
+const resultData = () => {
+  const quizName = getQuizNameFromLS();
+  setQuizResult(
+    parseInt(getScoreFromLS()) / parseInt(getTotalQuestionFromLS())
+  );
+  const quizResult = getQuizResult();
+  const resultObj = { quizName, quizResult };
+  resultArray.push(resultObj);
+
+  console.log("resultArray:", resultArray);
+  setResultArrayToLS(JSON.stringify(resultArray));
+  console.log("getResultArrayFromLS:", getResultArrayFromLS());
+};
+
 const setQuestionCompletedToLS = (num_completed_questions) => {
   return localStorage.setItem(
     "num_completed_questions",
     num_completed_questions
   );
+};
+const setQuizNameToLS = (quizName) => {
+  return localStorage.setItem("quizName", quizName);
+};
+
+const getQuizNameFromLS = () => {
+  return localStorage.getItem("quizName");
 };
 
 const getQuestionCompletedFromLS = () => {
@@ -44,11 +75,20 @@ const resetScore = () => {
   return localStorage.setItem("score", 0);
 };
 
+const setQuizResult = (result) => {
+  return localStorage.setItem("quizResult", result);
+};
+
+const getQuizResult = () => {
+  return localStorage.getItem("quizResult");
+};
 const showResult = () => {
   const numOfCorrectAnswers = getScoreFromLS();
   const totalQuestions = getTotalQuestionFromLS();
-  const result = `You get ${numOfCorrectAnswers} / ${totalQuestions}`;
-  return result;
+  setQuizResult(
+    parseInt(getScoreFromLS()) / parseInt(getTotalQuestionFromLS())
+  );
+
   //render result numOfCorrectAnswers / totalQuestions
 };
 
@@ -64,6 +104,8 @@ const createQuestionAndAnswersDOMElement = (quiz_id, question_id) => {
   Promise.all([promise1, promise2, promise3])
     .then((result) => {
       const [questions, questionsFromQuiz, answers] = result;
+      setQuizNameToLS(questionsFromQuiz[0].name);
+
       // Get Questions
 
       if (!questions[0].sort_order) return;
@@ -76,6 +118,7 @@ const createQuestionAndAnswersDOMElement = (quiz_id, question_id) => {
       $(".question_string").text(questions[0].question);
 
       setQuestionCompletedToLS(questions[0].sort_order);
+      console.log("getQuestionCompletedToLS:", getQuestionCompletedFromLS());
       //set LocalStorage
       //if sort_order = totalQuestions
       //then show result
@@ -162,8 +205,9 @@ $(() => {
     const current_quiz_id = localStorage.getItem("quiz_id");
     let question_id_from_current_question = localStorage.getItem("question_id");
     ++question_id_from_current_question;
-    if (question_id_from_current_question > getTotalQuestionFromLS()) {
-      console.log(showResult());
+
+    if (getQuestionCompletedFromLS() == getTotalQuestionFromLS()) {
+      resultData();
       return;
     }
     localStorage.setItem("question_id", question_id_from_current_question);
@@ -191,8 +235,8 @@ $(() => {
     const current_quiz_id = localStorage.getItem("quiz_id");
     let question_id_from_current_question = localStorage.getItem("question_id");
     ++question_id_from_current_question;
-    if (question_id_from_current_question > getTotalQuestionFromLS()) {
-      console.log(showResult());
+    if (getQuestionCompletedFromLS() == getTotalQuestionFromLS()) {
+      resultData();
       return;
     }
     localStorage.setItem("question_id", question_id_from_current_question);
@@ -220,8 +264,8 @@ $(() => {
     const current_quiz_id = localStorage.getItem("quiz_id");
     let question_id_from_current_question = localStorage.getItem("question_id");
     ++question_id_from_current_question;
-    if (question_id_from_current_question > getTotalQuestionFromLS()) {
-      console.log(showResult());
+    if (getQuestionCompletedFromLS() == getTotalQuestionFromLS()) {
+      resultData();
       return;
     }
     localStorage.setItem("question_id", question_id_from_current_question);
@@ -250,11 +294,10 @@ $(() => {
     let question_id_from_current_question = localStorage.getItem("question_id");
     ++question_id_from_current_question;
 
-    if (question_id_from_current_question > getTotalQuestionFromLS()) {
-      console.log(showResult());
+    if (getQuestionCompletedFromLS() == getTotalQuestionFromLS()) {
+      resultData();
       return;
     }
-
     localStorage.setItem("question_id", question_id_from_current_question);
 
     createQuestionAndAnswersDOMElement(

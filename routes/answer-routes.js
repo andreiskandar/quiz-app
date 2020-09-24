@@ -24,6 +24,20 @@ router.get("/", (req, res) => {
 // GET /quiz/
 //these will not be cats once we have quiz data to generate
 
+//localhost:3000/quizzes/:id/questions/:question_id/answers/:answer_id
+router.post("/:answer_id", (req, res) => {
+  const { user_id } = req.session;
+  const { answer_id } = req.params;
+  console.log("user_id: from router", user_id);
+  console.log("answer_id: from router", answer_id);
+  postUserAnswerToQuestion(user_id, answer_id)
+    .then((answers) => {
+      console.log("insertion to users_answers table success");
+      res.send(answers);
+    })
+    .catch((e) => console.log("postUserAnswerToQuestion from db", e));
+});
+
 router.post("/create-answer", (req, res) => {
   const question_id = req.question_id;
   const request = req.body;
@@ -38,19 +52,5 @@ router.post("/create-answer", (req, res) => {
       res.send(data);
     })
     .catch((e) => console.error("error create question", e));
-
-  //localhost:3000/quizzes/:id/questions/:question_id/answers/:answer_id
-  router.post("/:answer_id", (req, res) => {
-    const { user_id } = req.session;
-    const { answer_id } = req.params;
-    console.log("user_id: from router", user_id);
-    console.log("answer_id: from router", answer_id);
-    postUserAnswerToQuestion(user_id, answer_id)
-      .then((answers) => {
-        console.log("insertion to users_answers table success");
-        res.send(answers);
-      })
-      .catch((e) => console.log("postUserAnswerToQuestion from db", e));
-  });
 });
 module.exports = router;

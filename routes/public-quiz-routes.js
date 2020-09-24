@@ -57,7 +57,6 @@ router.get("/:quiz_id", (req, res) => {
 router.post("/create-quiz", (req, res) => {
   const request = req.body;
   const user_id = req.session.id;
-  console.log(user_id);
   insertQuizIntoQuizzes(request, user_id)
     .then((data) => {
       console.log("in /quizzes/create quiz: ", req.body);
