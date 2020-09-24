@@ -13,6 +13,12 @@ $(document).on('submit', '.question_form_body', function (e) {
   const r3 = $createForm.find('#create-answer3-radio-btn').val();
   const r4 = $createForm.find('#create-answer4-radio-btn').val();
   //TODO: throw in another var for our private quiz switch
+  let isPublic = true;
+
+
+  if ($createForm.find('#setpublic').is(':checked')) {
+    isPublic = false;
+  }
 
   const questionSortOrder = 1;
   const sortOrder1 = 1;
@@ -59,10 +65,10 @@ $(document).on('submit', '.question_form_body', function (e) {
 
 
   let quiz_id;
-  $.post('/quizzes/create-quiz', { category })
+  $.post('/quizzes/create-quiz', { category, isPublic })
     .then((quiz_id_response) => {
       quiz_id = quiz_id_response[0].id
-      return $.post(`/quizzes/${quiz_id}/questions/create-question`, { question, questionSortOrder })
+      return $.post(`/quizzes/${quiz_id}/questions/create-question`, { question, questionSortOrder})
     }).then(question_id_response => {
       const question_id = question_id_response[0].id
 
