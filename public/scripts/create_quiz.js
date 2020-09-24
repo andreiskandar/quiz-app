@@ -1,5 +1,10 @@
 $createForm = $('#main-content');
 
+// let isCreatingQuiz = false;
+// let quiz_id;
+// let quizIdtoGive = isCreatingQuiz ? quiz_id -1 : quiz_id
+
+
 $(document).on('submit', '.question_form_body', function (e) {
   e.preventDefault();
   const category = $createForm.find('#category_textarea').val();
@@ -81,7 +86,7 @@ $(document).on('submit', '.question_form_body', function (e) {
       const promise4 = $.post(createAnswerPost, {a4, sortOrder4, correctAnswer4} );
 
       Promise.all([promise1,promise2,promise3,promise4]).catch(e => console.log("promise all answers queries", e))
-
+     isCreatingQuiz = true;
     })
     // TO DO get from quiz_id_response
   //   let quiz_id = 2
