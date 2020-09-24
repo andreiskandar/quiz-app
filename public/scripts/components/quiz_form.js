@@ -17,9 +17,9 @@ const resultData = () => {
   const resultObj = { quizName, quizResult };
   resultArray.push(resultObj);
 
-  console.log("resultArray:", resultArray);
   setResultArrayToLS(JSON.stringify(resultArray));
   console.log("getResultArrayFromLS:", getResultArrayFromLS());
+  renderResult();
 };
 
 const setQuestionCompletedToLS = (num_completed_questions) => {
@@ -118,7 +118,6 @@ const createQuestionAndAnswersDOMElement = (quiz_id, question_id) => {
       $(".question_string").text(questions[0].question);
 
       setQuestionCompletedToLS(questions[0].sort_order);
-      console.log("getQuestionCompletedToLS:", getQuestionCompletedFromLS());
       //set LocalStorage
       //if sort_order = totalQuestions
       //then show result
@@ -208,6 +207,7 @@ $(() => {
 
     if (getQuestionCompletedFromLS() == getTotalQuestionFromLS()) {
       resultData();
+      renderResult();
       return;
     }
     localStorage.setItem("question_id", question_id_from_current_question);

@@ -38,7 +38,6 @@ $(() => {
         counter++;
       }
       quizDomElem += publicQuizContainerClose;
-      console.log(quizDomElem)
       window.views_manager.show("browseMyQuizzes", quizDomElem);
     });
   });

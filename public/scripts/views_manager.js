@@ -29,6 +29,10 @@ $(() => {
         $(".login_page").append($login).show();
         $("#page-header").empty();
         break;
+
+      case "result":
+        $main.append("result");
+        break;
       case "error":
         break;
     }
