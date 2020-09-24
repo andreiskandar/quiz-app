@@ -61,30 +61,34 @@ const createQuestionAndAnswersDOMElement = (quiz_id, question_id) => {
   const promise2 = $.get(getTotalQuestionsURL);
   const promise3 = $.get(getAnswersURL);
 
-  Promise.all([promise1, promise2, promise3]).then((result) => {
-    const [questions, questionsFromQuiz, answers] = result;
-    // Get Questions
+  Promise.all([promise1, promise2, promise3])
+    .then((result) => {
+      const [questions, questionsFromQuiz, answers] = result;
+      // Get Questions
 
-    if (!questions[0].sort_order) return;
-    if (questions[0].sort_order === 1) {
-      resetScore();
-    }
-    $(".question_number, .question-counter-span").text(questions[0].sort_order);
-    $(".question_string").text(questions[0].question);
+      if (!questions[0].sort_order) return;
+      if (questions[0].sort_order === 1) {
+        resetScore();
+      }
+      $(".question_number, .question-counter-span").text(
+        questions[0].sort_order
+      );
+      $(".question_string").text(questions[0].question);
 
-    setQuestionCompletedToLS(questions[0].sort_order);
-    //set LocalStorage
-    //if sort_order = totalQuestions
-    //then show result
+      setQuestionCompletedToLS(questions[0].sort_order);
+      //set LocalStorage
+      //if sort_order = totalQuestions
+      //then show result
 
-    // Get Total Questions
-    setTotalQuestionToLS(questionsFromQuiz[0].count);
-    const totalQuestions = getTotalQuestionFromLS();
-    $(".question-total-span").text(totalQuestions);
+      // Get Total Questions
+      setTotalQuestionToLS(questionsFromQuiz[0].count);
+      const totalQuestions = getTotalQuestionFromLS();
+      $(".question-total-span").text(totalQuestions);
 
-    // Get Answers
-    updateAnswerDOM(answers);
-  });
+      // Get Answers
+      updateAnswerDOM(answers);
+    })
+    .catch(() => showResult());
 };
 
 const getQuizForm = () => {
@@ -159,7 +163,7 @@ $(() => {
     let question_id_from_current_question = localStorage.getItem("question_id");
     ++question_id_from_current_question;
     if (question_id_from_current_question > getTotalQuestionFromLS()) {
-      showResult();
+      console.log(showResult());
       return;
     }
     localStorage.setItem("question_id", question_id_from_current_question);
@@ -188,7 +192,8 @@ $(() => {
     let question_id_from_current_question = localStorage.getItem("question_id");
     ++question_id_from_current_question;
     if (question_id_from_current_question > getTotalQuestionFromLS()) {
-      showResult();
+      console.log(showResult());
+      return;
     }
     localStorage.setItem("question_id", question_id_from_current_question);
 
@@ -216,7 +221,8 @@ $(() => {
     let question_id_from_current_question = localStorage.getItem("question_id");
     ++question_id_from_current_question;
     if (question_id_from_current_question > getTotalQuestionFromLS()) {
-      showResult();
+      console.log(showResult());
+      return;
     }
     localStorage.setItem("question_id", question_id_from_current_question);
 
@@ -245,7 +251,8 @@ $(() => {
     ++question_id_from_current_question;
 
     if (question_id_from_current_question > getTotalQuestionFromLS()) {
-      showResult();
+      console.log(showResult());
+      return;
     }
 
     localStorage.setItem("question_id", question_id_from_current_question);
