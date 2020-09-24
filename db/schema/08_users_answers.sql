@@ -5,6 +5,6 @@ CREATE TABLE users_answers (
   id                  SERIAL PRIMARY KEY NOT NULL,
   user_id             INTEGER REFERENCES users(id),
   answer_id           INTEGER REFERENCES answers(id),
-  answer_timestamp    TIMESTAMP,
+  answer_timestamp    TIMESTAMP DEFAULT now(),
   active              BOOLEAN DEFAULT true
 );

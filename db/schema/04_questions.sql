@@ -14,4 +14,8 @@ CREATE TABLE questions (
   color                   VARCHAR(40),
   user_id                 INTEGER,
   active                  BOOLEAN DEFAULT false
+  CONSTRAINT fk_quiz
+      FOREIGN KEY(quizzes.id)
+	      REFERENCES quizzes(quiz_id)
+
 );

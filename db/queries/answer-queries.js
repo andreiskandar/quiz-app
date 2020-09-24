@@ -9,6 +9,14 @@ const getAnswersByQuestionId = (question_id) => {
   });
 };
 
+const getUsersMostRecentAttempt = (userID) => {
+
+  const queryString = `select * from answers where question_id = $1`;
+  return pool.query(queryString, [question_id]).then((response) => {
+    return response.rows;
+  });
+}
+
 module.exports = {
   getAnswersByQuestionId,
 };
