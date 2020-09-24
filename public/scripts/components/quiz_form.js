@@ -47,7 +47,8 @@ const resetScore = () => {
 const showResult = () => {
   const numOfCorrectAnswers = getScoreFromLS();
   const totalQuestions = getTotalQuestionFromLS();
-
+  const result = `You get ${numOfCorrectAnswers} / ${totalQuestions}`;
+  return result;
   //render result numOfCorrectAnswers / totalQuestions
 };
 
@@ -64,6 +65,7 @@ const createQuestionAndAnswersDOMElement = (quiz_id, question_id) => {
     const [questions, questionsFromQuiz, answers] = result;
     // Get Questions
 
+    if (!questions[0].sort_order) return;
     if (questions[0].sort_order === 1) {
       resetScore();
     }
@@ -152,9 +154,14 @@ $(() => {
     if (user_answer_id === correctAnswerId) {
       addScoreToLS();
     }
+
     const current_quiz_id = localStorage.getItem("quiz_id");
     let question_id_from_current_question = localStorage.getItem("question_id");
     ++question_id_from_current_question;
+    if (question_id_from_current_question > getTotalQuestionFromLS()) {
+      showResult();
+      return;
+    }
     localStorage.setItem("question_id", question_id_from_current_question);
 
     createQuestionAndAnswersDOMElement(
@@ -180,6 +187,9 @@ $(() => {
     const current_quiz_id = localStorage.getItem("quiz_id");
     let question_id_from_current_question = localStorage.getItem("question_id");
     ++question_id_from_current_question;
+    if (question_id_from_current_question > getTotalQuestionFromLS()) {
+      showResult();
+    }
     localStorage.setItem("question_id", question_id_from_current_question);
 
     createQuestionAndAnswersDOMElement(
@@ -194,7 +204,7 @@ $(() => {
     );
   });
 
-  $("main").on("click", "div .option3-btn", () => {
+  $("main").on("click", "div .option3-btn", (e) => {
     $("#option3").prop("checked", true);
     const user_answer_id = $(e.target).data("id");
     const correctAnswerId = parseInt(getCorrectAnswerIdFromLS());
@@ -205,6 +215,9 @@ $(() => {
     const current_quiz_id = localStorage.getItem("quiz_id");
     let question_id_from_current_question = localStorage.getItem("question_id");
     ++question_id_from_current_question;
+    if (question_id_from_current_question > getTotalQuestionFromLS()) {
+      showResult();
+    }
     localStorage.setItem("question_id", question_id_from_current_question);
 
     createQuestionAndAnswersDOMElement(
@@ -219,7 +232,7 @@ $(() => {
     );
   });
 
-  $("main").on("click", ".option4-btn", () => {
+  $("main").on("click", ".option4-btn", (e) => {
     $("#option4").prop("checked", true);
     const user_answer_id = $(e.target).data("id");
     const correctAnswerId = parseInt(getCorrectAnswerIdFromLS());
@@ -230,6 +243,11 @@ $(() => {
     const current_quiz_id = localStorage.getItem("quiz_id");
     let question_id_from_current_question = localStorage.getItem("question_id");
     ++question_id_from_current_question;
+
+    if (question_id_from_current_question > getTotalQuestionFromLS()) {
+      showResult();
+    }
+
     localStorage.setItem("question_id", question_id_from_current_question);
 
     createQuestionAndAnswersDOMElement(

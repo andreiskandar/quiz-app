@@ -4,7 +4,6 @@ $(() => {
 
   //do not touch this reference to my quizzes please
   $("header").on("click", ".myQuiz_btn", () => {
-    console.log("clicked");
     // $.get("/dashboard/my-quizzes", (data) =>{
 
     $.get("/dashboard/my-quizzes").then((data) => {
@@ -37,7 +36,6 @@ $(() => {
         counter++;
       }
       quizDomElem += publicQuizContainerClose;
-      console.log(typeof quizDomElem);
       window.views_manager.show("browseMyQuizzes", quizDomElem);
     });
   });
