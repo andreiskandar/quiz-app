@@ -8,6 +8,15 @@ const getAnswersByQuestionId = (question_id) => {
   });
 };
 
+//
+const getAnswerByQuestionId = (question_id, answer_id) => {
+  const queryString = `select * from answers where question_id = $1 AND answer_id = $2`;
+  return pool.query(queryString, [question_id, answer_id]).then((response) => {
+    return response.rows;
+  });
+};
+
+
 // get all quiz data for for a specified user
 const getAllQuizDataForUser = (userID) => {
 
@@ -18,14 +27,15 @@ const getAllQuizDataForUser = (userID) => {
 
   const sql = select + from + where + orderBy;
 
-  return pool.query(sql).then((response) => {
+  return pool.query(sql, [userID]).then((response) => {
     return response.rows;
   });
 }
 
 module.exports = {
   getAnswersByQuestionId,
-  getAllQuizDataForUser
+  getAllQuizDataForUser,
+  getAnswerByQuestionId
 };
 
 /*

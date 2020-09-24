@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 //we will replace this later
-const { getAnswersByQuestionId } = require("../db/queries/answer-queries");
+const { getAnswersByQuestionId, getAllQuizDataForUser } = require("../db/queries/answer-queries");
 const {
   insertAnswersIntoAnswersTable,
 } = require("../db/queries/create-quiz-queries");
@@ -9,7 +9,7 @@ const {
 const {
   postUserAnswerToQuestion,
 } = require("../db/queries/users_answers-queries");
-//Don't think we need the middleware in this
+
 
 //localhost:3000/quizzes/:id/questions/:question_id/answers/
 router.get("/", (req, res) => {
@@ -20,6 +20,14 @@ router.get("/", (req, res) => {
     })
     .catch((e) => console.log("getAnswerByQuestionId from db", e));
 });
+
+//localhost:3000/quizzes/:id/questions/:question_id/answers/
+router.get("/:answer_id/results", (req, res) => {
+  const user_id = req.session.user_id;
+  getAllQuizDataForUser(user_id).then((results) => {
+    res.render('my-results', { results })
+  })
+})
 
 // GET /quiz/
 //these will not be cats once we have quiz data to generate
