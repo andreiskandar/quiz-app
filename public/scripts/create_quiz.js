@@ -68,7 +68,7 @@ $(document).on('submit', '.question_form_body', function (e) {
   $.post('/quizzes/create-quiz', { category, isPublic })
     .then((quiz_id_response) => {
       quiz_id = quiz_id_response[0].id
-      return $.post(`/quizzes/${quiz_id}/questions/create-question`, { question, questionSortOrder})
+      return $.post(`/quizzes/${quiz_id}/questions/create-question`, { question, questionSortOrder, quiz_id})
     }).then(question_id_response => {
       const question_id = question_id_response[0].id
 
