@@ -9,7 +9,8 @@ $(document).on("click", ".clickable", function (e) {
       return;
     })
     .then(() => {
-      views_manager.show("quizForm");
+      window.location.href = `/quiz/${quizID}`;
+      // views_manager.show("quizForm");
     });
 });
 
