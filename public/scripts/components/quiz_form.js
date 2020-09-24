@@ -5,8 +5,17 @@ const setQuestionCompletedToLS = (num_completed_questions) => {
   );
 };
 
-const getNumberQuestionCompletedFromLS = () => {
+const getQuestionCompletedFromLS = () => {
   return localStorage.getItem("num_completed_questions");
+};
+
+const addScoreToLS = () => {
+  let addScore = parseInt(localStorage.getItem("score")) + 1;
+  return localStorage.setItem("score", addScore);
+};
+
+const getScoreFromLS = () => {
+  return localStorage.getItem("score");
 };
 
 const setCorrectAnswerIdToLS = (correct_answer_id) => {
@@ -31,6 +40,17 @@ const updateQuiz = () => {
   return [quiz_id_update, question_id_update];
 };
 
+const resetScore = () => {
+  return localStorage.setItem("score", 0);
+};
+
+const showResult = () => {
+  const numOfCorrectAnswers = getScoreFromLS();
+  const totalQuestions = getTotalQuestionFromLS();
+
+  //render result numOfCorrectAnswers / totalQuestions
+};
+
 const createQuestionAndAnswersDOMElement = (quiz_id, question_id) => {
   const getQuestionURL = `/quizzes/${quiz_id}/questions/${question_id}`;
   const getTotalQuestionsURL = `/quizzes/${quiz_id}/questions`;
@@ -42,15 +62,23 @@ const createQuestionAndAnswersDOMElement = (quiz_id, question_id) => {
 
   Promise.all([promise1, promise2, promise3]).then((result) => {
     const [questions, questionsFromQuiz, answers] = result;
+    // Get Questions
+
+    if (questions[0].sort_order === 1) {
+      resetScore();
+    }
+    $(".question_number, .question-counter-span").text(questions[0].sort_order);
+    $(".question_string").text(questions[0].question);
+
+    setQuestionCompletedToLS(questions[0].sort_order);
+    //set LocalStorage
+    //if sort_order = totalQuestions
+    //then show result
 
     // Get Total Questions
     setTotalQuestionToLS(questionsFromQuiz[0].count);
     const totalQuestions = getTotalQuestionFromLS();
     $(".question-total-span").text(totalQuestions);
-
-    // Get Questions
-    $(".question_number, .question-counter-span").text(questions[0].sort_order);
-    $(".question_string").text(questions[0].question);
 
     // Get Answers
     updateAnswerDOM(answers);
@@ -93,10 +121,7 @@ const postAnswersToUser_AnswersDB = (
   // post request to update db table
   $.post(
     `/quizzes/${current_quiz_id}/questions/${question_id_from_current_question}/answers/${user_answer_id}`
-  ).then((response) => {
-    console.log(response);
-    // Ask mentor do i need to have .then after post request here?
-  });
+  );
 };
 
 $(() => {
@@ -111,48 +136,111 @@ $(() => {
   window.$quizForm_onLoad = loadQuestion;
   window.$quizForm = getQuizForm();
 
-  const postAnswerToUsers_QuizzesDB = (current_quiz_id) => {
-    // create insert into query into users_answers and users_quizzes table
-    $.post(`/quizzes/${current_quiz_id}`);
-  };
+  //TO DO
+  // const postAnswerToUsers_QuizzesDB = (current_quiz_id) => {
+  //   // create insert into query into users_answers and users_quizzes table
+  //   $.post(`/quizzes/${current_quiz_id}`);
+  // };
 
   //
 
-  $("main").on("click", "div .option1-btn", onClick);
+  $("main").on("click", "div .option1-btn", (e) => {
+    $("#option1").prop("checked", true);
+    const user_answer_id = $(e.target).data("id");
+    const correctAnswerId = parseInt(getCorrectAnswerIdFromLS());
 
-  $("main").on("click", "div .option2-btn", onClick2);
-
-  $("main").on("click", ".option3-btn", () => {
-    $("#option3").prop("checked", true);
+    if (user_answer_id === correctAnswerId) {
+      addScoreToLS();
+    }
     const current_quiz_id = localStorage.getItem("quiz_id");
     let question_id_from_current_question = localStorage.getItem("question_id");
     ++question_id_from_current_question;
     localStorage.setItem("question_id", question_id_from_current_question);
+
     createQuestionAndAnswersDOMElement(
       current_quiz_id,
       question_id_from_current_question
     );
+
     postAnswersToUser_AnswersDB(
       current_quiz_id,
       question_id_from_current_question,
-      answer_id
+      user_answer_id
+    );
+  });
+
+  $("main").on("click", "div .option2-btn", (e) => {
+    $("#option2").prop("checked", true);
+    const user_answer_id = $(e.target).data("id");
+    const correctAnswerId = parseInt(getCorrectAnswerIdFromLS());
+
+    if (user_answer_id === correctAnswerId) {
+      addScoreToLS();
+    }
+    const current_quiz_id = localStorage.getItem("quiz_id");
+    let question_id_from_current_question = localStorage.getItem("question_id");
+    ++question_id_from_current_question;
+    localStorage.setItem("question_id", question_id_from_current_question);
+
+    createQuestionAndAnswersDOMElement(
+      current_quiz_id,
+      question_id_from_current_question
+    );
+
+    postAnswersToUser_AnswersDB(
+      current_quiz_id,
+      question_id_from_current_question,
+      user_answer_id
+    );
+  });
+
+  $("main").on("click", "div .option3-btn", () => {
+    $("#option3").prop("checked", true);
+    const user_answer_id = $(e.target).data("id");
+    const correctAnswerId = parseInt(getCorrectAnswerIdFromLS());
+
+    if (user_answer_id === correctAnswerId) {
+      addScoreToLS();
+    }
+    const current_quiz_id = localStorage.getItem("quiz_id");
+    let question_id_from_current_question = localStorage.getItem("question_id");
+    ++question_id_from_current_question;
+    localStorage.setItem("question_id", question_id_from_current_question);
+
+    createQuestionAndAnswersDOMElement(
+      current_quiz_id,
+      question_id_from_current_question
+    );
+
+    postAnswersToUser_AnswersDB(
+      current_quiz_id,
+      question_id_from_current_question,
+      user_answer_id
     );
   });
 
   $("main").on("click", ".option4-btn", () => {
     $("#option4").prop("checked", true);
+    const user_answer_id = $(e.target).data("id");
+    const correctAnswerId = parseInt(getCorrectAnswerIdFromLS());
+
+    if (user_answer_id === correctAnswerId) {
+      addScoreToLS();
+    }
     const current_quiz_id = localStorage.getItem("quiz_id");
     let question_id_from_current_question = localStorage.getItem("question_id");
     ++question_id_from_current_question;
     localStorage.setItem("question_id", question_id_from_current_question);
+
     createQuestionAndAnswersDOMElement(
       current_quiz_id,
       question_id_from_current_question
     );
+
     postAnswersToUser_AnswersDB(
       current_quiz_id,
       question_id_from_current_question,
-      answer_id
+      user_answer_id
     );
   });
 
@@ -192,68 +280,4 @@ function updateAnswerDOM(answers) {
   answerHTMLArray.forEach((item) => {
     $(".answer_form").append(item);
   });
-}
-
-
-
-function onClick(e) {
-  $("#option1").prop("checked", true);
-  const user_answer_id = $(e.target).data("id");
-  const correctAnswerId = parseInt(getCorrectAnswerIdFromLS());
-
-  if (user_answer_id === correctAnswerId) {
-    console.log("correct");
-  }
-
-  // when button is clicks, load next question and answers set
-  //get request on the next question with answers set
-  //  /quiz/:id/questions/:id
-  // /quiz/:id/questions/:id/answers
-  const current_quiz_id = localStorage.getItem("quiz_id");
-  let question_id_from_current_question = localStorage.getItem("question_id");
-  ++question_id_from_current_question;
-  localStorage.setItem("question_id", question_id_from_current_question);
-  createQuestionAndAnswersDOMElement(
-    current_quiz_id,
-    question_id_from_current_question
-  );
-
-  postAnswersToUser_AnswersDB(
-    current_quiz_id,
-    question_id_from_current_question,
-    user_answer_id
-  );
-}
-
-function onClick2(e) {
-  $("#option2").prop("checked", true);
-  const user_answer_id = $(e.target).data("id");
-  const correctAnswerId = getCorrectAnswerIdFromLS();
-  console.log("correctAnswerId:", correctAnswerId);
-  console.log("user_answer_id:", user_answer_id);
-
-  if (user_answer_id === correctAnswerId) {
-    console.log("correct");
-  }
-
-  // when button is clicks, load next question and answers set
-  //get request on the next question with answers set
-  //  /quiz/:id/questions/:id
-  // /quiz/:id/questions/:id/answers
-  const current_quiz_id = localStorage.getItem("quiz_id");
-  let question_id_from_current_question = localStorage.getItem("question_id");
-  ++question_id_from_current_question;
-  localStorage.setItem("question_id", question_id_from_current_question);
-  createQuestionAndAnswersDOMElement(
-    current_quiz_id,
-    question_id_from_current_question
-  );
-
-  postAnswersToUser_AnswersDB(
-    current_quiz_id,
-    question_id_from_current_question,
-    user_answer_id
-  );
-
-  //post answer to response table
 }

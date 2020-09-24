@@ -1,5 +1,5 @@
 $(() => {
-  const publicQuizContainer = `<div class="row">`;
+  const publicQuizContainer = `<div class="row remove-margin-top">`;
   const publicQuizContainerClose = `</div>`;
 
   $("header").on("click", ".browse_btn", () => {

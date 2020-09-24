@@ -13,7 +13,7 @@ $(document).ready(function () {
   <div class="col-md-6 col-sm-12">
     <div class="login-form">
         <form id="login-register">
-        <div class="form-group w-75">
+        <div class="form-group email-form" style="margin-right:10px">
           <input
             type="email"
             class="form-control"

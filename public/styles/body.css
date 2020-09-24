@@ -3,12 +3,9 @@ body {
   background-color: #f2ebdc;
 }
 
-
-
 .quiz_body {
   display: flex;
   margin-top: 10vh;
-  /* border-radius: 5px; */
 }
 
 .right_bg {
@@ -19,4 +16,8 @@ body {
   width: 50%;
   margin-right: 1em;
   margin-left: 0.5em;
+}
+
+#main-content {
+  margin-top: 0;
 }
