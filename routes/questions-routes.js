@@ -4,30 +4,36 @@ const router = express.Router();
 
 const answerRoutes = require("./answer-routes");
 
-const { getQuestionsFromQuiz, getTotalQuestionsPerQuiz } = require("../db/queries/question-queries");
+const {
+  getQuestionsFromQuiz,
+  getTotalQuestionsPerQuiz,
+} = require("../db/queries/question-queries");
 
-router.get('/', (req,res) => {
-  const quiz_id = req.quiz_id
+const {
+  insertQuestionIntoQuestionsTable,
+} = require("../db/queries/create-quiz-queries");
+
+router.get("/", (req, res) => {
+  const quiz_id = req.quiz_id;
   //get total questions
   getTotalQuestionsPerQuiz(quiz_id)
-.then((amount) => {
-  res.send(amount)
-}).catch((e) => console.log ('gettotalquestionspquiz', e))
+    .then((amount) => {
+      res.send(amount);
+    })
+    .catch((e) => console.error(e));
 });
 
+// quizzes/:quiz_id/questions/:question_id
 
 //localhost:3000/quizzes/:quiz_id/questions
 router.get("/:question_id", (req, res) => {
   const quiz_id = req.quiz_id;
-  console.log(quiz_id)
   const question_id = req.params.question_id;
-  console.log("question_id:", question_id);
   getQuestionsFromQuiz(quiz_id, question_id)
     .then((questions) => {
-      console.log(questions)
       res.send(questions);
     })
-    .catch((e) => console.log("getQuestions from db", e));
+    .catch((e) => console.error("getQuestions from db", e));
 });
 
 //localhost:3000/quizzes/:id/questions/:question_id/answers/
@@ -39,15 +45,15 @@ router.use(
   },
   answerRoutes
 );
-//localhost:3000/quizzes/:quiz_id/questions/:question_id
-// router.get("/:question_id", (req, res) => {
-//   const quiz_id = req.quiz_id;
-//   console.log("quiz_id:", quiz_id);
-//   getQuestionsFromQuiz(quiz_id)
-//     .then((questions) => {
-//       res.send(questions);
-//     })
-//     .catch((e) => console.log("getQuestions from db", e));
-// });
+
+router.post("/create-question", (req, res) => {
+  const request = req.body;
+  const user_id = req.session.id;
+  insertQuestionIntoQuestionsTable(request, user_id)
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((e) => console.error("error create question", e));
+});
 
 module.exports = router;

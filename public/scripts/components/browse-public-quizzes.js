@@ -1,5 +1,5 @@
 $(() => {
-  const publicQuizContainer = `<div class="row">`;
+  const publicQuizContainer = `<div class="row remove-margin-top">`;
   const publicQuizContainerClose = `</div>`;
 
   $("header").on("click", ".browse_btn", () => {
@@ -12,8 +12,7 @@ $(() => {
           publicQuizDomElem += publicQuizContainerClose;
           publicQuizDomElem += publicQuizContainer;
 
-          publicQuizDomElem +=
-          `
+          publicQuizDomElem += `
           <div class="card col-md clickable" id="${quizzes.id}">
           <div class="card quiz_title_dashboard">${quizzes.name}</div>
           <div class="card question_card_dashboard ${quizzes.id}">q1</div>
@@ -22,8 +21,7 @@ $(() => {
           <div class="card question_card_dashboard ${quizzes.id}">q4</div>
           </div>`;
         } else {
-          publicQuizDomElem +=
-          `
+          publicQuizDomElem += `
           <div class="card col-md clickable" id="${quizzes.id}">
           <div class="card quiz_title_dashboard">${quizzes.name}</div>
           <div class="card question_card_dashboard ${quizzes.id}">q1</div>

@@ -2,7 +2,6 @@ const pool = require("../db.js");
 
 // gets answers for the current question
 const getAnswersByQuestionId = (question_id) => {
-  console.log("in get answers by qud :", question_id)
   const queryString = `select * from answers where question_id = $1`;
   return pool.query(queryString, [question_id]).then((response) => {
     return response.rows;

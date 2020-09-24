@@ -8,7 +8,7 @@ const { Template } = require("ejs");
 
 //we need to check if the user is logged in
 router.get("/", (req, res) => {
-  getUserById(req.session.id).then((user) => {
+  getUserById(req.session.user_id).then((user) => {
     let templateVars;
     //these if checks are used to bypass logging in for testing
     if (user) {
