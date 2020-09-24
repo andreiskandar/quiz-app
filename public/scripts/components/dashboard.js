@@ -3,7 +3,6 @@ const getQuizzes = () => {
   const randomQuizContainerClose = `</div>`;
 
   $.get("/quizzes/random").then((data) => {
-    // console.log(data);
     //TODO:refactor to use data-quizID
     let randomQuizDomElem = randomQuizContainer;
     for (const quizzes of data) {
@@ -26,13 +25,12 @@ $(() => {
   //calls getQuizzes so we can have it prepared
   getQuizzes();
 
-    $("header").on("click", ".brand_btn", () => {
-        getQuizzes();
-    });
-
-    //we need a condition to make getQuizzes happen every time
-    $("header").on("click", "#logout", () => {
-      getQuizzes();
-    });
-
+  $("header").on("click", ".brand_btn", () => {
+    getQuizzes();
   });
+
+  //we need a condition to make getQuizzes happen every time
+  $("header").on("click", "#logout", () => {
+    getQuizzes();
+  });
+});

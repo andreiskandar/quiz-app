@@ -21,13 +21,13 @@ router.use((req, res, next) => {
 //these will not be cats once we have quiz data to generate
 //we don't specifically need to handle user authentication as a requirement but we may do it later!
 router.get("/", (req, res) => {
-  const id = req.session.id;
-  if (!id) {
+  const user_id = req.session.user_id;
+  if (!user_id) {
     res.send({ message: "not logged in" });
     return;
   }
 
-  getUserTypeById(id)
+  getUserTypeById(user_id)
     .then((user) => {
       if (!user) {
         res.send({ error: "no user with that id" });
@@ -51,7 +51,7 @@ router.get("/", (req, res) => {
 router.post("/", (req, res) => {
   const { email } = req.body;
   getUserByEmail(email).then((user) => {
-    req.session.id = user.id;
+    req.session.user_id = user.id;
     res.redirect("/");
   });
 });
@@ -61,8 +61,7 @@ router.post("/", (req, res) => {
 //logout
 //clear cookies and userURLS on logout
 router.post("/logout", (req, res) => {
-  req.session.id = null;
-  console.log("logout");
+  req.session.user_id = null;
   res.send({});
 });
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
