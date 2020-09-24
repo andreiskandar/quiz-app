@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-
 //we will replace this later
 const {
   getUsers,
@@ -26,7 +25,6 @@ router.get("/", (req, res) => {
     res.send({ message: "not logged in" });
     return;
   }
-
   getUserTypeById(user_id)
     .then((user) => {
       if (!user) {
@@ -39,7 +37,6 @@ router.get("/", (req, res) => {
       console.log("getUserType from get-home-routes.js");
       res.send(e);
     });
-
   //may need to pop in a function here to authenticate our "fake" users
   // res.render("home");
 });
@@ -51,6 +48,7 @@ router.get("/", (req, res) => {
 router.post("/", (req, res) => {
   const { email } = req.body;
   getUserByEmail(email).then((user) => {
+    console.log("user:", user);
     req.session.user_id = user.id;
     res.redirect("/");
   });
