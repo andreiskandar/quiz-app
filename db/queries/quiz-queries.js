@@ -20,7 +20,6 @@ const getQuizzes = (public, active) => {
   }
 
   const sql = "SELECT * FROM quizzes " + show + published + ";";
-  console.log(sql);
 
   return pool.query(sql).then((response) => {
     return response.rows;
