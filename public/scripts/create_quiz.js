@@ -13,6 +13,7 @@ $(document).on('submit', '.question_form_body', function(e) {
   const r3 = $createForm.find('#create-answer3-radio-btn').val()
   const r4 = $createForm.find('#create-answer4-radio-btn').val()
   console.log(category, question, a1, a2, a3, a4)
+  const questionSortOrder = 1
   const sortOrder1 = 1
   const sortOrder2 = 2
   const sortOrder3 = 3
@@ -46,7 +47,7 @@ $(document).on('submit', '.question_form_body', function(e) {
   // quizzes/:quiz_id ???
   $.post('/quizzes/create-quiz', {category} )
   // quizzes/:quiz_id/questions/:question_id
-  $.post('quizzes/:quiz_id/questions/create-question', {question})
+  $.post('quizzes/:quiz_id/questions/create-question', {question, questionSortOrder: questionSortOrder})
   // quizzes/:quiz_id/questions/:question_id/answers/:answer_id
   $.post('quizzes/:quiz_id/questions/:question_id/answers/create-answer', {a1, a2, a3, a4, sortOrder1, sortOrder2, sortOrder3, sortOrder4, correctAnswer1, correctAnswer2, correctAnswer3, correctAnswer4})
   //maybe do this and split into smaller chunks!
