@@ -1,3 +1,27 @@
+const resultArray = [];
+
+const setResultArrayToLS = (resultArray) => {
+  localStorage.setItem("resultArray", resultArray);
+};
+
+const getResultArrayFromLS = () => {
+  return localStorage.getItem("resultArray");
+};
+
+const resultData = () => {
+  const quizName = getQuizNameFromLS();
+  setQuizResult(
+    parseInt(getScoreFromLS()) / parseInt(getTotalQuestionFromLS())
+  );
+  const quizResult = getQuizResult();
+  const resultObj = { quizName, quizResult };
+  resultArray.push(resultObj);
+
+  console.log("resultArray:", resultArray);
+  setResultArrayToLS(JSON.stringify(resultArray));
+  console.log("getResultArrayFromLS:", getResultArrayFromLS());
+};
+
 const setQuestionCompletedToLS = (num_completed_questions) => {
   return localStorage.setItem(
     "num_completed_questions",
@@ -108,30 +132,6 @@ const createQuestionAndAnswersDOMElement = (quiz_id, question_id) => {
       updateAnswerDOM(answers);
     })
     .catch(() => showResult());
-};
-
-const resultArray = [];
-
-const setResultArrayToLS = (resultArray) => {
-  localStorage.setItem("resultArray", resultArray);
-};
-
-const getResultArrayFromLS = () => {
-  return localStorage.getItem("resultArray");
-};
-
-const resultData = () => {
-  const quizName = getQuizNameFromLS();
-  setQuizResult(
-    parseInt(getScoreFromLS()) / parseInt(getTotalQuestionFromLS())
-  );
-  const quizResult = getQuizResult();
-  const resultObj = { quizName, quizResult };
-  resultArray.push(resultObj);
-
-  console.log("resultArray:", resultArray);
-  setResultArrayToLS(JSON.stringify(resultArray));
-  console.log("getResultArrayFromLS:", getResultArrayFromLS());
 };
 
 const getQuizForm = () => {
