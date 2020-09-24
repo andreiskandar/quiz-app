@@ -5,6 +5,7 @@ const router = express.Router();
 const answerRoutes = require("./answer-routes");
 
 const { getQuestionsFromQuiz, getTotalQuestionsPerQuiz } = require("../db/queries/question-queries");
+const { insertQuestionIntoQuestionsTable } = require("../db/queries/create-quiz-queries");
 
 router.get('/', (req,res) => {
   const quiz_id = req.quiz_id
@@ -41,8 +42,14 @@ router.use(
 );
 
 router.post('/create-question', (req, res) => {
-console.log('in /create-question', req.body)
-console.log('in /create-question', req.session.id)
+  const request = req.body;
+  const user_id = req.session.id;
+  console.log(user_id)
+  insertQuestionIntoQuestionsTable(request, user_id).then((data) => {
+    console.log('in /create-question', req.body)
+    console.log('in /create-question', req.session.id)
+    res.send(data)
+  }).catch((e) => console.error('error create question', e))
 })
 
 module.exports = router;
