@@ -21,7 +21,7 @@ $(document).ready(() => {
         <li class="browse_btn">Browse</li>
         <li class="create_btn">Create</li>
         <li class="myQuiz_btn">My Quizzes</li>
-        <li class="pastQuiz_btn">Past Quizzes</li>
+        <li class="pastQuiz_btn">Past Quiz Attempts</li>
       </div>
       <div class="flex-row">
         <li class="userType_btn">Teacher</li>
@@ -37,8 +37,7 @@ $(document).ready(() => {
       <div class="flex-row">
         <li class="brand brand_btn">Q.a.</li>
         <li class="browse_btn">Browse</li>
-        <li class="myQuiz_btn">My Quizzes</li>
-        <li class="pastQuiz_btn">Past Quizzes</li>
+        <li class="pastQuiz_btn">Past Quiz Attempts</li>
       </div>
       <div class="flex-row">
         <li class="userType_btn">Student</li>
