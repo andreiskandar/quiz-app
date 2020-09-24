@@ -3,7 +3,7 @@
 DROP TABLE IF EXISTS answers CASCADE;
 CREATE TABLE answers (
   id                  SERIAL PRIMARY KEY NOT NULL,
-  question_id         INTEGER,
+  question_id         INTEGER REFERENCES questions(id),
   answer              TEXT NOT NULL,
   correct_answer      BOOLEAN,
   answer_explanation  VARCHAR(255),

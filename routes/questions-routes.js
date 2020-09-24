@@ -16,6 +16,8 @@ router.get('/', (req,res) => {
 }).catch((e) => console.log ('gettotalquestionspquiz', e))
 });
 
+  // quizzes/:quiz_id/questions/:question_id
+
 
 //localhost:3000/quizzes/:quiz_id/questions
 router.get("/:question_id", (req, res) => {
