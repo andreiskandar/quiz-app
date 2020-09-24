@@ -4,6 +4,7 @@ const questionsRoutes = require("./questions-routes");
 const dashboardRoutes = require("./get-dashboard");
 const {insertQuizIntoQuizzes} = require('../db/queries/create-quiz-queries.js')
 //we will replace this later
+const public = "public"
 
 const {
   getQuizzes,
@@ -16,7 +17,7 @@ const {
 // this is the BROWSE route for ALL users
 
 router.get("/", (req, res) => {
-  getQuizzes().then((quizzes) => {
+  getQuizzes(public).then((quizzes) => {
     res.send(quizzes);
   });
 });

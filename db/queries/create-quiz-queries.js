@@ -7,7 +7,7 @@ const insertQuizIntoQuizzes = (request, user_id) => {
   const description = 'user created quiz';
   const url_link = 'localhost://3000/'
   const pin = 123456
-  const public = true;
+  const public = request.isPublic;
   const time_limit = 600;
   const active = true;
   const queryString = `INSERT INTO quizzes (quiz_category_id, name, description, url_link, pin, public, time_limit , user_id, active) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *;`
@@ -85,7 +85,7 @@ answer_explanation = "user explanation";
   return pool.query(queryString,
     [question_id,
       a1||a2||a3||a4,
-      correctAnswer1||correctAnswer2||correctAnswer3||correctAnswer5,
+      correctAnswer1||correctAnswer2||correctAnswer3||correctAnswer4,
       sortOrder1||sortOrder2||sortOrder3||sortOrder4,
       user_id])
     .then((response) => {
