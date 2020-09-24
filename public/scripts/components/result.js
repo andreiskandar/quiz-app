@@ -1,10 +1,9 @@
 // $(() => {
 /////////////////////////////////
-localStorage.clear();
+// localStorage.clear();
 /////////////////////////////////
 function renderResult() {
   const resultArrayToRender = JSON.parse(getResultArrayFromLS());
-  console.log("resultArrayToRender:", resultArrayToRender);
 
   const resultHeader = `
     <div style="margin: 1em;">

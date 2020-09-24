@@ -66,7 +66,9 @@ const getTotalQuestionFromLS = () => {
 };
 
 const updateQuiz = () => {
-  const quiz_id_update = localStorage.getItem("quiz_id");
+  // const quiz_id_update = localStorage.getItem("quiz_id");
+  // const question_id_update = window.location.pathname.split("/")[4];
+  const quiz_id_update = window.location.pathname.split("/")[2];
   const question_id_update = localStorage.getItem("question_id");
   return [quiz_id_update, question_id_update];
 };
@@ -158,6 +160,7 @@ const getQuizForm = () => {
 
 const loadQuestion = () => {
   const [quiz_id_update, question_id_update] = updateQuiz();
+
   createQuestionAndAnswersDOMElement(quiz_id_update, question_id_update);
 };
 
@@ -201,7 +204,7 @@ $(() => {
       addScoreToLS();
     }
 
-    const current_quiz_id = localStorage.getItem("quiz_id");
+    const current_quiz_id = window.location.pathname.split("/")[2];
     let question_id_from_current_question = localStorage.getItem("question_id");
     ++question_id_from_current_question;
 
@@ -210,6 +213,7 @@ $(() => {
       renderResult();
       return;
     }
+
     localStorage.setItem("question_id", question_id_from_current_question);
 
     createQuestionAndAnswersDOMElement(
@@ -232,13 +236,17 @@ $(() => {
     if (user_answer_id === correctAnswerId) {
       addScoreToLS();
     }
-    const current_quiz_id = localStorage.getItem("quiz_id");
+
+    const current_quiz_id = window.location.pathname.split("/")[2];
     let question_id_from_current_question = localStorage.getItem("question_id");
     ++question_id_from_current_question;
+
     if (getQuestionCompletedFromLS() == getTotalQuestionFromLS()) {
       resultData();
+      renderResult();
       return;
     }
+
     localStorage.setItem("question_id", question_id_from_current_question);
 
     createQuestionAndAnswersDOMElement(
@@ -261,13 +269,17 @@ $(() => {
     if (user_answer_id === correctAnswerId) {
       addScoreToLS();
     }
-    const current_quiz_id = localStorage.getItem("quiz_id");
+
+    const current_quiz_id = window.location.pathname.split("/")[2];
     let question_id_from_current_question = localStorage.getItem("question_id");
     ++question_id_from_current_question;
+
     if (getQuestionCompletedFromLS() == getTotalQuestionFromLS()) {
       resultData();
+      renderResult();
       return;
     }
+
     localStorage.setItem("question_id", question_id_from_current_question);
 
     createQuestionAndAnswersDOMElement(
@@ -290,14 +302,17 @@ $(() => {
     if (user_answer_id === correctAnswerId) {
       addScoreToLS();
     }
-    const current_quiz_id = localStorage.getItem("quiz_id");
+
+    const current_quiz_id = window.location.pathname.split("/")[2];
     let question_id_from_current_question = localStorage.getItem("question_id");
     ++question_id_from_current_question;
 
     if (getQuestionCompletedFromLS() == getTotalQuestionFromLS()) {
       resultData();
+      renderResult();
       return;
     }
+
     localStorage.setItem("question_id", question_id_from_current_question);
 
     createQuestionAndAnswersDOMElement(
@@ -333,17 +348,24 @@ function updateAnswerDOM(answers) {
     if (item.correct_answer) {
       setCorrectAnswerIdToLS(item.id);
     }
+
+    let question_id = localStorage.getItem("question_id");
+    console.log("question_id:", question_id);
+
     const answerDiv = `
-      <div data-id="${item.id}" class="btn btn-outline-light option${
+    <div data-id="${item.id}" class="btn btn-outline-light option${
       idx + 1
     }-btn answer-div">
-      <input type="radio" class="radioCustomButton" id="option${
-        idx + 1
-      }" name="radioGroup" />
-      <label class="answerLabel answer${question_id}">${item.answer}</label>
-      </div>`;
+    <input type="radio" class="radioCustomButton" id="option${
+      idx + 1
+    }" name="radioGroup" />
+    <label class="answerLabel answer${question_id}">${item.answer}</label>
+    </div>`;
+    console.log("answerDiv:", answerDiv);
     return answerDiv;
   });
+  console.log("answerHTMLArray:", answerHTMLArray);
+
   $(".answer_form").children().remove();
   answerHTMLArray.forEach((item) => {
     $(".answer_form").append(item);

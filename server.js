@@ -36,18 +36,23 @@ app.use("/dashboard", dashboardRoutes);
 // handles the routing for /quizzes and /quizzes/:id
 app.use("/quizzes", quizRoutes);
 
+app.get("/quiz/:quiz_id/", (req, res) => {
+  const quiz_id = req.params.quiz_id;
+
+  res.render("sharedLink");
+});
+
 app.use("/login", homeRoutes);
 
 app.get("/forbidden", (req, res) => {
   res.statusCode = 403;
-  res.render('forbidden');
-})
+  res.render("forbidden");
+});
+
 app.get("/*", (req, res) => {
   res.statusCode = 404;
   res.render("not-found");
 });
-
-
 
 app.listen(port, () => {
   console.log(`app listening on port ${port}`);
