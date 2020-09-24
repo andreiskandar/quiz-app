@@ -12,7 +12,8 @@ const {
 
 //GET all quizzes belonging to the speicfic user dashboard/my-quizzes
 router.get("/", (req, res) => {
-  getQuizzesByUserId(req.session.id)
+  const user_id = req.session.user_id;
+  getQuizzesByUserId(user_id)
     .then((quizzes) => {
       res.send(quizzes);
     })
