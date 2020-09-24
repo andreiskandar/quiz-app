@@ -67,6 +67,8 @@ $(() => {
         </div>
         <div>
           <button type="submit" class="btn btn-dark">Submit</button>
+          <input type="checkbox" id="setpublic" name="setpublic" value="Make Quiz Hidden?">
+          <label for="setpublic">Make Quiz Hidden?</label>
         </div>
       </div>
     </form>

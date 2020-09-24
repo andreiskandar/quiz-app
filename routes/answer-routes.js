@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 //we will replace this later
 const { getAnswersByQuestionId } = require("../db/queries/answer-queries");
+const { insertAnswersIntoAnswersTable } = require("../db/queries/create-quiz-queries")
 
 //Don't think we need the middleware in this
 //localhost:3000/quizzes/:id/questions/:question_id/answers/
@@ -20,7 +21,17 @@ router.get("/", (req, res) => {
 //these will not be cats once we have quiz data to generate
 
 router.post("/create-answer", (req, res) => {
-  console.log('in /create answer', req.body, req.session.id)
+  const question_id = req.question_id;
+  const request = req.body;
+  const user_id = req.session.id;
+  console.log('user_id: from /create answer', user_id)
+  console.log('request:', request)
+  console.log('question_id:', question_id)
+  insertAnswersIntoAnswersTable(request, user_id, question_id).then((data) => {
+    console.log('data:', data)
+    console.log('data arr :', data[0])
+    res.send(data)
+  }).catch((e) => console.error('error create question', e));
 });
 
 module.exports = router;

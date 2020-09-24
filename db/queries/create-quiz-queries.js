@@ -26,7 +26,7 @@ const insertQuestionIntoQuestionsTable = (request, user_id) => {
   const bg_image_url = 'https://picsum.photos/200/300';
   //user_id
 
-
+//question table schema
   // id
   // quiz_id
   // question_category_id
@@ -45,13 +45,53 @@ const insertQuestionIntoQuestionsTable = (request, user_id) => {
 })
 };
 
+
+
 //insert into answers table
-const insertAnswersIntoAnswersTable = () => {
-  const queryString = `INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (1, 'Depends on what style that it is applying', false, null, 1, null, null, null, 47, true) RETURNING *;`
-  return pool.query(queryString, [question_id]).then((response) => {
-    return response.rows;
-})
-};
+
+// id
+// question_id
+// answer
+// correct_answer
+// answer_explanation
+// sort_order
+// img_url
+// bg_image_url
+// color
+// user_id
+// active
+
+const insertAnswersIntoAnswersTable = (request, user_id, question_id) => {
+
+console.log('request: from queries', request)
+const {a1, sortOrder1, correctAnswer1} = request;
+const {a2, sortOrder2, correctAnswer2} = request;
+const {a3, sortOrder3, correctAnswer3} = request;
+const {a4, sortOrder4, correctAnswer4} = request;
+
+console.log('correctAnswer1:', correctAnswer1)
+console.log('correctAnswer2:', correctAnswer2)
+console.log('correctAnswer3:', correctAnswer3)
+console.log('correctAnswer4:', correctAnswer4)
+
+// const {correctAnswer1, correctAnswer2, correctAnswer3, correctAnswer4} = request;
+answer_explanation = "user explanation";
+// (81, 47, null, null, null, null, null, null, null, 47, t)
+  const queryString = `INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active)
+                                    VALUES ($1,          $2,         $3,                null,            $4,       null,     null,       null,   $5,     true) RETURNING *;`
+
+// id	question_id	answer	correct_answer	answer_explanation	sort_order	img_url	bg_image_url	color	user_id	active
+
+  return pool.query(queryString,
+    [question_id,
+      a1||a2||a3||a4,
+      correctAnswer1||correctAnswer2||correctAnswer3||correctAnswer5,
+      sortOrder1||sortOrder2||sortOrder3||sortOrder4,
+      user_id])
+    .then((response) => {
+      return response.rows;
+    })
+  };
 
 module.exports = {
   insertQuizIntoQuizzes,
