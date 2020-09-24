@@ -47,6 +47,7 @@ router.post('/create-question', (req, res) => {
   const request = req.body;
   const user_id = req.session.id;
   console.log(user_id)
+  console.log('request:', request)
   insertQuestionIntoQuestionsTable(request, user_id).then((data) => {
     console.log('in /create-question', req.body)
     console.log('in /create-question', req.session.id)

@@ -18,8 +18,9 @@ const insertQuizIntoQuizzes = (request, user_id) => {
 };
 
 //insert into questions table
-const insertQuestionIntoQuestionsTable = (request, user_id) => {
+const insertQuestionIntoQuestionsTable = (request, user_id, question_id) => {
   const question = request.question;
+  const qID = request.quiz_id;
   const hint = "add user hint here";
   const sort_order = request.questionSortOrder;
   const img_link_url = 'https://picsum.photos/200/300';
@@ -39,8 +40,8 @@ const insertQuestionIntoQuestionsTable = (request, user_id) => {
   // user_id
   // active
 
-  const queryString = `INSERT INTO questions (quiz_id, question_category_id, question, hint, sort_order, time_limit, bg_image_url, color, user_id, active) VALUES (14, null, $1, $2, $3, null, $4, null, $5, true) RETURNING *;`
-  return pool.query(queryString, [question, hint, sort_order,  bg_image_url, user_id]).then((response) => {
+  const queryString = `INSERT INTO questions (quiz_id, question_category_id, question, hint, sort_order, time_limit, bg_image_url, color, user_id, active) VALUES ($1, null, $2, $3, $4, null, $5, null, $6, true) RETURNING *;`
+  return pool.query(queryString, [qID, question, hint, sort_order,  bg_image_url, user_id]).then((response) => {
     return response.rows;
 })
 };
