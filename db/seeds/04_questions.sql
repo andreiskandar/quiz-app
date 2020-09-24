@@ -16,13 +16,13 @@ INSERT INTO questions (quiz_id, question_category_id, question, hint, sort_order
 INSERT INTO questions (quiz_id, question_category_id, question, hint, sort_order, time_limit, bg_image_url, color, user_id, active) VALUES (11, null, 'Who is the last Jedi?', 'Ray of sunshine...', 3, null, null, null, 47, true);
 INSERT INTO questions (quiz_id, question_category_id, question, hint, sort_order, time_limit, bg_image_url, color, user_id, active) VALUES (11, null, 'What does not destroy planets?', 'Yess-ah...', 4, null, null, null, 47, true);
 INSERT INTO questions (quiz_id, question_category_id, question, hint, sort_order, time_limit, bg_image_url, color, user_id, active) VALUES (11, null, 'What planet do Ewoks live on?', 'You yaven a good time...', 5, null, null, null, 47, true);
--- game of thrones
+-- game of thrones - quiz 12
 INSERT INTO questions (quiz_id, question_category_id, question, hint, sort_order, time_limit, bg_image_url, color, user_id, active) VALUES (12, null, 'How did Ned Stark die?', 'Watch your head...', 1, null, null, null, 47, true);
 INSERT INTO questions (quiz_id, question_category_id, question, hint, sort_order, time_limit, bg_image_url, color, user_id, active) VALUES (12, null, 'How did Joffrey Baratheon die?', 'Tasty...', 2, null, null, null, 47, true);
 INSERT INTO questions (quiz_id, question_category_id, question, hint, sort_order, time_limit, bg_image_url, color, user_id, active) VALUES (12, null, 'How did Tywin Lannister die?', 'Better bolt the door...', 3, null, null, null, 47, true);
 INSERT INTO questions (quiz_id, question_category_id, question, hint, sort_order, time_limit, bg_image_url, color, user_id, active) VALUES (12, null, 'How did Ramsay Bolton die?', 'Best friend of man...', 4, null, null, null, 47, true);
 INSERT INTO questions (quiz_id, question_category_id, question, hint, sort_order, time_limit, bg_image_url, color, user_id, active) VALUES (12, null, 'How did Littlefinger die?', 'Small and pointy...', 5, null, null, null, 47, true);
--- game of thrones
+-- super heroes - quiz 13
 INSERT INTO questions (quiz_id, question_category_id, question, hint, sort_order, time_limit, bg_image_url, color, user_id, active) VALUES (13, null, 'How did Iron Man die?', 'If the glove fits...', 1, null, null, null, 47, true);
 INSERT INTO questions (quiz_id, question_category_id, question, hint, sort_order, time_limit, bg_image_url, color, user_id, active) VALUES (13, null, 'How did Black Widow die?', 'Watch your step...', 2, null, null, null, 47, true);
 INSERT INTO questions (quiz_id, question_category_id, question, hint, sort_order, time_limit, bg_image_url, color, user_id, active) VALUES (13, null, 'How did Spiderman get his powers?', 'Itsy bitsy biter...', 3, null, null, null, 47, true);
