@@ -1,61 +1,98 @@
-$(() => {
-  let question_id = localStorage.getItem('question_id');
-  console.log('question_id: at top', question_id)
-  let quiz_id = localStorage.getItem('quiz_id');
-  console.log('quiz_id:', quiz_id)
+const setQuestionCompletedToLS = (num_completed_questions) => {
+  return localStorage.setItem(
+    "num_completed_questions",
+    num_completed_questions
+  );
+};
 
-  // let first_question_id = localStorage.getItem(question_id);
+const getQuestionCompletedFromLS = () => {
+  return localStorage.getItem("num_completed_questions");
+};
 
+const addScoreToLS = () => {
+  let addScore = parseInt(localStorage.getItem("score")) + 1;
+  return localStorage.setItem("score", addScore);
+};
 
-  const updateQuiz = () => {
-    const quiz_id_update = localStorage.getItem('quiz_id')
-    const question_id_update = localStorage.getItem('question_id')
-    return [quiz_id_update, question_id_update];
-  }
+const getScoreFromLS = () => {
+  return localStorage.getItem("score");
+};
 
-  const createQuestionAndAnswersDOMElement = (quiz_id, question_id) => {
-    //getting first question
-    $.get(`/quizzes/${quiz_id}/questions/${question_id}`).then((questions) => {
-      //getting total questions from quiz
+const setCorrectAnswerIdToLS = (correct_answer_id) => {
+  return localStorage.setItem("correct_answer_id", correct_answer_id);
+};
 
-      $.get(`/quizzes/${quiz_id}/questions`).then((questionsFromQuiz) => {
-        const totalQuestion = questionsFromQuiz[0].count;
-        $(".question-total-span").text(totalQuestion);
-      });
+const getCorrectAnswerIdFromLS = () => {
+  return localStorage.getItem("correct_answer_id");
+};
 
+const setTotalQuestionToLS = (totalQuestions) => {
+  return localStorage.setItem("totalQuestions", totalQuestions);
+};
 
-      $(".question_number, .question-counter-span").text(questions[0].sort_order);
+const getTotalQuestionFromLS = () => {
+  return localStorage.getItem("totalQuestions");
+};
+
+const updateQuiz = () => {
+  const quiz_id_update = localStorage.getItem("quiz_id");
+  const question_id_update = localStorage.getItem("question_id");
+  return [quiz_id_update, question_id_update];
+};
+
+const resetScore = () => {
+  return localStorage.setItem("score", 0);
+};
+
+const showResult = () => {
+  const numOfCorrectAnswers = getScoreFromLS();
+  const totalQuestions = getTotalQuestionFromLS();
+  const result = `You get ${numOfCorrectAnswers} / ${totalQuestions}`;
+  return result;
+  //render result numOfCorrectAnswers / totalQuestions
+};
+
+const createQuestionAndAnswersDOMElement = (quiz_id, question_id) => {
+  const getQuestionURL = `/quizzes/${quiz_id}/questions/${question_id}`;
+  const getTotalQuestionsURL = `/quizzes/${quiz_id}/questions`;
+  const getAnswersURL = `/quizzes/${quiz_id}/questions/${question_id}/answers`;
+
+  const promise1 = $.get(getQuestionURL);
+  const promise2 = $.get(getTotalQuestionsURL);
+  const promise3 = $.get(getAnswersURL);
+
+  Promise.all([promise1, promise2, promise3])
+    .then((result) => {
+      const [questions, questionsFromQuiz, answers] = result;
+      // Get Questions
+
+      if (!questions[0].sort_order) return;
+      if (questions[0].sort_order === 1) {
+        resetScore();
+      }
+      $(".question_number, .question-counter-span").text(
+        questions[0].sort_order
+      );
       $(".question_string").text(questions[0].question);
 
-      console.log(`/quizzes/${quiz_id}/questions/${question_id}/answers`)
-      $.get(`/quizzes/${quiz_id}/questions/${question_id}/answers`).then(
-        (answers) => {
-          console.log('answers:', answers)
+      setQuestionCompletedToLS(questions[0].sort_order);
+      //set LocalStorage
+      //if sort_order = totalQuestions
+      //then show result
 
-          const answerHTMLArray = answers.map((item, idx) => {
-            const answerDiv = `
-              <div class="btn btn-outline-light option${
-                idx + 1
-              }-btn answer-div">
-              <input type="radio" class="radioCustomButton" id="option${
-                idx + 1
-              }" name="radioGroup" />
-              <label class="answerLabel answer${question_id}">${
-              item.answer
-            }</label>
-              </div>`;
-            return answerDiv;
-          });
-          $(".answer_form").children().remove();
-          answerHTMLArray.forEach((item) => {
-            $(".answer_form").append(item);
-          });
-        }
-      );
-    });
-  };
+      // Get Total Questions
+      setTotalQuestionToLS(questionsFromQuiz[0].count);
+      const totalQuestions = getTotalQuestionFromLS();
+      $(".question-total-span").text(totalQuestions);
 
-  const $quizForm = $(`
+      // Get Answers
+      updateAnswerDOM(answers);
+    })
+    .catch(() => showResult());
+};
+
+const getQuizForm = () => {
+  return $(`
   <div class="quiz_body">
     <div class="card question_body">
       <div>
@@ -69,78 +106,203 @@ $(() => {
           <a class="back-btn"><i class="fas fa-angle-double-left"></i> </a>
         </div>
         <div>
-          <h2 class="question_counter"><span class="question-counter-span">1</span>/<span class="question-total-span"></span></h2>
+          <h2 class="question_counter"><span class="question-counter-span">1</span> / <span class="question-total-span"></span></h2>
         </div>
       </div>
     </div>
     <form class="rounded answer_form right_bg"></form>
   </div> `);
+};
 
+const loadQuestion = () => {
+  const [quiz_id_update, question_id_update] = updateQuiz();
+  createQuestionAndAnswersDOMElement(quiz_id_update, question_id_update);
+};
 
-  const loadQuestion = () => {
-    const [quiz_id_update, question_id_update] = updateQuiz();
-    console.log(quiz_id_update, question_id_update)
-    createQuestionAndAnswersDOMElement(quiz_id_update, question_id_update);
-  };
+const postAnswersToUser_AnswersDB = (
+  current_quiz_id,
+  question_id_from_current_question,
+  user_answer_id
+) => {
+  // post request to update db table
+  $.post(
+    `/quizzes/${current_quiz_id}/questions/${question_id_from_current_question}/answers/${user_answer_id}`
+  );
+};
+
+$(() => {
+  let question_id = localStorage.getItem("question_id");
+  let quiz_id = localStorage.getItem("quiz_id");
+
+  // if the total question < user completed question
+  // then
+  // post request to users_quizzes table
+  // calculate result and  render the result
 
   window.$quizForm_onLoad = loadQuestion;
-  window.$quizForm = $quizForm;
+  window.$quizForm = getQuizForm();
 
-  $("main").on("click", ".option1-btn", () => {
+  //TO DO
+  // const postAnswerToUsers_QuizzesDB = (current_quiz_id) => {
+  //   // create insert into query into users_answers and users_quizzes table
+  //   $.post(`/quizzes/${current_quiz_id}`);
+  // };
+
+  //
+
+  $("main").on("click", "div .option1-btn", (e) => {
     $("#option1").prop("checked", true);
-    // when button is clicks, load next question and answers set
-    //get request on the next question with answers set
-    //  /quiz/:id/questions/:id
-    // /quiz/:id/questions/:id/answers
-    const current_quiz_id = localStorage.getItem('quiz_id')
-    let question_id_from_current_question = localStorage.getItem('question_id')
+    const user_answer_id = $(e.target).data("id");
+    const correctAnswerId = parseInt(getCorrectAnswerIdFromLS());
+
+    if (user_answer_id === correctAnswerId) {
+      addScoreToLS();
+    }
+
+    const current_quiz_id = localStorage.getItem("quiz_id");
+    let question_id_from_current_question = localStorage.getItem("question_id");
     ++question_id_from_current_question;
-    localStorage.setItem('question_id', question_id_from_current_question);
-    createQuestionAndAnswersDOMElement(current_quiz_id, question_id_from_current_question);
+    if (question_id_from_current_question > getTotalQuestionFromLS()) {
+      console.log(showResult());
+      return;
+    }
+    localStorage.setItem("question_id", question_id_from_current_question);
 
+    createQuestionAndAnswersDOMElement(
+      current_quiz_id,
+      question_id_from_current_question
+    );
 
-
-    //post answer to response table
+    postAnswersToUser_AnswersDB(
+      current_quiz_id,
+      question_id_from_current_question,
+      user_answer_id
+    );
   });
 
-  $("main").on("click", ".option2-btn", () => {
+  $("main").on("click", "div .option2-btn", (e) => {
     $("#option2").prop("checked", true);
-    const current_quiz_id = localStorage.getItem('quiz_id')
-    let question_id_from_current_question = localStorage.getItem('question_id')
-    ++question_id_from_current_question;
-    localStorage.setItem('question_id', question_id_from_current_question);
-    createQuestionAndAnswersDOMElement(current_quiz_id, question_id_from_current_question);
+    const user_answer_id = $(e.target).data("id");
+    const correctAnswerId = parseInt(getCorrectAnswerIdFromLS());
 
+    if (user_answer_id === correctAnswerId) {
+      addScoreToLS();
+    }
+    const current_quiz_id = localStorage.getItem("quiz_id");
+    let question_id_from_current_question = localStorage.getItem("question_id");
+    ++question_id_from_current_question;
+    if (question_id_from_current_question > getTotalQuestionFromLS()) {
+      console.log(showResult());
+      return;
+    }
+    localStorage.setItem("question_id", question_id_from_current_question);
+
+    createQuestionAndAnswersDOMElement(
+      current_quiz_id,
+      question_id_from_current_question
+    );
+
+    postAnswersToUser_AnswersDB(
+      current_quiz_id,
+      question_id_from_current_question,
+      user_answer_id
+    );
   });
 
-  $("main").on("click", ".option3-btn", () => {
+  $("main").on("click", "div .option3-btn", (e) => {
     $("#option3").prop("checked", true);
-    const current_quiz_id = localStorage.getItem('quiz_id')
-    let question_id_from_current_question = localStorage.getItem('question_id')
-    ++question_id_from_current_question;
-    localStorage.setItem('question_id', question_id_from_current_question);
-    createQuestionAndAnswersDOMElement(current_quiz_id, question_id_from_current_question);
+    const user_answer_id = $(e.target).data("id");
+    const correctAnswerId = parseInt(getCorrectAnswerIdFromLS());
 
+    if (user_answer_id === correctAnswerId) {
+      addScoreToLS();
+    }
+    const current_quiz_id = localStorage.getItem("quiz_id");
+    let question_id_from_current_question = localStorage.getItem("question_id");
+    ++question_id_from_current_question;
+    if (question_id_from_current_question > getTotalQuestionFromLS()) {
+      console.log(showResult());
+      return;
+    }
+    localStorage.setItem("question_id", question_id_from_current_question);
+
+    createQuestionAndAnswersDOMElement(
+      current_quiz_id,
+      question_id_from_current_question
+    );
+
+    postAnswersToUser_AnswersDB(
+      current_quiz_id,
+      question_id_from_current_question,
+      user_answer_id
+    );
   });
 
-  $("main").on("click", ".option4-btn", () => {
+  $("main").on("click", ".option4-btn", (e) => {
     $("#option4").prop("checked", true);
-    const current_quiz_id = localStorage.getItem('quiz_id')
-    let question_id_from_current_question = localStorage.getItem('question_id')
-    ++question_id_from_current_question;
-    localStorage.setItem('question_id', question_id_from_current_question);
-    createQuestionAndAnswersDOMElement(current_quiz_id, question_id_from_current_question);
+    const user_answer_id = $(e.target).data("id");
+    const correctAnswerId = parseInt(getCorrectAnswerIdFromLS());
 
+    if (user_answer_id === correctAnswerId) {
+      addScoreToLS();
+    }
+    const current_quiz_id = localStorage.getItem("quiz_id");
+    let question_id_from_current_question = localStorage.getItem("question_id");
+    ++question_id_from_current_question;
+
+    if (question_id_from_current_question > getTotalQuestionFromLS()) {
+      console.log(showResult());
+      return;
+    }
+
+    localStorage.setItem("question_id", question_id_from_current_question);
+
+    createQuestionAndAnswersDOMElement(
+      current_quiz_id,
+      question_id_from_current_question
+    );
+
+    postAnswersToUser_AnswersDB(
+      current_quiz_id,
+      question_id_from_current_question,
+      user_answer_id
+    );
   });
+
   $("main").on("click", ".back-btn", () => {
     //back to dashboard
     // or back to previous question
-    const current_quiz_id = localStorage.getItem('quiz_id')
-    let question_id_from_current_question = localStorage.getItem('question_id')
+    const current_quiz_id = localStorage.getItem("quiz_id");
+    let question_id_from_current_question = localStorage.getItem("question_id");
     --question_id_from_current_question;
-    localStorage.setItem('question_id', question_id_from_current_question);
-    createQuestionAndAnswersDOMElement(current_quiz_id, question_id_from_current_question);
+    localStorage.setItem("question_id", question_id_from_current_question);
+    createQuestionAndAnswersDOMElement(
+      current_quiz_id,
+      question_id_from_current_question
+    );
 
+    // remove the previous post request delete data from user_answers
   });
-  $quizForm.submit(function (e) {});
 });
+
+function updateAnswerDOM(answers) {
+  const answerHTMLArray = answers.map((item, idx) => {
+    if (item.correct_answer) {
+      setCorrectAnswerIdToLS(item.id);
+    }
+    const answerDiv = `
+      <div data-id="${item.id}" class="btn btn-outline-light option${
+      idx + 1
+    }-btn answer-div">
+      <input type="radio" class="radioCustomButton" id="option${
+        idx + 1
+      }" name="radioGroup" />
+      <label class="answerLabel answer${question_id}">${item.answer}</label>
+      </div>`;
+    return answerDiv;
+  });
+  $(".answer_form").children().remove();
+  answerHTMLArray.forEach((item) => {
+    $(".answer_form").append(item);
+  });
+}

@@ -52,6 +52,8 @@ INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, so
 INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (14, 'Alderan', false, 'Incorrect!', 3, null, null, null, 47, true);
 INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (14, 'Hoth', true, 'Incorrect!', 4, null, null, null, 47, true);
 
+
+
 -- answers for quiz 12
 INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (15, 'Hanging', false, 'Incorrect', 1, null, null, null, 47, true);
 INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (15, 'From a crowsbow bolt', false, 'Incorrect', 2, null, null, null, 47, true);
@@ -77,6 +79,10 @@ INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, so
 INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (19, 'From a crowsbow bolt', false, 'Incorrect', 2, null, null, null, 47, true);
 INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (19, 'Death by dogs', false, 'Incorrect', 3, null, null, null, 47, true);
 INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (19, 'By a dagger', true, 'Correct', 4, null, null, null, 47, true);
+
+
+
+
 
 -- answers for quiz 13
 INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (20, 'Suit malfunction', false, 'Incorrect, although he goes through a lot of suits', 1, null, null, null, 47, true);

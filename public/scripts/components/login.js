@@ -13,28 +13,16 @@ $(document).ready(function () {
   <div class="col-md-6 col-sm-12">
     <div class="login-form">
         <form id="login-register">
-        <div class="form-group">
-          <label>User Name</label>
+        <div class="form-group email-form" style="margin-right:10px">
           <input
             type="email"
             class="form-control"
             id="email"
-            placeholder="Enter Email"
+            placeholder="Email"
             name="email"
           />
+          <button type="submit" class="btn btn-black"> Login</button>
         </div>
-        <div class="form-group">
-          <label>Password</label>
-          <input
-            type="password"
-            class="form-control"
-            id="password"
-            placeholder="Password"
-            name="password"
-          />
-        </div>
-        <button type="submit" class="btn btn-black">Login</button>
-        <button type="submit" class="btn btn-secondary">Register</button>  
         </form>
     </div>
   </div>
