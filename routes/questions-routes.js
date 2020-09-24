@@ -49,11 +49,8 @@ router.use(
 router.post("/create-question", (req, res) => {
   const request = req.body;
   const user_id = req.session.id;
-  console.log(user_id);
   insertQuestionIntoQuestionsTable(request, user_id)
     .then((data) => {
-      console.log("in /create-question", req.body);
-      console.log("in /create-question", req.session.id);
       res.send(data);
     })
     .catch((e) => console.error("error create question", e));
