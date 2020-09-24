@@ -18,35 +18,41 @@
     <table class="table">
       <thead>
         <tr>
-          <th scope="col">ID</th>
-          <th scope="col">quiz_category_id</th>
+          <th scope="col">#</th>
           <th scope="col">quiz_name</th>
-          <th scope="col">URL</th>
-          <th scope="col">PIN</th>
-          <th scope="col">Public</th>
-          <th scope="col">Time Limit</th>
-          <th scope="col">User ID</th>
-          <th scope="col">Active</th>
-          <th scope="col">Edit</th>
-          <th scope="col">Delete</th>
+          <th scope="col">Result</th>
+          <th scope="col">Share Result</th>
         </tr>
       </thead>
       <tbody>
-        <% for(let quiz of quizzes) { %>
-          <tr>
-            <td><%= quiz.id %></td>
-            <td><%= quiz.quiz_category_id %></td>
-            <td><%= quiz.name %></td>
-            <td><%= quiz.url_link %></td>
-            <td><%= quiz.pin %></td>
-            <td><%= quiz.public %></td>
-            <td><%= quiz.time_limit %></td>
-            <td><%= quiz.user_id %></td>
-            <td><%= quiz.active %></td>
-          </tr>
-          <% } %>
+
       </tbody>
     </table>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
   </main>
   <!-- Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -61,3 +67,6 @@
 </body>
 
 </html>
+
+
+

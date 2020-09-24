@@ -4,10 +4,10 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "CHOKIDAR_USEPOLLING=1 mocha --watch",
     "start": "node server.js",
     "local": "nodemon -L server.js localhost 3000",
-    "db:reset": "node bin/resetdb.js"
+    "resetdb": "node bin/resetdb.js"
   },
   "author": "Lighthouse Labs",
   "license": "ISC",

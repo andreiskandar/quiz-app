@@ -4,4 +4,3 @@ node_modules/
 *.sqlite3
 .DS_Store
 db/queries/tinker.sql
-.env.example

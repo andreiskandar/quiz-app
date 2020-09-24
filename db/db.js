@@ -14,4 +14,14 @@ pool.connect(() => {
   console.log('connected to database');
 });
 
+pool.on('close', () => {
+  pool.removeAllListeners();
+  console.log('removed all listeners');
+});
+
+pool.on('end', function() {
+  pool.end();
+  console.log('closed database connection');
+});
+
 module.exports = pool;

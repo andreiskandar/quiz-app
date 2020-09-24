@@ -1,27 +1,35 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 //we will replace this later
-const { getUsers, getUserById } = require('../db/queries/user-queries');
+const { getQuestions } = require("../db/queries/question-queries");
+const {
+  getQuizzes,
+  getQuizById,
+  getQuizzesByUserId,
+  getAllActiveQuizzesData,
+  getFirstQuestionIdByQuizId
+} = require("../db/queries/quiz-queries");
 
-
-// GET /quiz/
-//please replace with quiz-queries
-router.get('/', (req, res) => {
-  getUsers()
-  .then((users) => {
-    res.render('my-quizzes', { users });
-  });
+//GET all quizzes belonging to the speicfic user dashboard/my-quizzes
+router.get("/", (req, res) => {
+  const user_id = req.session.user_id;
+  getQuizzesByUserId(user_id)
+    .then((quizzes) => {
+      res.send(quizzes);
+    })
+    .catch((e) =>
+      console.error("error getQuizzesByUserId from get-my-quizzes.js ", e)
+    );
 });
 
-//GET /quiz/:id
-//please replace with quiz-queries
-// router.get('/:id', (req, res) => {
-//   getUserById(req.params.id)
-//   .then((user) => {
-//     res.render('quiz', { user });
-//   });
-// });
-
-
+router.post('/question1', (req, res) => {
+  const quiz_id = Object.keys(req.body)[0]
+  getFirstQuestionIdByQuizId(quiz_id)
+  .then((question_id) => {
+    res.send(question_id);
+  })
+  .catch((e) => console.error("error", e)
+  );
+})
 
 module.exports = router;

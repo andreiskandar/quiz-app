@@ -24,81 +24,42 @@
     />
 
     <!-- CSS -->
-    <link rel="stylesheet" href="./styles/question_form.css" />
     <link rel="stylesheet" href="./styles/quiz.css" />
     <link rel="stylesheet" href="./styles/body.css" />
     <link rel="stylesheet" href="./styles/header.css" />
     <link rel="stylesheet" href="./styles/login.css" />
     <link rel="stylesheet" href="./styles/homestyle.css" />
     <link rel="stylesheet" href="./styles/dashboard.css" />
+    <link rel="stylesheet" href="./styles/question_form.css" />
 
     <!-- EXTERNAL Library -->
-
     <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-      integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+      src="https://code.jquery.com/jquery-3.5.1.js"
+      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
       crossorigin="anonymous"
     ></script>
 
     <title>Quiz App</title>
   </head>
   <body>
-    <div class="login_page">
-      <div class="sidenav">
-        <div class="login-main-text">
-          <h2>
-            QuizAPP<br />
-            Login Page
-          </h2>
-          <p>Login or register from here to access.</p>
-        </div>
-      </div>
-      <div class="main">
-        <div class="col-md-6 col-sm-12">
-          <div class="login-form">
-            <form>
-              <form action="/login" method="POST">
-              <div class="form-group">
-                <label>User Name</label>
-                <input
-                  type="email"
-                  class="form-control"
-                  id="email"
-                  placeholder="Enter Email"
-                  name="email"
-                />
-              </div>
-              <div class="form-group">
-                <label>Password</label>
-                <input
-                  type="password"
-                  class="form-control"
-                  id="password"
-                  placeholder="Password"
-                  name="password"
-                />
-              </div>
-              <button type="submit" class="btn btn-black">Login</button>
-              <button type="submit" class="btn btn-secondary">Register</button>
-              <button type="submit" class="btn btn-black facilitator_btn">
-                Facilitator
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  <header id="page-header" class="page-header"></header>
-  <main id="main-content"> </main>
-  <script src="./scripts/network.js"></script>
-  <script src="./scripts/views_manager.js"></script>
-  
-  <script src="./scripts/components/dashboard.js"></script>
-  <script src="./scripts/components/question_form.js"></script>
-  <script src="./scripts/components/quiz_form.js"></script>
-  
-  <script src="./scripts/app.js"></script>
+    <div class="login_page"></div>
+    <header id="page-header" class="page-header"></header>
+    <main id="main-content"></main>
+
+    <script src="./scripts/network.js"></script>
+    <script src="./scripts/views_manager.js"></script>
+    <script src="./scripts/create_quiz.js"></script>
+
+    <!-- components- the single page component $login -->
+    <script src="./scripts/components/login.js"></script>
+    <script src="./scripts/components/dashboard.js"></script>
+    <script src="./scripts/components/browse-public-quizzes.js"></script>
+    <script src="./scripts/components/browse-my-quizzes.js"></script>
+    <script src="./scripts/components/question_form.js"></script>
+    <script src="./scripts/components/quiz_form.js"></script>
+    <script src="./scripts/quizListener.js"></script>
+
+    <!-- contains our dom element to use in out login.js component -->
+    <script src="./scripts/login.js"></script>
   </body>
 </html>
-
-
