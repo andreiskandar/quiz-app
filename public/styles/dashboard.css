@@ -28,3 +28,31 @@
 .clickable {
   cursor: pointer;
 }
+
+.share {
+  font-size: 1.2em;
+  display: flex;
+  justify-content: center;
+}
+
+.share i {
+  padding-right: 10px;
+}
+
+.quiz_title_dashboard #title {
+  opacity: 1.0;
+  background-color: rgba(240, 248, 255, 0.8);
+  width: 50%;
+  margin: 0 auto;
+  border-radius: 25px;
+
+
+}
+
+.quiz_title_dashboard {
+display: flex;
+justify-content: center;
+text-align: center;
+font-size: 2em;
+background-image: url('https://source.unsplash.com/random');
+}

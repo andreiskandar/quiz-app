@@ -5,7 +5,7 @@ const insertQuizIntoQuizzes = (request, user_id) => {
   const quiz_category_id = 5;
   const name = request.category;
   const description = 'user created quiz';
-  const url_link = 'localhost://3000/'
+  const url_link = 'localhost:3000/quizzes'
   const pin = 123456
   const public = request.isPublic;
   const time_limit = 600;
@@ -18,7 +18,7 @@ const insertQuizIntoQuizzes = (request, user_id) => {
 };
 
 //insert into questions table
-const insertQuestionIntoQuestionsTable = (request, user_id, question_id) => {
+const insertQuestionIntoQuestionsTable = (request, user_id) => {
   const question = request.question;
   const qID = request.quiz_id;
   const hint = "add user hint here";

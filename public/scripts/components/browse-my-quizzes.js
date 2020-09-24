@@ -17,25 +17,28 @@ $(() => {
 
           quizDomElem += `
           <div class="card col-md clickable" id="${quizzes.id}">
-          <div class="card quiz_title_dashboard">${quizzes.name}</div>
+          <div class="card quiz_title_dashboard"><h3 id='title'>${quizzes.name}</h3></div>
           <div class="card question_card_dashboard ${quizzes.id}">q1</div>
           <div class="card question_card_dashboard ${quizzes.id}">q2</div>
           <div class="card question_card_dashboard ${quizzes.id}">q3</div>
           <div class="card question_card_dashboard ${quizzes.id}">q4</div>
+          <div class="share"><i class="fas fa-share-square"></i>Share Quiz: http://localhost:3000/quizzes/${quizzes.id}</div>
           </div>`;
         } else {
           quizDomElem += `
           <div class="card col-md clickable" id="${quizzes.id}">
-          <div class="card quiz_title_dashboard">${quizzes.name}</div>
+          <div class="card quiz_title_dashboard"><h3 id='title'>${quizzes.name}</h3></div>
           <div class="card question_card_dashboard ${quizzes.id}">q1</div>
           <div class="card question_card_dashboard ${quizzes.id}">q2</div>
           <div class="card question_card_dashboard ${quizzes.id}">q3</div>
           <div class="card question_card_dashboard ${quizzes.id}">q4</div>
+          <div class="share"><i class="fas fa-share-square"></i>Share Quiz: http://localhost:3000/quizzes/${quizzes.id}</div>
           </div>`;
         }
         counter++;
       }
       quizDomElem += publicQuizContainerClose;
+      console.log(quizDomElem)
       window.views_manager.show("browseMyQuizzes", quizDomElem);
     });
   });
