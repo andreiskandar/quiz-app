@@ -37,6 +37,10 @@ app.use("/quizzes", quizRoutes);
 
 app.use("/login", homeRoutes);
 
+app.get("/forbidden", (req, res) => {
+  res.statusCode = 403;
+  res.render('forbidden');
+})
 app.get("/*", (req, res) => {
   res.statusCode = 404;
   res.render("not-found");
