@@ -6,17 +6,21 @@
   padding: 0 1vw;
 }
 
+.remove-margin-top {
+  margin-top: 2vh;
+}
+
 .col-md {
   height: 88vh;
   margin: 0 1.5vw;
   padding: 0.5em;
   background: none;
-  box-shadow: 5px 10px #888888;
 }
+
 .quiz_title_dashboard,
 .question_card_dashboard {
   /* margin: 0.5em; */
-  height: 100%;
+  height: inherit;
   padding: 0;
   z-index: -1;
 }
