@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const quizRoutes = require("./routes/public-quiz-routes");
 const homeRoutes = require("./routes/get-home-routes");
 const dashboardRoutes = require("./routes/get-dashboard");
+
 const cookieSession = require("cookie-session");
 const app = express();
 
@@ -37,6 +38,10 @@ app.use("/quizzes", quizRoutes);
 
 app.use("/login", homeRoutes);
 
+app.get("/forbidden", (req, res) => {
+  res.statusCode = 403;
+  res.render('forbidden');
+})
 app.get("/*", (req, res) => {
   res.statusCode = 404;
   res.render("not-found");
