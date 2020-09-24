@@ -1,8 +1,11 @@
 const express = require("express");
 const router = express.Router();
+const { postUserAnswerToQuiz } = require("../db/queries/users_quizzes-queries");
 const questionsRoutes = require("./questions-routes");
 const dashboardRoutes = require("./get-dashboard");
-const {insertQuizIntoQuizzes} = require('../db/queries/create-quiz-queries.js')
+const {
+  insertQuizIntoQuizzes,
+} = require("../db/queries/create-quiz-queries.js");
 //we will replace this later
 const public = "public"
 
@@ -23,8 +26,8 @@ router.get("/", (req, res) => {
 });
 
 router.get("/random", (req, res) => {
-  getThreeRandomQuizzes().then((quizzes) => {
-      // console.log(quizzes);
+  getThreeRandomQuizzes()
+    .then((quizzes) => {
       res.send(quizzes);
     })
     .catch((err) => {
@@ -43,24 +46,37 @@ router.use(
   questionsRoutes
 );
 
-// router.get("/questions", (req, res) => {
-
 //get a quiz by the quiz.id = quizzes/:id e.g. quizzes/1
-router.get("/:id", (req, res) => {
-  getQuizById(req.params.id).then((quiz) => {
-    console.log("hello from getQuizById in public-quiz-routes")
+router.get("/:quiz_id", (req, res) => {
+  const { quiz_id } = req.params;
+  getQuizById(quiz_id).then((quiz) => {
     res.render("quiz", { quiz });
   });
 });
 
-router.post('/create-quiz', (req, res) => {
+router.post("/create-quiz", (req, res) => {
   const request = req.body;
   const user_id = req.session.id;
-  console.log(user_id)
-  insertQuizIntoQuizzes(request, user_id).then((data) => {
-    console.log("in /quizzes/create quiz: ", req.body);
-    res.send(data)
-  }).catch((e) => console.error('error create quiz', e))
+  console.log(user_id);
+  insertQuizIntoQuizzes(request, user_id)
+    .then((data) => {
+      console.log("in /quizzes/create quiz: ", req.body);
+      res.send(data);
+    })
+    .catch((e) => console.error("error create quiz", e));
+});
+
+//localhost:3000/quizzes/:id
+router.post("/:quiz_id", (req, res) => {
+  const { user_id } = req.session;
+  const { quiz_id } = req.params;
+  postUserAnswerToQuiz(quiz_id, user_id)
+    .then((data) => {
+      console.log("postUserAnswerToQuiz table from router");
+      console.log("data: from router ", data);
+      res.send(data);
+    })
+    .catch((e) => console.error("postUserAnswerToQuiz router", e));
 });
 
 module.exports = router;
