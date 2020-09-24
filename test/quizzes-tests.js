@@ -1,7 +1,6 @@
-require('dotenv').config();
+//require('dotenv').config();
 
 const assert = require('chai').assert;
-const expect = require('chai').expect;
 
 const { getQuizzes, getQuizById, getQuizzesByUserId, getThreeRandomQuizzes, getQuizQuestions, getAnswersForQuiz } = require('../db/queries/quiz-queries.js');
 
