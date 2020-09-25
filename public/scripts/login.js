@@ -66,7 +66,7 @@ $(document).ready(() => {
 
       $(".login_page").hide();
 
-      window.header.update = updateHeader;
+      // window.header.update = updateHeader;
     });
   });
 

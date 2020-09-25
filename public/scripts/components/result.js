@@ -6,7 +6,7 @@ function renderResult() {
   const resultArrayToRender = JSON.parse(getResultArrayFromLS());
 
   const resultHeader = `
-    <div style="margin: 1em;">
+    <div class="result-table-div">
     <h3>My Quizzes</h3>
     <table class="table">
     <thead>
@@ -27,7 +27,6 @@ function renderResult() {
       <td>${++counter}</td>
       <td>${item.quizName}</td>
       <td>${item.quizResult}</td>
-      <td>link</td>
       </tr>
       `;
   }

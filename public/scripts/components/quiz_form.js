@@ -350,7 +350,6 @@ function updateAnswerDOM(answers) {
     }
 
     let question_id = localStorage.getItem("question_id");
-    console.log("question_id:", question_id);
 
     const answerDiv = `
     <div data-id="${item.id}" class="btn btn-outline-light option${
@@ -361,10 +360,8 @@ function updateAnswerDOM(answers) {
     }" name="radioGroup" />
     <label class="answerLabel answer${question_id}">${item.answer}</label>
     </div>`;
-    console.log("answerDiv:", answerDiv);
     return answerDiv;
   });
-  console.log("answerHTMLArray:", answerHTMLArray);
 
   $(".answer_form").children().remove();
   answerHTMLArray.forEach((item) => {

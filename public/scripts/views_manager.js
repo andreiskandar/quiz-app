@@ -33,6 +33,7 @@ $(() => {
       case "result":
         $main.append("result");
         break;
+
       case "error":
         break;
     }
