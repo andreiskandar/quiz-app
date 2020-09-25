@@ -39,7 +39,7 @@ app.use("/dashboard", dashboardRoutes);
 // handles the routing for /quizzes and /quizzes/:id
 app.use("/quizzes", quizRoutes);
 
-app.get("/quiz/:quiz_id/", (req, res) => {
+app.get("/quiz/:quiz_id/questions/:question_id", (req, res) => {
   // const quiz_id = req.params.quiz_id;
   res.render("sharedLink");
 });
