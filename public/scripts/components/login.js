@@ -6,7 +6,7 @@ $(document).ready(function () {
       QuizAPP<br />
       Login Page
     </h2>
-    <p>Login or register from here to access.</p>
+    <p>Please Login</p>
   </div>
 </div>
 <div class="main">

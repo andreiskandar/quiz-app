@@ -9,7 +9,10 @@ const dashboardRoutes = require("./routes/get-dashboard");
 
 const cookieSession = require("cookie-session");
 const app = express();
-
+const {
+  getUserQuizIds,
+  getQuizzesByQuizIds,
+} = require("./db/queries/users_quizzes-queries");
 // app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
@@ -37,10 +40,28 @@ app.use("/dashboard", dashboardRoutes);
 app.use("/quizzes", quizRoutes);
 
 app.get("/quiz/:quiz_id/", (req, res) => {
-  const quiz_id = req.params.quiz_id;
-
+  // const quiz_id = req.params.quiz_id;
   res.render("sharedLink");
 });
+
+app.get("/result/:user_id", (req, res) => {
+  const user_id = req.params.user_id;
+  getUserQuizIds(user_id)
+    .then((quiz_ids) => {
+      console.log("quiz_ids:", quiz_ids[0]);
+      const ids = quiz_ids.map((entry) => entry.id).join(", ");
+      getQuizzesByQuizIds(`(${ids})`).then((quizzes) => {
+        console.log(quizzes);
+      });
+      // res.send(data))
+      // const templateVars = { quiz_ids };
+      res.render("results");
+    })
+    .catch((e) => console.error("getUserQuizIds error from router", e));
+  // getQuestionsFromQuizId
+});
+
+app.get("/quiz/:quiz_id/result");
 
 app.use("/login", homeRoutes);
 

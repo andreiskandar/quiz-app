@@ -35,19 +35,15 @@ $(document).on("submit", ".question_form_body", function (e) {
 
   if ($createForm.find("#create-answer1-radio-btn").is(":checked")) {
     correctAnswer1 = true;
-    console.log("it's checked");
   }
   if ($createForm.find("#create-answer2-radio-btn").is(":checked")) {
     correctAnswer2 = true;
-    console.log("it's checked");
   }
   if ($createForm.find("#create-answer3-radio-btn").is(":checked")) {
     correctAnswer3 = true;
-    console.log("it's checked");
   }
   if ($createForm.find("#create-answer4-radio-btn").is(":checked")) {
     correctAnswer4 = true;
-    console.log("it's checked");
   }
 
   // if($('#create-answer3-radio-btn').is(':checked')) { alert("it's checked"); }
@@ -55,13 +51,6 @@ $(document).on("submit", ".question_form_body", function (e) {
   // $.post( "/quizzes/create", { category, question, a1, a2, a3, a4 } );
 
   // http://localhost:3000/quizzes/:quiz_id
-
-  console.log("sortOrder3:", typeof sortOrder3);
-
-  console.log("correctAnswer1:", typeof correctAnswer1);
-  console.log("correctAnswer2:", typeof correctAnswer2);
-  console.log("correctAnswer3:", typeof correctAnswer3);
-  console.log("correctAnswer4:", typeof correctAnswer4);
 
   let quiz_id;
   $.post("/quizzes/create-quiz", { category, isPublic })
@@ -111,15 +100,4 @@ $(document).on("submit", ".question_form_body", function (e) {
   //      current_question_id = id
   //     return
   //   })
-  //   .then((question) => {
-
-  // })
-  // // quizzes/:quiz_id/questions/:question_id
-  // // response to get question_id
-  // // quizzes/:quiz_id/questions/:question_id/answers/:answer_id
-
-  // $.post(createAnswerPost, {a1, sortOrder1, correctAnswer1} );
-  //   .then($.post(createAnswerPost, { a2, sortOrder2, correctAnswer2 }))
-  //   .then($.post(createAnswerPost, { a3, sortOrder3, correctAnswer3 }))
-  //   .then($.post(createAnswerPost, { a4, sortOrder4, correctAnswer4 }));
 });
