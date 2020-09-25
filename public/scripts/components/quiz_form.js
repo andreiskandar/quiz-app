@@ -9,17 +9,21 @@ const getResultArrayFromLS = () => {
 };
 
 const resultData = () => {
-  const quizName = getQuizNameFromLS();
-  setQuizResult(
-    parseInt(getScoreFromLS()) / parseInt(getTotalQuestionFromLS())
-  );
-  const quizResult = getQuizResult();
-  const resultObj = { quizName, quizResult };
-  resultArray.push(resultObj);
+  //get user id -
+  //redirect to myResults
+  window.location.pathname = "/myResults";
 
-  setResultArrayToLS(JSON.stringify(resultArray));
-  console.log("getResultArrayFromLS:", getResultArrayFromLS());
-  renderResult();
+  // const quizName = getQuizNameFromLS();
+  // setQuizResult(
+  //   parseInt(getScoreFromLS()) / parseInt(getTotalQuestionFromLS())
+  // );
+  // const quizResult = getQuizResult();
+  // const resultObj = { quizName, quizResult };
+  // resultArray.push(resultObj);
+
+  // setResultArrayToLS(JSON.stringify(resultArray));
+  // console.log("getResultArrayFromLS:", getResultArrayFromLS());
+  // renderResult();
 };
 
 const setQuestionCompletedToLS = (num_completed_questions) => {
@@ -188,10 +192,11 @@ $(() => {
   window.$quizForm = getQuizForm();
 
   //TO DO
-  // const postAnswerToUsers_QuizzesDB = (current_quiz_id) => {
-  //   // create insert into query into users_answers and users_quizzes table
-  //   $.post(`/quizzes/${current_quiz_id}`);
-  // };
+  const postAnswerToUsers_QuizzesDB = (current_quiz_id) => {
+    console.log("current_quiz_id:", current_quiz_id);
+    // create insert into query into users_answers and users_quizzes table
+    $.post(`/quizzes/${current_quiz_id}`);
+  };
 
   //
 
@@ -211,6 +216,7 @@ $(() => {
     if (getQuestionCompletedFromLS() == getTotalQuestionFromLS()) {
       resultData();
       renderResult();
+      postAnswerToUsers_QuizzesDB();
       return;
     }
 
@@ -244,6 +250,7 @@ $(() => {
     if (getQuestionCompletedFromLS() == getTotalQuestionFromLS()) {
       resultData();
       renderResult();
+      postAnswerToUsers_QuizzesDB();
       return;
     }
 
@@ -277,6 +284,7 @@ $(() => {
     if (getQuestionCompletedFromLS() == getTotalQuestionFromLS()) {
       resultData();
       renderResult();
+      postAnswerToUsers_QuizzesDB();
       return;
     }
 
@@ -310,6 +318,7 @@ $(() => {
     if (getQuestionCompletedFromLS() == getTotalQuestionFromLS()) {
       resultData();
       renderResult();
+      postAnswerToUsers_QuizzesDB();
       return;
     }
 
