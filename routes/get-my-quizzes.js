@@ -26,6 +26,8 @@ router.post('/question1', (req, res) => {
   const quiz_id = Object.keys(req.body)[0]
   getFirstQuestionIdByQuizId(quiz_id)
   .then((question_id) => {
+    console.log('question_id:', question_id)
+
     res.send(question_id);
   })
   .catch((e) => console.error("error", e)
