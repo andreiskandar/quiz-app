@@ -24,6 +24,7 @@ router.get("/", (req, res) => {
 
 router.post('/question1', (req, res) => {
   const quiz_id = Object.keys(req.body)[0]
+  console.log('quiz_id:', quiz_id)
   getFirstQuestionIdByQuizId(quiz_id)
   .then((question_id) => {
     console.log('question_id:', question_id)
