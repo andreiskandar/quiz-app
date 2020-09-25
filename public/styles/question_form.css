@@ -27,7 +27,7 @@
   margin-top: 10px;
 }
 
-.fas:hover {
+.fa-angle-double-left:hover {
   color: blue;
   transform: scale(3.5)
 }
