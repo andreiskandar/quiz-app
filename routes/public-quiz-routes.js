@@ -50,15 +50,10 @@ router.use(
 router.get("/:quiz_id", (req, res) => {
   const { quiz_id } = req.params;
   getQuizById(quiz_id).then((quiz) => {
-    if (quiz.public === true) {
-      console.log("quiz.public === true");
       return res.render("quiz", { quiz });
-    } else {
-      res.statusCode = 403;
-      return res.redirect("/forbidden");
-    }
+    });
   });
-});
+
 
 router.post("/create-quiz", (req, res) => {
   const request = req.body;
