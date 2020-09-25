@@ -11,7 +11,8 @@ const cookieSession = require("cookie-session");
 const app = express();
 const {
   getUserQuizIds,
-  getQuizzesByQuizIds,
+  getQuestionsFromQuizIds,
+  getTotalCorrectAnswers,
 } = require("./db/queries/users_quizzes-queries");
 // app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -39,7 +40,7 @@ app.use("/dashboard", dashboardRoutes);
 // handles the routing for /quizzes and /quizzes/:id
 app.use("/quizzes", quizRoutes);
 
-app.get("/quiz/:quiz_id/", (req, res) => {
+app.get("/quiz/:quiz_id/questions/:question_id", (req, res) => {
   // const quiz_id = req.params.quiz_id;
   res.render("sharedLink");
 });
@@ -50,21 +51,27 @@ app.get("/myResults/", (req, res) => {
 });
 
 app.get("/result/:user_id", (req, res) => {
+  let templateVars = {};
   const user_id = req.params.user_id;
   getUserQuizIds(user_id)
     .then((quiz_ids) => {
-      const ids = quiz_ids.map((entry) => entry.id);
-      getQuizzesByQuizIds(ids).then((quizzes) => {
-        const templateVars = {
-          data: quizzes.map((entry) => {
-            return { id: entry.id, name: entry.name };
-          }),
-        };
-
-        console.log("templateVars:", templateVars);
-        res.render("results", templateVars);
+      const ids = quiz_ids.map((entry) => entry.quiz_id);
+      getQuestionsFromQuizIds(ids).then((quizzes) => {
+        getTotalCorrectAnswers(user_id).then((data) => {
+          templateVars = {
+            data: quizzes.map((entry, idx) => {
+              return {
+                id: entry.id,
+                name: entry.name,
+                score: `${data[idx].tot_correct_answer} / ${entry.tot_questions}`,
+                link: `http://localhost:3000/result/${user_id}`,
+              };
+            }),
+          };
+          console.log("templateVars:", templateVars);
+          res.render("results", templateVars);
+        });
       });
-      // res.send(data))
     })
     .catch((e) => console.error("getUserQuizIds error from router", e));
   // getQuestionsFromQuizId

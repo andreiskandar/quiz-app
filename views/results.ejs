@@ -27,14 +27,17 @@
   <%-include('partials/header') %>
 
   <div class="result-table-div">
-    <h3 style="margin-left: 5vw">My Quizzes</h3>
+    <div class="result-header">
+      <h3 style="margin-left: 5vw">My Quizzes</h3>
+      <div class="result-div"><span>Share your result: </span><a href="<%= data[0].link  %>"><%= data[0].link  %></a></div>
+    </div>
     <table class="table">
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">quiz_name</th>
-          <th scope="col">Result</th>
-          <th scope="col">Share Result</th>
+          <th scope="col">Quiz Name</th>
+          <th scope="col">Score</th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
@@ -44,12 +47,14 @@
           <tr>
             <td><%= entry.id %></td>
             <td><%= entry.name %></td>
+            <td><%= entry.score %></td>
           </tr>
           <% } %>
           
           
 
       </tbody>
+
     </table>
 
 
