@@ -3,6 +3,10 @@ $createForm = $("#main-content");
 // let isCreatingQuiz = false;
 // let quiz_id;
 // let quizIdtoGive = isCreatingQuiz ? quiz_id -1 : quiz_id
+//for the back button
+$(document).on("click", ".fas", function (e) {
+ getQuizzes();
+});
 
 $(document).on("submit", ".question_form_body", function (e) {
   e.preventDefault();
