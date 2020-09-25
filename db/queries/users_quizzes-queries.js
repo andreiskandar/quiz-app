@@ -13,10 +13,10 @@ const getUserQuizIds = (user_id) => {
 };
 
 const getQuizzesByQuizIds = (quiz_ids) => {
-  const ids = `${quiz_ids}`;
-  console.log("ids:", ids);
-  const queryString = "SELECT * FROM quizzes WHERE id IN $1";
-  return pool.query(queryString, [ids]).then((res) => res.rows);
+  const queryString = `SELECT * FROM quizzes WHERE id IN (${quiz_ids.join(
+    ", "
+  )})`;
+  return pool.query(queryString).then((res) => res.rows);
 };
 
 const getQuestionsFromQuizIds = (quiz_ids) => {
@@ -24,6 +24,7 @@ const getQuestionsFromQuizIds = (quiz_ids) => {
   const queryString = "SELECT id FROM questions WHERE quiz_id IN $1";
   return pool.query(queryString, [quiz_ids]).then((res) => res.rows);
 };
+
 module.exports = {
   postUserAnswerToQuiz,
   getUserQuizIds,

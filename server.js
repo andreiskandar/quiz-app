@@ -44,18 +44,27 @@ app.get("/quiz/:quiz_id/", (req, res) => {
   res.render("sharedLink");
 });
 
+app.get("/myResults/", (req, res) => {
+  const { user_id } = req.session;
+  res.redirect(`/result/${user_id}`);
+});
+
 app.get("/result/:user_id", (req, res) => {
   const user_id = req.params.user_id;
   getUserQuizIds(user_id)
     .then((quiz_ids) => {
-      console.log("quiz_ids:", quiz_ids[0]);
-      const ids = quiz_ids.map((entry) => entry.id).join(", ");
-      getQuizzesByQuizIds(`(${ids})`).then((quizzes) => {
-        console.log(quizzes);
+      const ids = quiz_ids.map((entry) => entry.id);
+      getQuizzesByQuizIds(ids).then((quizzes) => {
+        const templateVars = {
+          data: quizzes.map((entry) => {
+            return { id: entry.id, name: entry.name };
+          }),
+        };
+
+        console.log("templateVars:", templateVars);
+        res.render("results", templateVars);
       });
       // res.send(data))
-      // const templateVars = { quiz_ids };
-      res.render("results");
     })
     .catch((e) => console.error("getUserQuizIds error from router", e));
   // getQuestionsFromQuizId
