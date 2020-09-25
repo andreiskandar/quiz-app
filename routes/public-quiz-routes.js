@@ -46,6 +46,18 @@ router.use(
   questionsRoutes
 );
 
+router.post("/create-quiz", (req, res) => {
+  const request = req.body;
+  const user_id = req.session.user_id;
+  insertQuizIntoQuizzes(request, user_id)
+    .then((data) => {
+      console.log("in /quizzes/create quiz: ", req.body);
+      res.send(data);
+    })
+    .catch((e) => console.error("error create quiz", e));
+});
+
+
 //get a quiz by the quiz.id = quizzes/:id e.g. quizzes/1
 router.get("/:quiz_id", (req, res) => {
   const { quiz_id } = req.params;
@@ -55,16 +67,7 @@ router.get("/:quiz_id", (req, res) => {
   });
 
 
-router.post("/create-quiz", (req, res) => {
-  const request = req.body;
-  const user_id = req.session.id;
-  insertQuizIntoQuizzes(request, user_id)
-    .then((data) => {
-      console.log("in /quizzes/create quiz: ", req.body);
-      res.send(data);
-    })
-    .catch((e) => console.error("error create quiz", e));
-});
+
 
 //localhost:3000/quizzes/:id
 router.post("/:quiz_id", (req, res) => {
