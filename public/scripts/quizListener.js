@@ -14,5 +14,3 @@ $(document).on("click", ".clickable", function (e) {
       // views_manager.show("quizForm");
     });
 });
-
-$(() => {});

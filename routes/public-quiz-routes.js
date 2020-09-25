@@ -50,11 +50,16 @@ router.use(
 router.get("/:quiz_id", (req, res) => {
   const { quiz_id } = req.params;
   getQuizById(quiz_id).then((quiz) => {
+<<<<<<< HEAD
+      return res.render("quiz", { quiz });
+    });
+=======
     if (quiz.public === true) {
       return res.render("quiz", { quiz });
     }
+>>>>>>> feature/share-links
   });
-});
+
 
 router.post("/create-quiz", (req, res) => {
   const request = req.body;

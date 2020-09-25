@@ -25,6 +25,18 @@ INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, so
 INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (6, 'Typically POST', false, 'Incorrect, POST is not the best for this situation', 2, null, null, null, 47, true);
 INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (6, 'Neither, it would be better to use a SEARCH request', false, 'Incorrect, SEARCH is not a type of HTML request method', 3, null, null, null, 47, true);
 
+INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (7, 'Typically GET', true, 'Correct, a GET is typically used to allow the user to bookmark and share the URL of their search page', 1, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (7, 'Typically POST', false, 'Incorrect, POST is not the best for this situation', 2, null, null, null, 47, true);
+
+
+INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (8, 'Typically GET', true, 'Correct, a GET is typically used to allow the user to bookmark and share the URL of their search page', 1, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (8, 'Typically POST', false, 'Incorrect, POST is not the best for this situation', 2, null, null, null, 47, true);
+
+
+INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (9, 'Typically GET', true, 'Correct, a GET is typically used to allow the user to bookmark and share the URL of their search page', 1, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (9, 'Typically POST', false, 'Incorrect, POST is not the best for this situation', 2, null, null, null, 47, true);
+
+
 
 -- answers for quiz 11
 INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (10, 'Obiwan Kenobi', false, 'Incorrect, Obiwan was Anarkin Jedi trainer', 1, null, null, null, 47, true);
