@@ -35,6 +35,17 @@ router.get("/random", (req, res) => {
     });
 });
 
+router.post("/create-quiz", (req, res) => {
+  const request = req.body;
+  const user_id = req.session.user_id;
+  insertQuizIntoQuizzes(request, user_id)
+    .then((data) => {
+      console.log("in /quizzes/create quiz: ", req.body);
+      res.send(data);
+    })
+    .catch((e) => console.error("error create quiz", e));
+});
+
 //localhost:3000/quizzes/:id/questions/:question_id/answers/:answer_id
 //localhost:3000/quizzes/:quiz_id/questions/
 router.use(
@@ -46,16 +57,7 @@ router.use(
   questionsRoutes
 );
 
-router.post("/create-quiz", (req, res) => {
-  const request = req.body;
-  const user_id = req.session.user_id;
-  insertQuizIntoQuizzes(request, user_id)
-    .then((data) => {
-      console.log("in /quizzes/create quiz: ", req.body);
-      res.send(data);
-    })
-    .catch((e) => console.error("error create quiz", e));
-});
+
 
 
 //get a quiz by the quiz.id = quizzes/:id e.g. quizzes/1

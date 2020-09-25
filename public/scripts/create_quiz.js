@@ -1,7 +1,6 @@
 $createForm = $("#main-content");
 
 let isCreatingQuiz = false;
-let quiz_id;
 
 //for the back button
 $(document).on("click", ".fas", function (e) {
@@ -56,47 +55,48 @@ $(document).on("submit", ".question_form_body", function (e) {
 
   // http://localhost:3000/quizzes/:quiz_id
 
-  // let quiz_id;
-$.post("/quizzes/create-quiz", { category, isPublic })
-.then(() => {
-console.log("quiz id in in Subsequent Create: ", quiz_id)
-return $.post(`/quizzes/${quiz_id}/questions/create-question`, {
-  question,
-  questionSortOrder,
-  quiz_id,
-});
-})
-.then((question_id_response) => {
-const question_id = question_id_response[0].id;
+  let quiz_id;
+  $.post("/quizzes/create-quiz", { category, isPublic })
+    .then((quiz_id_response) => {
+      quiz_id = quiz_id_response[0].id;
+      return $.post(`/quizzes/${quiz_id}/questions/create-question`, {
+        question,
+        questionSortOrder,
+        quiz_id,
+      });
+    })
+    .then((question_id_response) => {
+      const question_id = question_id_response[0].id;
 
-const createAnswerPost = `/quizzes/${quiz_id}/questions/${question_id}/answers/create-answer`;
-console.log("createAnswerPost:", createAnswerPost);
+      const createAnswerPost = `/quizzes/${quiz_id}/questions/${question_id}/answers/create-answer`;
+      console.log("createAnswerPost:", createAnswerPost);
 
-const promise1 = $.post(createAnswerPost, {
-  a1,
-  sortOrder1,
-  correctAnswer1,
-});
-const promise2 = $.post(createAnswerPost, {
-  a2,
-  sortOrder2,
-  correctAnswer2,
-});
-const promise3 = $.post(createAnswerPost, {
-  a3,
-  sortOrder3,
-  correctAnswer3,
-});
-const promise4 = $.post(createAnswerPost, {
-  a4,
-  sortOrder4,
-  correctAnswer4,
-});
+      const promise1 = $.post(createAnswerPost, {
+        a1,
+        sortOrder1,
+        correctAnswer1,
+      });
+      const promise2 = $.post(createAnswerPost, {
+        a2,
+        sortOrder2,
+        correctAnswer2,
+      });
+      const promise3 = $.post(createAnswerPost, {
+        a3,
+        sortOrder3,
+        correctAnswer3,
+      });
+      const promise4 = $.post(createAnswerPost, {
+        a4,
+        sortOrder4,
+        correctAnswer4,
+      });
 
-Promise.all([promise1, promise2, promise3, promise4]).catch((e) =>
-  console.log("promise all answers queries", e)
-);
-})
+      Promise.all([promise1, promise2, promise3, promise4]).catch((e) =>
+        console.log("promise all answers queries", e)
+      );
+      isCreatingQuiz = true;
+    });
 
 
   //show the user positive feedback!
