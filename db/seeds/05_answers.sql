@@ -36,6 +36,33 @@ INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, so
 INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (9, 'Typically GET', true, 'Correct, a GET is typically used to allow the user to bookmark and share the URL of their search page', 1, null, null, null, 47, true);
 INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (9, 'Typically POST', false, 'Incorrect, POST is not the best for this situation', 2, null, null, null, 47, true);
 
+-- answers for quiz 4 
+INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (10, 'Four', true, null, 1, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (10, 'Five', false, null, 2, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (10, 'Six', false, null, 3, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (10, 'Seven', false, null, 4, null, null, null, 47, true);
+
+INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (11, 'India', true, null, 1, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (11, 'China', false, null, 2, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (11, 'USA', false, null, 3, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (11, 'Great Britain', false, null, 4, null, null, null, 47, true);
+
+INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (12, 'Tibet', true, null, 1, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (12, 'Japan', false, null, 2, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (12, 'China', false, null, 3, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (12, 'India', false, null, 4, null, null, null, 47, true);
+
+INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (13, 'Mississippi River', true, null, 1, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (13, 'Amazon River', false, null, 2, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (13, 'Nile River', false, null, 3, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (13, 'Yangzi River', false, null, 4, null, null, null, 47, true);
+
+INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (14, 'Paris', true, null, 1, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (14, 'Riga', false, null, 2, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (14, 'Tunis', false, null, 3, null, null, null, 47, true);
+INSERT INTO answers (question_id, answer, correct_answer, answer_explanation, sort_order, img_url, bg_image_url, color, user_id, active) VALUES (14, 'Kiev', false, null, 4, null, null, null, 47, true);
+
+
 
 
 -- answers for quiz 11

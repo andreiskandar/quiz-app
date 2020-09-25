@@ -9,6 +9,12 @@ INSERT INTO questions (quiz_id, question_category_id, question, hint, sort_order
 INSERT INTO questions (quiz_id, question_category_id, question, hint, sort_order, time_limit, bg_image_url, color, user_id, active) VALUES (3, null, 'Explain what CSS !important means, and when would you use it?', 'All is well that...', 3, null, null, null, 47, true);
 INSERT INTO questions (quiz_id, question_category_id, question, hint, sort_order, time_limit, bg_image_url, color, user_id, active) VALUES (3, null, 'In what order do the following surround an html element according to the Box Model?', 'Mailing a letter...', 4, null, null, null, 47, true);
 
+INSERT INTO questions (quiz_id, question_category_id, question, hint, sort_order, time_limit, bg_image_url, color, user_id, active) VALUES (4, null, 'How many continents are there?', null, 1, null, null, null, 47, true);
+INSERT INTO questions (quiz_id, question_category_id, question, hint, sort_order, time_limit, bg_image_url, color, user_id, active) VALUES (4, null, 'What country has the largest population in the world?', null, 2, null, null, null, 47, true);
+INSERT INTO questions (quiz_id, question_category_id, question, hint, sort_order, time_limit, bg_image_url, color, user_id, active) VALUES (4, null, 'Where is the Dalai Lama from?', null, 3, null, null, null, 47, true);
+INSERT INTO questions (quiz_id, question_category_id, question, hint, sort_order, time_limit, bg_image_url, color, user_id, active) VALUES (4, null, 'What is the longest river in the world?', null, 4, null, null, null, 47, true);
+INSERT INTO questions (quiz_id, question_category_id, question, hint, sort_order, time_limit, bg_image_url, color, user_id, active) VALUES (4, null, 'Which of these cities is not in Europe?', null, 5, null, null, null, 47, true);
+
 -- questions for design test data
 -- star wars
 INSERT INTO questions (quiz_id, question_category_id, question, hint, sort_order, time_limit, bg_image_url, color, user_id, active) VALUES (11, null, 'Who is the father of Darth Vader?', 'Immaculate...', 1, null, null, null, 47, true);
