@@ -20,6 +20,11 @@
   width: 80%;
 }
 
+.back-btn-label {
+  display: flex;
+  width: 80%;
+}
+
 input {
   margin: 10px 0 10px 10px;
 }

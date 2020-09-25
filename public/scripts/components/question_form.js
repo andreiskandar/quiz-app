@@ -8,7 +8,7 @@ $(() => {
         <textarea
           class="form-control"
           id="category_textarea"
-          placeholder="Please Type Test Category"
+          placeholder="Please Type Quiz Category"
           rows="1"
         ></textarea>
       </div>
@@ -16,7 +16,7 @@ $(() => {
         <textarea
           class="form-control"
           id="question_textarea"
-          placeholder="Please Type Test Question"
+          placeholder="Please Type Your Question"
           rows="3"
         ></textarea>
       </div>
@@ -59,7 +59,7 @@ $(() => {
       <div class="form-footer">
         <div>
           <a href="#" class="back-btn question_form_back"
-            ><i class="fas fa-angle-double-left" style="position: inherit"></i>
+            ><i class="fas fa-angle-double-left go-back" style="position: inherit"></i>
           </a>
         </div>
         <div>
@@ -70,7 +70,8 @@ $(() => {
           <input type="checkbox" id="setpublic" name="setpublic" value="Make Quiz Hidden?">
           <label for="setpublic">Make Quiz Hidden?</label>
         </div>
-      </div>
+        </div>
+        <div class="back-btn-label">Go back to dashboard</div>
     </form>
   </div>
   <div class="rounded right_bg"></div>
