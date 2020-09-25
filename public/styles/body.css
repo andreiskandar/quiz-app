@@ -22,3 +22,18 @@ body {
 .result-table-div {
   margin-top: 10vh;
 }
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+}
+
+.result-header span {
+  font-weight: bold;
+}
+
+#email {
+  margin-right: 10px;
+}
