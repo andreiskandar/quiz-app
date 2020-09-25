@@ -32,9 +32,29 @@ router.get("/:answer_id/results", (req, res) => {
 // GET /quiz/
 //these will not be cats once we have quiz data to generate
 
+
+
+router.post("/create-answer", (req, res) => {
+  const question_id = req.question_id;
+  const request = req.body;
+  const user_id = req.session.id;
+  console.log("user_id: from /create answer", user_id);
+  console.log("request:", request);
+  // console.log("question_id:", question_id);
+  insertAnswersIntoAnswersTable(request, user_id, question_id)
+    .then((data) => {
+      console.log("data:", data);
+      console.log("data arr :", data[0]);
+      res.send(data);
+    })
+    .catch((e) => console.error("error create question", e));
+});
+
 //localhost:3000/quizzes/:id/questions/:question_id/answers/:answer_id
 router.post("/:answer_id", (req, res) => {
   const { user_id } = req.session;
+  console.log('req.params in /answers/id:', req.params)
+
   const { answer_id } = req.params;
   console.log("user_id: from router", user_id);
   console.log("answer_id: from router", answer_id);
@@ -46,19 +66,6 @@ router.post("/:answer_id", (req, res) => {
     .catch((e) => console.log("postUserAnswerToQuestion from db", e));
 });
 
-router.post("/create-answer", (req, res) => {
-  const question_id = req.question_id;
-  const request = req.body;
-  const user_id = req.session.id;
-  console.log("user_id: from /create answer", user_id);
-  console.log("request:", request);
-  console.log("question_id:", question_id);
-  insertAnswersIntoAnswersTable(request, user_id, question_id)
-    .then((data) => {
-      console.log("data:", data);
-      console.log("data arr :", data[0]);
-      res.send(data);
-    })
-    .catch((e) => console.error("error create question", e));
-});
+
+
 module.exports = router;
