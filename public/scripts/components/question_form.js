@@ -67,15 +67,14 @@ $(() => {
           </a>
         </div>
         <div>
-          <button type="submit" class="btn btn-dark">Submit</button>
-          </div>
-
-          <div>
-            <input type="checkbox" id="setpublic" name="setpublic" value="Make Quiz Hidden?">
-            <label for="setpublic">Make Quiz Hidden?</label>
-          </div>
+        <div>
+          <input type="checkbox" id="setpublic" name="setpublic" value="Make Quiz Hidden?">
+          <label for="setpublic">Hide Quiz</label>
         </div>
-        <div class="back-btn-label">Go back to dashboard</div>
+        </div>
+        <button type="submit" class="btn btn-dark">Submit</button>
+
+        </div>
     </form>
   </div>
   <div class="rounded right_bg"></div>

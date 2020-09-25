@@ -50,16 +50,11 @@ router.use(
 router.get("/:quiz_id", (req, res) => {
   const { quiz_id } = req.params;
   getQuizById(quiz_id).then((quiz) => {
-<<<<<<< HEAD
-      return res.render("quiz", { quiz });
-    });
-=======
     if (quiz.public === true) {
       return res.render("quiz", { quiz });
     }
->>>>>>> feature/share-links
   });
-
+});
 
 router.post("/create-quiz", (req, res) => {
   const request = req.body;
@@ -78,7 +73,6 @@ router.post("/:quiz_id", (req, res) => {
   const { quiz_id } = req.params;
   postUserAnswerToQuiz(quiz_id, user_id)
     .then((data) => {
-      console.log("postUserAnswerToQuiz table from router");
       console.log("data: from router ", data);
       res.send(data);
     })
