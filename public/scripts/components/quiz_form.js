@@ -202,7 +202,7 @@ $(() => {
 
   $("main").on("click", "div .option1-btn", (e) => {
     $("#option1").prop("checked", true);
-    const user_answer_id = $(e.target).data("id");
+    const user_answer_id = $(e.currentTarget).data("id");
     const correctAnswerId = parseInt(getCorrectAnswerIdFromLS());
 
     if (user_answer_id === correctAnswerId) {
@@ -236,7 +236,7 @@ $(() => {
 
   $("main").on("click", "div .option2-btn", (e) => {
     $("#option2").prop("checked", true);
-    const user_answer_id = $(e.target).data("id");
+    const user_answer_id = $(e.currentTarget).data("id");
     const correctAnswerId = parseInt(getCorrectAnswerIdFromLS());
 
     if (user_answer_id === correctAnswerId) {
@@ -270,7 +270,7 @@ $(() => {
 
   $("main").on("click", "div .option3-btn", (e) => {
     $("#option3").prop("checked", true);
-    const user_answer_id = $(e.target).data("id");
+    const user_answer_id = $(e.currentTarget).data("id");
     const correctAnswerId = parseInt(getCorrectAnswerIdFromLS());
 
     if (user_answer_id === correctAnswerId) {
@@ -304,7 +304,7 @@ $(() => {
 
   $("main").on("click", ".option4-btn", (e) => {
     $("#option4").prop("checked", true);
-    const user_answer_id = $(e.target).data("id");
+    const user_answer_id = $(e.currentTarget).data("id");
     const correctAnswerId = parseInt(getCorrectAnswerIdFromLS());
 
     if (user_answer_id === correctAnswerId) {
