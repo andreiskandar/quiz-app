@@ -37,7 +37,7 @@ router.get("/:answer_id/results", (req, res) => {
 router.post("/create-answer", (req, res) => {
   const question_id = req.question_id;
   const request = req.body;
-  const user_id = req.session.id;
+  const user_id = req.session.user_id;
   console.log("user_id: from /create answer", user_id);
   console.log("request:", request);
   // console.log("question_id:", question_id);
@@ -52,7 +52,7 @@ router.post("/create-answer", (req, res) => {
 
 //localhost:3000/quizzes/:id/questions/:question_id/answers/:answer_id
 router.post("/:answer_id", (req, res) => {
-  const { user_id } = req.session;
+  const user_id  = req.session.user_id;
   console.log('req.params in /answers/id:', req.params)
 
   const { answer_id } = req.params;
