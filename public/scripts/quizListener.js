@@ -9,7 +9,8 @@ $(document).on("click", ".clickable", function (e) {
       return;
     })
     .then(() => {
-      window.location.href = `/quiz/${quizID}`;
+      const question_id = localStorage.getItem("question_id");
+      window.location.pathname = `/quiz/${quizID}/questions/${question_id}`;
       // views_manager.show("quizForm");
     });
 });
