@@ -93,13 +93,8 @@ $(document).on("submit", ".question_form_body", function (e) {
 
 
   //show the user positive feedback!
-<<<<<<< HEAD
   const sucessMsg = $createForm.find(".hidden")
   $(sucessMsg).fadeIn().fadeOut('slow')
-=======
-  const sucessMsg = $createForm.find(".hidden");
-  $(sucessMsg).fadeIn().fadeOut("slow");
->>>>>>> project-submission
   //clear all of the inputs
   $createForm.find("#category_textarea").val("");
   $createForm.find("#question_textarea").val("");
