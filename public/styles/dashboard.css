@@ -39,7 +39,7 @@
   padding-right: 10px;
 }
 
-.quiz_title_dashboard #title {
+.quiz_title_dashboard #quiz-title {
   opacity: 1;
   background-color: rgba(240, 248, 255, 0.8);
   width: 50%;
