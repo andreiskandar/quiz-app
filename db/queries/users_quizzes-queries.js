@@ -1,18 +1,14 @@
 const pool = require("../db");
 
 const postUserAnswerToQuiz = (quiz_id, user_id) => {
-<<<<<<< HEAD
-  const queryString = `INSERT INTO users_quizzes (quiz_id, user_id, time_start, time_stop, active) VALUES ($1, $2, null, null, true) RETURNING *`;
-=======
   const queryString = `INSERT INTO users_quizzes (quiz_id, user_id, time_start, time_stop, active) VALUES ($1, $2, null, null, true) RETURNING *;`;
->>>>>>> 4738db0c4ae65006aa79f80ce5b609a01d09c6c9
   return pool.query(queryString, [quiz_id, user_id]).then((response) => {
     return response.rows[0];
   });
 };
 
 const getUserQuizIds = (user_id) => {
-  console.log('user_id:', user_id)
+  console.log("user_id:", user_id);
   const queryString = "SELECT quiz_id FROM users_quizzes WHERE user_id = $1";
   return pool.query(queryString, [user_id]).then((res) => res.rows);
 };
@@ -28,7 +24,7 @@ const getQuestionsFromQuizIds = (quiz_ids) => {
 };
 
 const getTotalCorrectAnswers = (user_id) => {
-  console.log("in getTotalCorrectAnswers: ", user_id)
+  console.log("in getTotalCorrectAnswers: ", user_id);
   const queryString = `
     SELECT count(answers.*) as tot_correct_answer,
     quizzes.id as quiz_id

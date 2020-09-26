@@ -10,7 +10,6 @@ const {
 const {
   getQuizzes,
   getQuizById,
-  getQuizzesByUserId,
   getThreeRandomQuizzes,
 } = require("../db/queries/quiz-queries");
 

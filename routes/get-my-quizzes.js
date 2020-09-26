@@ -22,14 +22,8 @@ router.get("/", (req, res) => {
     );
 });
 
-<<<<<<< HEAD
 router.post("/question1", (req, res) => {
   const quiz_id = Object.keys(req.body)[0];
-=======
-router.post('/question1', (req, res) => {
-  const quiz_id = Object.keys(req.body)[0]
-  console.log('quiz_id:', quiz_id)
->>>>>>> 4738db0c4ae65006aa79f80ce5b609a01d09c6c9
   getFirstQuestionIdByQuizId(quiz_id)
     .then((question_id) => {
       res.send(question_id);

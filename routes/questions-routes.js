@@ -24,13 +24,10 @@ router.get("/", (req, res) => {
     .catch((e) => console.error(e));
 });
 
-<<<<<<< HEAD
-//localhost:3000/quizzes/:quiz_id/questions/:question_id
-=======
+//localhost:3000/quizzes/:id/questions/create-question
 router.post("/create-question", (req, res) => {
   const request = req.body;
-  const user_id = req.session.user_id;
-  console.log('user_id in /create-question:', user_id)
+  const user_id = req.session.id;
   insertQuestionIntoQuestionsTable(request, user_id)
     .then((data) => {
       res.send(data);
@@ -41,7 +38,6 @@ router.post("/create-question", (req, res) => {
 // quizzes/:quiz_id/questions/:question_id
 
 //localhost:3000/quizzes/:quiz_id/questions
->>>>>>> 4738db0c4ae65006aa79f80ce5b609a01d09c6c9
 router.get("/:question_id", (req, res) => {
   const quiz_id = req.quiz_id;
   const question_id = req.params.question_id;
@@ -62,7 +58,6 @@ router.use(
   answerRoutes
 );
 
-<<<<<<< HEAD
 //localhost:3000/quizzes/:id/questions/create-question
 router.post("/create-question", (req, res) => {
   const request = req.body;
@@ -73,8 +68,5 @@ router.post("/create-question", (req, res) => {
     })
     .catch((e) => console.error("error create question", e));
 });
-=======
-
->>>>>>> 4738db0c4ae65006aa79f80ce5b609a01d09c6c9
 
 module.exports = router;
