@@ -14,10 +14,31 @@
 }
 
 .form-footer {
+  margin-top: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 80%;
+}
+
+.back-btn-label {
+  display: flex;
+  width: 80%;
+  margin-top: 10px;
+}
+
+.fas:hover {
+  color: blue;
+  transform: scale(3.5)
+}
+
+.hide {
+  color: green;
+  font-size: 1.2rem;
+}
+
+.hidden {
+  display: none;
 }
 
 input {

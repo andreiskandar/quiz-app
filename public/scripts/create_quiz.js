@@ -3,6 +3,10 @@ $createForm = $("#main-content");
 // let isCreatingQuiz = false;
 // let quiz_id;
 // let quizIdtoGive = isCreatingQuiz ? quiz_id -1 : quiz_id
+//for the back button
+$(document).on("click", ".fas", function (e) {
+  getQuizzes();
+});
 
 $(document).on("submit", ".question_form_body", function (e) {
   e.preventDefault();
@@ -66,7 +70,6 @@ $(document).on("submit", ".question_form_body", function (e) {
       const question_id = question_id_response[0].id;
 
       const createAnswerPost = `/quizzes/${quiz_id}/questions/${question_id}/answers/create-answer`;
-      console.log("createAnswerPost:", createAnswerPost);
 
       const promise1 = $.post(createAnswerPost, {
         a1,
@@ -90,10 +93,26 @@ $(document).on("submit", ".question_form_body", function (e) {
       });
 
       Promise.all([promise1, promise2, promise3, promise4]).catch((e) =>
-        console.log("promise all answers queries", e)
+        console.error("promise all answers queries", e)
       );
       isCreatingQuiz = true;
     });
+
+  //show the user positive feedback!
+  const sucessMsg = $createForm.find(".hidden");
+  $(sucessMsg).fadeIn().fadeOut("slow");
+  //clear all of the inputs
+  $createForm.find("#category_textarea").val("");
+  $createForm.find("#question_textarea").val("");
+  $createForm.find("#answer1-textarea").val("");
+  $createForm.find("#answer2-textarea").val("");
+  $createForm.find("#answer3-textarea").val("");
+  $createForm.find("#answer4-textarea").val("");
+  $createForm.find("#create-answer1-radio-btn").prop("checked", false);
+  $createForm.find("#create-answer2-radio-btn").prop("checked", false);
+  $createForm.find("#create-answer3-radio-btn").prop("checked", false);
+  $createForm.find("#create-answer4-radio-btn").prop("checked", false);
+  // $createForm.find("#setpublic").prop("checked", false)
   // TO DO get from quiz_id_response
   //   let quiz_id = 2
   //   // $.get(`quizzes/:quiz_id/questions/`).then(id =>{

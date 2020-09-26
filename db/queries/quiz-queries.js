@@ -43,7 +43,6 @@ const getQuizById = (quiz_id) => {
   return pool
     .query("SELECT * FROM quizzes WHERE id = $1", [quiz_id])
     .then((response) => {
-      console.log("in getQuizbyID");
       return response.rows[0];
     });
 };
@@ -89,7 +88,6 @@ const getAnswersForQuiz = (quiz_id) => {
 };
 //gets all quizzes belonging to that user
 const getQuizzesByUserId = (user_id) => {
-  console.log("user_id:", user_id);
   return pool
     .query("SELECT * FROM quizzes WHERE user_id = $1;", [user_id])
     .then((response) => {

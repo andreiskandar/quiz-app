@@ -3,12 +3,15 @@ $(() => {
   <div class="quiz_body">
   <div class="card question_body">
     <form class="question_form_body" id="create-form">
-      <h2 class="question_title">Please Type Test Question</h2>
+      <h3 class="question_title">Create your question</h3>
+      <div>
+      <h2 class="question_counter"></h2>
+    </div>
       <div class="form-group">
         <textarea
           class="form-control"
           id="category_textarea"
-          placeholder="Please Type Test Category"
+          placeholder="Please Type Quiz Category"
           rows="1"
         ></textarea>
       </div>
@@ -16,7 +19,7 @@ $(() => {
         <textarea
           class="form-control"
           id="question_textarea"
-          placeholder="Please Type Test Question"
+          placeholder="Please Type Your Question"
           rows="3"
         ></textarea>
       </div>
@@ -56,21 +59,23 @@ $(() => {
         ></textarea>
         <input id="create-answer4-radio-btn" name="create-answer-radio-btn" type="radio" />
       </div>
+      <div class="hide hidden">Question successfully created!</div>
       <div class="form-footer">
         <div>
           <a href="#" class="back-btn question_form_back"
-            ><i class="fas fa-angle-double-left" style="position: inherit"></i>
+            ><i class="fas fa-angle-double-left go-back" style="position: inherit"></i>
           </a>
         </div>
         <div>
-          <h2 class="question_counter">1</h2>
-        </div>
-        <div>
           <button type="submit" class="btn btn-dark">Submit</button>
-          <input type="checkbox" id="setpublic" name="setpublic" value="Make Quiz Hidden?">
-          <label for="setpublic">Make Quiz Hidden?</label>
+          </div>
+
+          <div>
+            <input type="checkbox" id="setpublic" name="setpublic" value="Make Quiz Hidden?">
+            <label for="setpublic">Make Quiz Hidden?</label>
+          </div>
         </div>
-      </div>
+        <div class="back-btn-label">Go back to dashboard</div>
     </form>
   </div>
   <div class="rounded right_bg"></div>

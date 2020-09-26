@@ -8,6 +8,5 @@ const logOut = () => {
 };
 
 const getQuizzesByUserId = (id) => {
-  console.log("from network.js");
   return $.get(`/quizzes/:${id}`);
 };
