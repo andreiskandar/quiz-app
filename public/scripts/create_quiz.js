@@ -50,12 +50,6 @@ $(document).on("submit", ".question_form_body", function (e) {
     correctAnswer4 = true;
   }
 
-  // if($('#create-answer3-radio-btn').is(':checked')) { alert("it's checked"); }
-
-  // $.post( "/quizzes/create", { category, question, a1, a2, a3, a4 } );
-
-  // http://localhost:3000/quizzes/:quiz_id
-
   let quiz_id;
   $.post("/quizzes/create-quiz", { category, isPublic })
     .then((quiz_id_response) => {
@@ -70,7 +64,6 @@ $(document).on("submit", ".question_form_body", function (e) {
       const question_id = question_id_response[0].id;
 
       const createAnswerPost = `/quizzes/${quiz_id}/questions/${question_id}/answers/create-answer`;
-      console.log("createAnswerPost:", createAnswerPost);
 
       const promise1 = $.post(createAnswerPost, {
         a1,
@@ -94,14 +87,19 @@ $(document).on("submit", ".question_form_body", function (e) {
       });
 
       Promise.all([promise1, promise2, promise3, promise4]).catch((e) =>
-        console.log("promise all answers queries", e)
+        console.error("promise all answers queries", e)
       );
       isCreatingQuiz = true;
     });
 
   //show the user positive feedback!
+<<<<<<< HEAD
   const sucessMsg = $createForm.find(".hidden")
   $(sucessMsg).fadeIn().fadeOut('slow')
+=======
+  const sucessMsg = $createForm.find(".hidden");
+  $(sucessMsg).fadeIn().fadeOut("slow");
+>>>>>>> project-submission
   //clear all of the inputs
   $createForm.find("#category_textarea").val("");
   $createForm.find("#question_textarea").val("");
