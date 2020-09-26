@@ -1,7 +1,7 @@
 const pool = require("../db");
 
 const postUserAnswerToQuiz = (quiz_id, user_id) => {
-  const queryString = `INSERT INTO users_quizzes (quiz_id, user_id, time_start, time_stop, active) VALUES ($1, $2, null, null, true)  RETURNING *;;`;
+  const queryString = `INSERT INTO users_quizzes (quiz_id, user_id, time_start, time_stop, active) VALUES ($1, $2, null, null, true) RETURNING *`;
   return pool.query(queryString, [quiz_id, user_id]).then((response) => {
     return response.rows[0];
   });
@@ -17,7 +17,7 @@ const getQuestionsFromQuizIds = (quiz_ids) => {
   SELECT quizzes.name as name, count(*) as tot_questions, quizzes.id as id 
   FROM questions 
   JOIN quizzes ON questions.quiz_id = quizzes.id
-  WHERE quizzes.id IN (2,11,12,13) 
+  WHERE quizzes.id IN (${quiz_ids.join(", ")})
   GROUP BY quizzes.id`;
   return pool.query(queryString).then((res) => res.rows);
 };

@@ -14,7 +14,7 @@ const {
   getQuestionsFromQuizIds,
   getTotalCorrectAnswers,
 } = require("./db/queries/users_quizzes-queries");
-// app.use(morgan("dev"));
+app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   cookieSession({
@@ -28,11 +28,12 @@ app.use(
 );
 
 const port = process.env.PORT || 3000;
-// Set public folder as root
 app.use(express.static("public"));
 app.set("view engine", "ejs");
+
 //Handles Login/Register or can re-direct to dashboard if logged in
 app.use("/", homeRoutes);
+
 //handles routing for dashboard or can re-direct to /LOGIN /REGISTER if not logged in
 //check if user is logged in here?
 app.use("/dashboard", dashboardRoutes);
@@ -41,7 +42,6 @@ app.use("/dashboard", dashboardRoutes);
 app.use("/quizzes", quizRoutes);
 
 app.get("/quiz/:quiz_id/questions/:question_id", (req, res) => {
-  // const quiz_id = req.params.quiz_id;
   res.render("sharedLink");
 });
 
@@ -68,7 +68,6 @@ app.get("/result/:user_id", (req, res) => {
               };
             }),
           };
-          console.log("templateVars:", templateVars);
           res.render("results", templateVars);
         });
       });

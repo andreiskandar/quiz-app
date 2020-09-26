@@ -7,7 +7,7 @@ const {
   getQuizById,
   getQuizzesByUserId,
   getAllActiveQuizzesData,
-  getFirstQuestionIdByQuizId
+  getFirstQuestionIdByQuizId,
 } = require("../db/queries/quiz-queries");
 
 //GET all quizzes belonging to the speicfic user dashboard/my-quizzes
@@ -22,14 +22,13 @@ router.get("/", (req, res) => {
     );
 });
 
-router.post('/question1', (req, res) => {
-  const quiz_id = Object.keys(req.body)[0]
+router.post("/question1", (req, res) => {
+  const quiz_id = Object.keys(req.body)[0];
   getFirstQuestionIdByQuizId(quiz_id)
-  .then((question_id) => {
-    res.send(question_id);
-  })
-  .catch((e) => console.error("error", e)
-  );
-})
+    .then((question_id) => {
+      res.send(question_id);
+    })
+    .catch((e) => console.error("error", e));
+});
 
 module.exports = router;
