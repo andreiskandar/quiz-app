@@ -27,7 +27,7 @@ Quiz app is a simple singe page app that you can use to create, take and share q
 
 # Getting Started
 
-1. Create the `.env` by using `.env.example` as a reference: `cp .env.example .env`
+1. Create the `.env` by using the below information in step 2 for reference
 2. Update the .env file with your correct local information
 
 - DB_USER="ELEPHANT SQL DB NAME"
