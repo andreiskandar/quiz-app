@@ -1,7 +1,6 @@
 require("dotenv").config();
 
 const express = require("express");
-// const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const quizRoutes = require("./routes/public-quiz-routes");
 const homeRoutes = require("./routes/get-home-routes");
@@ -14,7 +13,6 @@ const {
   getQuestionsFromQuizIds,
   getTotalCorrectAnswers,
 } = require("./db/queries/users_quizzes-queries");
-app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   cookieSession({
