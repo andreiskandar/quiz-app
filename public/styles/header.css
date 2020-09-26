@@ -5,6 +5,7 @@ header {
   background-color: #262626;
   color: #fff;
   height: 8vh;
+  z-index: 1;
 }
 
 .flex-row {

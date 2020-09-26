@@ -39,18 +39,24 @@ app.use("/dashboard", dashboardRoutes);
 // handles the routing for /quizzes and /quizzes/:id
 app.use("/quizzes", quizRoutes);
 
+<<<<<<< HEAD
 app.get("/quiz/:quiz_id/questions/:question_id", (req, res) => {
   res.render("sharedLink");
 });
+=======
+
+>>>>>>> 4738db0c4ae65006aa79f80ce5b609a01d09c6c9
 
 app.get("/myResults/", (req, res) => {
-  const { user_id } = req.session;
+  const user_id = req.session.user_id;
+  console.log('user_id in myresults:', user_id)
   res.redirect(`/result/${user_id}`);
 });
 
 app.get("/result/:user_id", (req, res) => {
   let templateVars = {};
   const user_id = req.params.user_id;
+  console.log('user_id:', user_id)
   getUserQuizIds(user_id)
     .then((quiz_ids) => {
       const ids = quiz_ids.map((entry) => entry.quiz_id);
@@ -72,6 +78,11 @@ app.get("/result/:user_id", (req, res) => {
     })
     .catch((e) => console.error("getUserQuizIds error from router", e));
   // getQuestionsFromQuizId
+});
+
+app.get("/quiz/:quiz_id/questions/:question_id", (req, res) => {
+  // const quiz_id = req.params.quiz_id;
+  res.render("sharedLink");
 });
 
 app.get("/quiz/:quiz_id/result");

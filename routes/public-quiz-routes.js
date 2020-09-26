@@ -35,6 +35,17 @@ router.get("/random", (req, res) => {
     });
 });
 
+router.post("/create-quiz", (req, res) => {
+  const request = req.body;
+  const user_id = req.session.user_id;
+  insertQuizIntoQuizzes(request, user_id)
+    .then((data) => {
+      console.log("in /quizzes/create quiz: ", req.body);
+      res.send(data);
+    })
+    .catch((e) => console.error("error create quiz", e));
+});
+
 //localhost:3000/quizzes/:id/questions/:question_id/answers/:answer_id
 //localhost:3000/quizzes/:quiz_id/questions/
 router.use(
@@ -46,12 +57,20 @@ router.use(
   questionsRoutes
 );
 
+
+
+
 //get a quiz by the quiz.id = quizzes/:id e.g. quizzes/1
 //localhost:3000/quizzes/:quiz_id
 router.get("/:quiz_id", (req, res) => {
   const { quiz_id } = req.params;
   getQuizById(quiz_id).then((quiz) => {
+<<<<<<< HEAD
     return res.render("quiz", { quiz });
+=======
+      return res.render("quiz", { quiz });
+    });
+>>>>>>> 4738db0c4ae65006aa79f80ce5b609a01d09c6c9
   });
   if (quiz.public === true) {
     return res.render("quiz", { quiz });
@@ -59,6 +78,7 @@ router.get("/:quiz_id", (req, res) => {
   return res.render("quiz", { quiz });
 });
 
+<<<<<<< HEAD
 //localhost:3000/quizzes/create-quiz
 router.post("/create-quiz", (req, res) => {
   const request = req.body;
@@ -69,6 +89,10 @@ router.post("/create-quiz", (req, res) => {
     })
     .catch((e) => console.error("error create quiz", e));
 });
+=======
+
+
+>>>>>>> 4738db0c4ae65006aa79f80ce5b609a01d09c6c9
 
 //localhost:3000/quizzes/:id
 router.post("/:quiz_id", (req, res) => {

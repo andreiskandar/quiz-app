@@ -6,7 +6,6 @@ INSERT INTO users_quizzes (quiz_id, user_id, time_start, time_stop, active) VALU
 INSERT INTO users_quizzes (quiz_id, user_id, time_start, time_stop, active) VALUES (2, 9, '2020-09-20 18:43:59 +0000', '2020-09-20 18:50:45 +0000', false);
 INSERT INTO users_quizzes (quiz_id, user_id, time_start, time_stop, active) VALUES (2, 11, '2020-09-20 18:23:59 +0000', '2020-09-20 18:29:45 +0000', false);
 INSERT INTO users_quizzes (quiz_id, user_id, time_start, time_stop, active) VALUES (2, 47, '2020-09-19 18:23:59 +0000', '2020-09-19 18:29:45 +0000', true);
-
 -- test data for design
 INSERT INTO users_quizzes (quiz_id, user_id, time_start, time_stop, active) VALUES (12, 47, '2020-09-17 18:23:59 +0000', '2020-09-17 18:29:45 +0000', true);
 --
