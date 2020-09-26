@@ -24,7 +24,20 @@ router.get("/", (req, res) => {
     .catch((e) => console.error(e));
 });
 
-//localhost:3000/quizzes/:quiz_id/questions/:question_id
+//localhost:3000/quizzes/:id/questions/create-question
+router.post("/create-question", (req, res) => {
+  const request = req.body;
+  const user_id = req.session.id;
+  insertQuestionIntoQuestionsTable(request, user_id)
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((e) => console.error("error create question", e));
+});
+
+// quizzes/:quiz_id/questions/:question_id
+
+//localhost:3000/quizzes/:quiz_id/questions
 router.get("/:question_id", (req, res) => {
   const quiz_id = req.quiz_id;
   const question_id = req.params.question_id;
@@ -44,16 +57,5 @@ router.use(
   },
   answerRoutes
 );
-
-//localhost:3000/quizzes/:id/questions/create-question
-router.post("/create-question", (req, res) => {
-  const request = req.body;
-  const user_id = req.session.id;
-  insertQuestionIntoQuestionsTable(request, user_id)
-    .then((data) => {
-      res.send(data);
-    })
-    .catch((e) => console.error("error create question", e));
-});
 
 module.exports = router;
